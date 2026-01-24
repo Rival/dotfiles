@@ -23,3 +23,14 @@
 **/.vscode/
 **/Session.vim
 **/sessions/
+
+# Exclude history and temporary files
+**/history.txt
+**/.history
+**/*.bak
+**/*backup*
+
+# Exclude compiled/binary files
+**/*.pyc
+**/*.msgpackz
+**/plugin.msgpackz

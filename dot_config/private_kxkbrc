@@ -1,0 +1,9 @@
+[Layout]
+CurrentLayout=0
+DisplayNames=,
+LayoutList=prometeus,ru
+Options=compose:sclk,grp:shifts_toggle,grp:switch
+ResetOldOptions=true
+SwitchMode=Window
+Use=true
+VariantList=,

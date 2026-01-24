@@ -1,0 +1,274 @@
+* {
+    border: none;
+    border-radius: 0px;
+    font-family: "JetBrainsMono Nerd Font","JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 18px;
+    min-height: 10px;
+}
+
+@import "theme.css";
+@import "dynamic-theme.css";
+
+/* window#waybar { */
+/*     background: @bar-bg; */
+/* } */
+/* Default */
+window#waybar {
+    background: @bar-bg;
+}
+
+/* Workspace-specific themes */
+window#waybar.workspace-main {
+    background: #f38ba8;
+}
+/* Workspace-specific themes */
+window#waybar.left-bar {
+    background: @left-bar-bg
+}
+/* Workspace-specific themes */
+window#waybar.right-bar {
+    background: @right-bar-bg ;
+}
+
+window#waybar.workspace-top {
+    background: #a6e3a1;
+}
+
+window#waybar.workspace-bottom {
+    background: #fab387;
+}
+
+tooltip {
+    background: @main-bg;
+    color: @main-fg;
+    border-radius: 7px;
+    border-width: 0px;
+}
+
+#workspaces button {
+    box-shadow: none;
+	text-shadow: none;
+    padding: 0px;
+    border-radius: 8px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 0px;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-right: 0px;
+    color: @main-fg;
+    animation: ws_normal 20s ease-in-out 1;
+}
+
+#workspaces button.active {
+    background: @wb-act-bg;
+    color: @wb-act-fg;
+    margin-left: 2px;
+    padding-left: 11px;
+    padding-right: 11px;
+    margin-right: 2px;
+    animation: ws_active 20s ease-in-out 1;
+    transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#workspaces button:hover {
+    background: @wb-hvr-bg;
+    color: @wb-hvr-fg;
+    animation: ws_hover 20s ease-in-out 1;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#taskbar button {
+    box-shadow: none;
+	text-shadow: none;
+    padding: 0px;
+    border-radius: 8px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 0px;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-right: 0px;
+    color: @wb-color;
+    animation: tb_normal 20s ease-in-out 1;
+}
+
+#taskbar button.active {
+    background: @wb-act-bg;
+    color: @wb-act-color;
+    margin-left: 2px;
+    padding-left: 11px;
+    padding-right: 11px;
+    margin-right: 2px;
+    animation: tb_active 20s ease-in-out 1;
+    transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#taskbar button:hover {
+    background: @wb-hvr-bg;
+    color: @wb-hvr-color;
+    animation: tb_hover 20s ease-in-out 1;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#tray menu * {
+    min-height: 16px
+}
+
+#tray menu separator {
+    min-height: 10px
+}
+
+#backlight,
+#battery,
+#bluetooth,
+#custom-cava,
+#custom-cliphist,
+#clock,
+#clock,
+#custom-cpuinfo,
+#cpu,
+#custom-display,
+#custom-github_hyde,
+#custom-gpuinfo,
+#custom-hyprsunset,
+#idle_inhibitor,
+#custom-keybindhint,
+#language,
+#memory,
+#mpris,
+#network,
+#custom-notifications,
+#custom-power,
+#privacy,
+#pulseaudio,
+#custom-sensorsinfo,
+#custom-spotify,
+#taskbar,
+#taskbar,
+#taskbar#windows,
+#custom-theme,
+#tray,
+#custom-updates,
+#custom-wallchange,
+#custom-wbar,
+#custom-weather,
+#window,
+#workspaces,
+#workspaces,
+#workspaces,
+#custom-l_end,
+#custom-r_end,
+#custom-sl_end,
+#custom-sr_end,
+#custom-rl_end,
+#custom-audio_simple,
+#submap,
+#custom-rr_end {
+    color: @main-fg;
+    background: @main-bg;
+    opacity: 1;
+    margin: 3px 0px 3px 0px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#workspaces,
+#taskbar {
+    padding: 0px;
+}
+
+#custom-r_end {
+    border-radius: 0px 19px 19px 0px;
+    margin-right: 8px;
+    padding-right: 0px;
+}
+
+#custom-l_end {
+    border-radius: 19px 0px 0px 19px;
+    margin-left: 8px;
+    padding-left: 0px;
+}
+
+#custom-sr_end {
+    border-radius: 0px;
+    margin-right: 8px;
+    padding-right: 0px;
+}
+
+#custom-sl_end {
+    border-radius: 0px;
+    margin-left: 8px;
+    padding-left: 0px;
+}
+
+#custom-rr_end {
+    border-radius: 0px 7px 7px 0px;
+    margin-right: 8px;
+    padding-right: 0px;
+}
+
+#custom-rl_end {
+    border-radius: 7px 0px 0px 7px;
+    margin-left: 8px;
+    padding-left: 0px;
+}
+
+/* -----------------------------------------------------
+ * Custom layout
+ * ----------------------------------------------------- */
+#custom-keyboard {
+    transition: all 0.25s ease;
+    padding: 2px 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    /* border-radius: 4px; */
+    /* border: 2px solid transparent; */
+    font-size: 28px;  /* Add this - adjust size as needed */
+}
+
+#custom-keyboard.changed {
+    padding: 3px 10px;
+    background-color: rgba(100, 200, 255, 0.25);
+    border-color: rgba(100, 200, 255, 0.6);
+    box-shadow: 
+        0 0 10px rgba(100, 200, 255, 0.4),
+        inset 0 0 5px rgba(100, 200, 255, 0.2);
+}
+
+/* -----------------------------------------------------
+ * Custom Updates
+ * ----------------------------------------------------- */
+
+#custom-updates {
+    background-color:@main-bg;
+    font-size: 16px;
+    /* color: @on_surface; */
+    /* border-radius: 5px 5px 5px 5px; */
+    /* padding: 2px 10px 0px 10px; */
+    /* margin: 3px 15px 3px 0px; */
+    /* border: 3px solid @border_color; */
+}
+
+#custom-updates.green {
+    background-color: @background;
+}
+
+#custom-updates.yellow {
+    background-color: rgba(100, 200, 255, 0.25);
+    /* background-color: @tertiary; */
+    color: @on_tertiary;
+}
+
+#custom-updates.red {
+    background-color: rgba(255, 0, 0, 0.25);
+    /* background-color: @error; */
+    color: @on_error;
+}
+
+ /* Main workspace - Special styling */ 
+/* #workspaces button[data-name="Main"] { */
+/*     background: #FF5587; */
+/*     color: #1e1e2e; */
+/*     font-weight: bold; */
+/* } */

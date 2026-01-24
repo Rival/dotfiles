@@ -1,0 +1,5377 @@
+ls
+y
+yazi
+cd ..
+cd -
+cd +
+config nu
+yazi
+ya pack -a yazi-rs/plugins:full-border
+yazi
+config nu 
+config use-colors 
+yazi
+y
+nvim ~/.config/nvim/lua/config/neovide.lua
+ls
+$nu.config-path
+config
+nvim $nu.config-path
+yay -q starship
+cd +
+ls
+cd work
+cd Work
+ls
+cd Panda
+yazi
+ls
+cd -
+config nu
+y
+sudo -E nvim
+config nu
+v
+vi
+config nu
+v
+config nu
+svi
+config nu
+y
+config nu
+sysupdate
+config nu
+sys cpu 
+sys
+sys temp 
+config nu
+y
+config nu
+nvim
+config nu
+vi
+q
+y
+config nu
+y
+neofetch
+fastfetch 
+config nu
+y
+ls
+sys temp 
+## show directory sizes in current directory starting from the largest<\n>ls -d|where type == dir|sort-by size|reverse|format filesize GB size
+y
+conconfig nu
+config nu
+y
+config nu
+y
+config nu
+y
+dffd
+echo $SHELL
+$env.SHELL
+$nu
+$env.SHELL
+spaceship
+y
+ls
+y
+v ~/.config/nushell/config.nu
+nvim ~/.config/nushell/config.nu
+y
+kitty @ set-text "ewrw"
+kitty @ send-text "ewrw"
+nvim ~/.config/nushell/config.nu
+y
+sysupdate 
+reboot now
+reboot
+ya
+y
+vi ls -lt ~/.cache/JetBrains/ | grep Rider
+ls -lt ~/.cache/JetBrains/ | grep Rider<\n>
+y
+nvim log -tail
+nvim -h
+nvim log
+y
+yayq zoxide
+y
+ls **/*.meta | where type == "file" | each { chmod rmx $it.name }
+ls **/*.meta | get name
+ls **/*.meta | each { |f| chmod rmx $f }
+ls **/*.meta
+ls **/*.meta | each { |f| }
+ls **/*.meta | each { |f| f.name }
+ls **/*.meta | each { |f| $f.name }
+ls **/*.meta | each { |f| chmod rmx $f.name }
+duf
+man duf
+ls **/*.meta | each { |f| chmod -x $f.name }
+y
+ls **/*.meta | each { |f| chmod -x $f.size }
+ls **/*.meta | each { |f| }
+ls **/*.meta | each { |f| $f.size }
+ls **/*.meta | lenght
+ls **/*.meta | length
+ls **/*.meta  | get size | math sum
+ls **/*.{png,meta,cs} | group-by { echo $it.name | path extension } | each { |group|<\n>  {<\n>    extension: $group.name,<\n>    count: ($group.values | length),<\n>    total_size: ($group.values | get size | math sum)<\n>  }<\n>}<\n>
+ls
+ls **/*.{png,meta,cs} | group-by { echo $it.name | path extension } | each { |group|<\n>  {<\n>    extension: $group.name,<\n>    count: ($group.values | length),<\n>    total_size: ($group.values | get size | math sum)<\n>  }<\n>}<\n>
+ls **/*.{png,meta,cs} <\n>| group-by { $it.name | path parse | get extension }<\n>| each { |group|<\n>    {<\n>        extension: $group.name,<\n>        count: ($group.values | length),<\n>        total_size: ($group.values | get size | math sum)<\n>    }<\n>}<\n>
+config nu
+ls **/*.meta | explore
+try
+ls **/*.meta | explore --peek
+config nu
+ddd
+go Work
+cd ~/Work
+cd -
+go Downloads
+go Work
+ls ~
+go Work
+path join ~ Work | cd
+~ | path join Work
+~ | path join Work | cd
+'~' | path join Work | cd
+go Work
+go Documents
+cd ('~' | path join Work)
+cd ('~' | path join Documents)
+go Work
+cd ('~' | path join Documents)
+go Work
+go Downloads
+cal
+tutor
+tutor begin
+ls | select name
+tutor tables
+ls | select 2
+ls | select name
+ls | get name
+tutor cells
+tutor expressions
+10 + 7
+tutor echo
+tutor each
+> 'let x = 3' | nu-highlight
+tutor blocks
+tutor variables
+tutor shorthands
+$env
+go Work
+go Downloads
+go Work
+go Screenshots
+go .config
+kitten notify "Hello world" A good day to you
+y
+launch-kitty 
+prep -x kitty
+pgrep -x kitty
+wmctrl -xa kitty
+y
+config nu
+y
+ssh Intellectokids@andreys-mini.true.true
+ssh Intellectokids@192.168.1.34
+cat ~/.ssh/id_rsa.pub
+ssh Intellectokids@192.168.1.34 'mkdir -p ~/.ssh && chmod 700 ~/.ssh && echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCrem0m/wlrqAkPwaIV2W4/hZRNdH1YdVTh6SF0brlLoIMxoYLjScGaDlhF2/GnIajzEFRVz4uudKtTZSntbXa4+wNYfDxIsE8gHXarqxAYiC5xUQp7XDT7+FFbP2d1TZ6hgHvC3ZfsltSsx/rE8K5bTsyRx5tNheX7Xqxz57/t/QQbyQ43VtXnirX3bY7RUnrJeACGeHV6vqBuBzITtKjvt0WuNqH9y8pT25yRxljqHxr5BI0Q6i5YSRqFIiN2PgSaGmbvWiMoF3B/woOm6yXYb6aGOjKJ/XEmI6UvO/Tx+JWn0lIXyPuECbWejI15jf7u5rOqwR9vXBcDiGKFjvND" >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys'<\n>
+ls
+ssh Intellectokids@192.168.1.34
+sysupdate 
+reboot 
+sysupdate 
+kitty @ on focus_changed -- bash ~/.scripts/plasma/layout-switch-english.sh focused
+y
+echo -e "\033]2;TestTitle\007"
+notify-send --app-name=Test "Test Notification" "This is a test"
+journalctl -xe | grep plasma
+journalctl -xe | grep kitty
+dut
+duf
+df -h /tmp
+y
+y
+ya pack -a yazi-rs/plugins:git
+y
+kdialog --title "Unity RAM Disk" --passivepopup "Unmounted Unity tmpfs folders after exit." 5
+yayq kdialog
+kdialog --title "Unity RAM Disk" --passivepopup "Unmounted Unity tmpfs folders after exit." 5
+kdialog --title "Unity RAM Disk" "Unmounted Unity tmpfs folders after exit." 5
+kdialog --title "What's your name?" --inputbox "Enter your name:"
+jctl unity
+jgep unity
+y
+jeg unity
+journalctl -xe | grep unity
+jeg unity
+yay -G unityhub
+cd unityhub/
+sysupdate 
+unityhub 
+killall unityhub
+unityhub 
+yayq gnome-keyring
+unityhub 
+unityeditor
+unity
+/home/andrei/Unity/Hub/Editor/2022.3.55f1/Editor/Unity
+~/.config/unity3d
+sysupdate 
+y
+yazi
+j Yazi
+j Unity
+j unity
+yay -r gnome-keyring
+yay -rm gnome-keyring
+yay -d gnome-keyring
+a --help 
+a -h 
+a --help 
+yy --help 
+yy -h 
+y
+{one:1, two:2} | describe 
+vi $nu.env-path
+ssh Intellectokids@192.168.1.34
+scp Intellectokids@192.168.1.34:/Users/Intellectokids/Desktop/Screenshot 2022-01-18 at 16.04.51.png
+scp Intellectokids@192.168.1.34:/Users/Intellectokids/Desktop/Screenshot 2022-01-18 at 16.04.51.png .
+scp 'Intellectokids@192.168.1.34:/Users/Intellectokids/Desktop/Screenshot 2022-01-18 at 16.04.51.png .'
+scp 'Intellectokids@192.168.1.34:/Users/Intellectokids/Desktop/Screenshot 2022-01-18 at 16.04.51.png .' .
+scp 'Intellectokids@192.168.1.34:/Users/Intellectokids/Desktop/Screenshot 2022-01-18 at 16.04.51.png' .
+ssh Intellectokids@192.168.1.34
+y
+macmini 
+y
+macmini 
+sudo systemctl status sshd
+sudo iptables -L
+sudo ufw allow 22/tcp
+stat -c %W /
+$(stat -c %W /); current=$(date +%s); <\n>
+stat -c %W / | into datetime
+stat -c / | into datetime
+stat -c %W /
+sudo btrfs subvolume show /
+uname
+y
+echo "2024-11-16 15:29:32 +07:00" | sudo tee /etc/fastfetch/install_date.txt
+echo "2024-11-16 15:29:32 +07:00" | sudo tee ~/.config/fastfetch/install_date.txt
+echo "2024-11-16 15:29:32 +07:00" | tee ~/.config/fastfetch/install_date.txt
+man tee
+echo "2024-11-16 15:29:32 +07:00" | save  ~/.config/fastfetch/install_date.txt
+df -h
+man df
+man df -hx
+df -hx
+df -h -x
+man df -hx
+df -hl
+flatpak unistall --unused
+flatpak uninstall --unused
+ncdu / --exclude /mnt --exclude /run/timeshift
+yayq ncdu
+y
+sudo unmount /home/andrei/Unity/Editor
+sudo umount /home/andrei/Unity/Editor
+sudo umount /home/andrei/Unity/Hub/Editor
+ln -s /mnt/mint/home/andrei/Unity/Hub/Editor /home/andrei/Unity/Hub/Editor
+y
+ln -s /mnt/mint/home/andrei/Unity/Hub/Editor /home/andrei/Unity/Hub/Editor
+y
+mount | grep Downloads2TB
+mount | grep '/Downloads2TB'
+sudo rm -rf /Downloads2TB
+y
+ls
+sudo rm -rf /btrfsB
+ls
+cd /
+ls
+cd -
+ls
+sudo rm -rf btrfs
+ls
+ncdu / --exclude /mnt --exclude /run/timeshift
+y
+sudo btrfs fi du -s .
+ya pack -a iynaix/time-travel
+y
+ya pack -a grappas/wl-clipboard
+y
+svi fstab
+malee613
+svi fstab
+malee613
+svi fstab
+malee613
+svi fstab
+malee613
+sudo nvim
+yayc
+yayq allmytoes
+cargo install allmytoes
+ya pack -a Ape/simple-status
+y
+smartgit 
+1732385589380 | time
+1732385589380 | date
+1732385589380 | into datetime
+1732385589999 | into datetime
+(1732385589999/1000) | into datetime
+(1732385589380/1000) | into datetime
+1732385589380/1000
+echo (1732385589380/1000) | into datetime
+1732385589380/1000
+10 - 5
+1732385589380 / 1000
+(1732385589380 / 1000) | into datetime
+(1732385589380 / 1000) | into int | datetime
+(1732385589380 / 1000) | into int | into datetime
+echo (1732385589380 / 1000) | into datetime
+(1732385589380 / 1000) | into int | into datetime
+(1732385589380 / 1000)  | into datetime --offset -5
+(1732385589380 / 1000)| into int  | into datetime --offset -5
+(1732385589380 / 1000)| into int
+(1732385589380 / 1000)
+(1732385589380 / 1000)| describe 
+(1732385589380 / 1000)| into int | describe 
+(1732385589380 / 1000)| into int | into datetime -f '%s'
+datetime now
+datetime
+date now 
+date now | format date  '%s'
+(1746339217000 / 1000)| into int | into datetime -f '%s'
+yayq gitg
+yayq dragon
+y
+yayq ripdrag
+y
+ls
+cd Documents/
+ripdrag *.png
+dragon-drop  *.png
+y
+dragon-drop  keymap.toml
+y
+dragon-drop  keymap.toml
+ripdrag  keymap.toml
+y
+dragon-drop  *.toml
+dragon-drop  *.toml -x
+yayr ripdrag
+y
+yayr ripdrag
+yay -q ripdrag
+yayr ripdrag-git
+y
+dragon-drop --target
+y
+git clone https://github.com/KKV9/compress.yazi.git ~/.config/yazi/plugins/compress.yazi
+y
+jctl yazi
+journalctl -xe | grep yazi
+journalctl -xe | grep unity
+journalctl -xe
+journalctl -xe | grep fan
+journalctl -xe | grep telegram
+y
+jeg telegram
+y
+git branch -r
+y
+sysupdate 
+yayq wayland
+yayq plasma
+clear
+elvish
+yayq elvish
+yays wayland
+yayq wayland
+yy
+y
+cd **
+kill **
+ls
+cd .config/
+cd .
+cd ..
+cd Work/
+yayq bat
+ls
+cd Pand
+cd Panda/
+ls
+bat App.config
+y
+generate_template
+ls
+y
+python3 generate_tab_title.py
+ls
+chmod -x generate_tab_title.py
+y
+reboot
+$env.config
+$env.config.shell_integration
+$env.config.shell_integration.osc9_9 = true
+cd Desktop/
+$env.config.shell_integration.osc9_9 = false
+$env.config.shell_integration
+cd ..
+ls
+cd go
+ls
+help config nu
+config -d
+config nu -d 
+config reset 
+y
+help config
+config use-colors
+yayq zoxide
+y
+which nu
+config nu
+y
+echo $env.SHELL
+yazi --debug
+y
+ls
+z ..
+z .config/
+zoxied query -l
+zoxide query -l
+y
+zoxide query -l
+z nushell
+zoxide query -l
+ls 
+z ..
+ls
+y
+cat /home/andrei/.local/share/zoxide/db.zo
+rm /home/andrei/.local/share/zoxide/db.zo
+zoxide add ~/Documents
+zoxide add ~/Downloads
+zoxide query -l
+cat /home/andrei/.local/share/zoxide/db.zo
+y
+ls
+zi Work
+z Work
+yayq mongosh-bin
+ssh -i /home/andrei/.ssh/document-db-tunnel-key.pem -N -L 27017:prod-docdb.cluster-cojqzcfnokt7.eu-west-1.docdb.amazonaws.com:27017 ec2-user@54.171.148.145<\n>
+chmod 600 /home/andrei/.ssh/document-db-tunnel-key.pem
+ssh -i /home/andrei/.ssh/document-db-tunnel-key.pem -N -L 27017:prod-docdb.cluster-cojqzcfnokt7.eu-west-1.docdb.amazonaws.com:27017 ec2-user@54.171.148.145<\n>
+mongosh "mongodb://dude@localhost:27017/prod?tls=true&tlsAllowInvalidCertificates=true"
+mongosh "mongodb://dude:2wgYj4LwHc*U@localhost:27017/prod?tls=true&tlsAllowInvalidCertificates=true"<\n>
+let-env NODE_OPTIONS = "--tls-min-v1.2"<\n>mongosh "mongodb://dude:2wgYj4LwHc*U@localhost:27017/prod?tls=true&tlsAllowInvalidCertificates=true&authMechanism=SCRAM-SHA-1"
+with-env [NODE_OPTIONS "--tls-min-v1.2"] {<\n>    mongosh "mongodb://dude:2wgYj4LwHc*U@localhost:27017/prod?tls=true&tlsAllowInvalidCertificates=true&authMechanism=SCRAM-SHA-1"<\n>}<\n>
+ssh -i /home/andrei/.ssh/document-db-tunnel-key.pem -N -L 27017:prod-docdb.cluster-cojqzcfnokt7.eu-west-1.docdb.amazonaws.com:27017 ec2-user@54.171.148.145
+ssh -i ~/.ssh/document-db-tunnel-key.pem \<\n>  -N -L 27017:prod-docdb.cluster-cojqzcfnokt7.eu-west-1.docdb.amazonaws.com:27017 \<\n>  ec2-user@54.171.148.145
+mongosh "mongodb://dude:2wgYj4LwHc*U@localhost:27017/prod?tls=true&tlsAllowInvalidCertificates=true&authMechanism=SCRAM-SHA-1"
+mongosh "mongodb://dude:2wgYj4LwHc*U@localhost:27017/prod?tls=true&tlsAllowInvalidCertificates=true&authMechanism=SCRAM-SHA-1&serverSelectionTimeoutMS=10000"
+mongosh "mongodb://dude:2wgYj4LwHc*U@localhost:27017/prod?tls=true&tlsAllowInvalidCertificates=true&authMechanism=SCRAM-SHA-1&serverSelectionTimeoutMS=30000"
+mongosh "mongodb://dude:2wgYj4LwHc*U@localhost:27017/prod?tls=true&tlsAllowInvalidCertificates=true&authMechanism=SCRAM-SHA-1&authSource=master"
+lsof -i :27017
+kill **
+kill 981732
+ssh -i ~/.ssh/document-db-tunnel-key.pem -N -L 27017:prod-docdb.cluster-cojqzcfnokt7.eu-west-1.docdb.amazonaws.com:27017 ec2-user@54.171.148.145
+mongosh "mongodb://dude:2wgYj4LwHc*U@localhost:27017/prod?tls=true&tlsAllowInvalidCertificates=true&authMechanism=SCRAM-SHA-1&authSource=master"
+lsof -i :27017
+mongosh "mongodb://dude:2wgYj4LwHc*U@localhost:27017/prod?authMechanism=SCRAM-SHA-1&authSource=master"
+mongod --version
+mongo --version
+pkgfile --update
+which mongo
+yay mongodb
+which mongosh
+mongosh "mongodb://dude:2wgYj4LwHc*U@localhost:27017/prod?tls=true&tlsAllowInvalidCertificates=true&authMechanism=SCRAM-SHA-1&authSource=master"
+mongosh "mongodb://dude:2wgYj4LwHc*U@localhost:27017/prod?authMechanism=SCRAM-SHA-1&authSource=master"
+mongosh --eval "db.version()"
+mongosh "mongodb://dude:2wgYj4LwHc*U@localhost:27017/prod?tls=true&tlsAllowInvalidCertificates=true&authMechanism=SCRAM-SHA-1&authSource=master"
+lsof -i :27017
+kill 1032184
+y
+clear
+pactl list short sinks
+wpctl status | awk '/Sinks:/,/Sources:/ { if ($0 ~ /\*/) { match($0, /[0-9]+\. ([^ ]+)/, a); print a[1]; exit } }'
+audio-get-current-nu 
+time audio-get-current
+time ./audio-get-current
+time { audio-get-current }
+time {/home/andrei/.scripts/audio-get-current}
+time { /home/andrei/.scripts/audio-get-current }
+man time
+time /home/andrei/.scripts/audio-get-current
+yayq zoom
+nu audio-get-current-nu
+audio-get-current-nu
+audio-get-current-nu switch
+audio-get-current-nu
+(wpctl status | lines | find '*' | first)
+(wpctl status | lines | find '*')
+wpctl set-default 126
+wpctl set-default 54
+wpctl set-default 126
+audio-get-current-nu
+wpctl status
+input list --help
+[1 2 3 4 5] | input list 'Rate it'
+(wpctl status | lines | where item =~ "Sinks:")
+(wpctl status | lines | enumerate| where item =~ "Sinks:")
+(wpctl status | lines)
+(wpctl status | lines | enumerate| where item =~ "Sinks:")
+(wpctl status | lines | enumerate| where item =~ "Sources:")
+(wpctl status | lines | enumerate| where item =~ "Sinks:"| first)
+(wpctl status | lines | enumerate| where item =~ "Sinks:"| first | split row '.') 
+(wpctl status | lines | enumerate | where item =~ "Sinks:"| first | split row '.') 
+(wpctl status | lines | enumerate | where item =~ "Sinks:"| first) 
+> ansi green
+$"(ansi --escape '3;93;41m')Hello(ansi reset)" 
+let bold_blue_on_red = {  # `fg`, `bg`, `attr` are the acceptable keys, all other keys are considered invalid and will throw errors.<\n>        fg: '#0000ff'<\n>        bg: '#ff0000'<\n>        attr: b<\n>    }<\n>    $"(ansi --escape $bold_blue_on_red)Hello, Nu World!(ansi reset)"
+'Hello, Nushell! This is a gradient.' | ansi gradient --fgstart '0x40c9ff' --fgend '0xe81cff'
+> 'Hello, Nushell! This is a gradient.' | ansi gradient --fgstart '0x40c9ff'
+disk-usage 
+yayr forkgram
+cd ~/.local/share/nvim/lazy/which-key.nvim/lua/which-key/
+y
+yayq yazi
+yays yazi
+y
+yays yazi
+yay -S yazi
+sysupdate 
+yayq vial
+yay --diffmenu --save
+yayq hyprland
+yays hyprland
+yay -S hyprland
+qdbus org.kde.keyboard /Layouts
+notify-send --app-name=Kitty --urgency=normal
+notify-send --app-name=Kitty --urgency=normal dsыва
+notify-send --app-name=Kitty --urgency=warning dsыва
+notify-send --app-name=Kitty --urgency=critical dsыва
+jctl kitty
+journalctl -xe | grep kitty
+journalctl -f | grep --line-buffered kitty
+journalt kitty
+/home/andrei/.scripts/plasma/layout-switch.sh 1
+/home/andrei/.scripts/plasma/layout-switch.sh 0
+н
+/home/andrei/.scripts/plasma/layout-current-get
+/home/andrei/.scripts/plasma/layout-current-get.sh
+journalt kitty
+y
+ls
+ln -s /home/andrei/.config/kitty/kitty.conf kitty/kitty.conf
+z kitty
+ls
+ln -s /home/andrei/.config/kitty/watcher.py watcher.py
+ls
+cd ..
+y
+ls
+cd .config/
+ls
+cd ..
+cd .scripts/
+ls
+cd Repositories/
+ls
+cd RivalCfg/
+ls
+y
+ln -s /home/andrei/.scripts/plasma/layout-current-get.sh plasma/layout-current-get.sh
+ls
+mkdir plasma
+cd plasma/
+ln -s /home/andrei/.scripts/plasma/layout-current-get.sh layout-current-get.sh
+ln -s /home/andrei/.scripts/plasma/layout-current-set.sh layout-current-set.sh
+ls
+cd ..
+ls
+y
+ln -s /home/andrei/.scripts/btrfs-clone-action.sh btrfs-clone-action.sh
+ls
+y
+ls
+git init
+git add .
+git add .gitignore
+vi .gitignore
+git add .
+git add .gitignore
+git add .
+ls
+y
+git status
+journalt kitty
+/home/andrei/.scripts/plasma/layout-current-set.sh 1
+/home/andrei/.scripts/plasma/layout-current-set.sh 0
+/home/andrei/.scripts/plasma/layout-current-set.sh '1'
+/home/andrei/.scripts/plasma/layout-current-set.sh "1"
+н
+echo $(qdbus org.kde.keyboard /Layouts org.kde.KeyboardLayouts.getLayout)
+qdbus org.kde.keyboard /Layouts org.kde.KeyboardLayouts.getLayout
+journalt kitty
+/home/andrei/.scripts/plasma/layout-current-get.sh
+cd Repositories/
+cd RivalCfg/
+git status
+git commit -m "Added kitty switcher for languages and btrfs clone action"
+yayq gitkraken
+y
+yazi --debug output
+git status
+git log --oneline --graph --all --decorate
+y
+vi
+y
+ngit
+btop
+y
+ln -s /home/andrei/Repositories/RivalCfg/.config/kitty/kitty.conf kitty.conf
+ln -s /home/andrei/Repositories/RivalCfg/.config/kitty/watcher.py watcher.py
+git status
+git add .
+git status
+y
+cd Repositories/
+cd RivalCfg/
+y
+git rm --cached kitty.cfg
+git rm --cached .config/kitty.cfg
+git rm --cached .config/kitty/kitty.cfg
+git rm --cached /.config/kitty/kitty.cfg
+y
+git rm --cached /home/andrei/Repositories/RivalCfg/.config/kitty/kitty.conf
+git rm --cached RivalCfg/.config/kitty/kitty.conf
+git rm --cached /.config/kitty/kitty.conf
+git rm --cached .config/kitty/kitty.conf
+git status
+y
+git status
+ngit
+ps aux | grep [s]sh-agent
+ps | where name =~ "ssh-agent"
+ssh -T git@github.com
+ssh-add -l
+ps | where name =~ "ssh-agent"
+find /tmp -type s -name "agent.*" 2>/dev/null
+sysq nvim
+yayq nvim
+where nvim
+where neovim
+yayq plasma
+shutdown 
+ssh-add -l
+ps aux | grep ssh-agent
+ps | where name =~ "ssh-agent"
+$env.SSH_AUTH_SOCK<\n>
+run -i ssh-add -l
+find /tmp -type s -name "agent.*" | first<\n>
+gittyup
+macmini 
+y
+ngit
+a y
+yayq vscode
+ls
+cd Work/Panda1/
+psps | where name =~ "rider"
+ps | where name =~ "rider"
+ps | ps aux | grep [s]sh-agent
+ps | where name =~ "rider"
+ps | where name =~ "rider" or command =~ "rider"
+ps | where name =~ "rider"
+ps 
+cd Work/Panda1/
+shutdown now
+sysupdate 
+yayr cemu-git
+sysupdate 
+shutdown now
+y
+sudo btrfs du
+sudo btrfs filesystem du backup/timeshift-btrfs/snapshots
+y
+sudo btrfs fi show
+sudo btrfs fi usage /dev/nvme1n1p5<\n>
+sudo btrfs fi usage /
+sudo btrfs filesystem du /run/timeshift/backup/timeshift-btrfs/snapshots
+vi /home/andrei/.config/nvim/lua/plugins/lsp-config.lua
+btrfs device stats /
+sudo btrfs device stats /
+sudo btrfs device usage /
+yayq buttermanager
+buttermanager 
+yayr buttermanager
+cd Work/Panda1/
+loginctl terminate-session
+<\n>qdbus org.kde.Shutdown /Shutdown logout
+y
+yayq waybar
+waybar
+y
+hyprctl exec exit
+hyprctl dispatch exit
+y
+hyprctl dispatch exit
+waybar
+hyprctl dispatch exit
+y
+plasma-logout
+yayq obs
+vlc
+cd Work/Panda1/
+jctl kitty
+jctlt kitty
+kitten @
+kitten @ set-font-size 5
+kitten @ set-font-size 13
+kitten choose-fonts
+kitten @ set-font-size 13
+kitten @ set-font-size +1
+kitten @ set-font-size -1
+kitten @ set-font-size +1
+kitten @ set-font-size -1
+kitten @ 'set-font-size -1'
+kitten @ set-font-size 13
+kitty @ set-font-size -1
+kitty @ set-font-size - 1
+kitty @ set-font-size -1
+kitty @ set-font-size -- -1
+journalt kitty
+kitty @ --to=unix:@mykitty ls
+kitty -o allow_remote_control=yes -o listen_on=unix:@mykitty
+kitty @ --to=unix:@mykitty ls
+journal kitty
+kitty @ --to=unix:@mykitty ls
+kitty @ toggle_layout stack
+kitty toggle_layout stack
+kitty @ toggle_layout stack
+kitty @ --help
+kitty @ action toggle_layout stack
+kitty @ ls
+kitty @ ls | jq '.[0].tabs[] | select(.is_active) | .windows | length'
+kitty @ action toggle_layout stack
+kitty @ set-tab-color --self
+kitty @ set-tab-color --self #FF0000
+kitty @ set-tab-color #FF0000 --self
+kitty @ action tab_bar_edge top
+kitty @ tab_bar_edge top
+kitty @ action tab_bar_edge bottom
+kitty @ action tab_bar_align left
+kitty @ --help
+kitty @ action tab_bar_edge top
+kitty @ action tab_separator "w"
+kitty @ action kitty @ toggle_layout stack
+kitty @ toggle_layout stack
+kitty @ action toggle_layout stack
+kitty @ action tab_title_template "w"
+kitty @ action set_window_title "www"
+kitty @ action set_window_title "yazi"
+kitty @ action set_window_title "Yazi"
+kitty @ set-tab-title whatever
+y
+kitty @ set-tab-title Yazi
+kitty @ set-tab-title Yazi1
+kitty @ set-tab-title Yazi
+y
+yayq dysk
+dysk
+kitty @ set-tab-title Yazi
+mongosh "mongodb://dude:2wgYj4LwHc*U@localhost:27017/prod?tls=true&tlsAllowInvalidCertificates=true&authMechanism=SCRAM-SHA-1&authSource=master"
+sshssh -i ~/.ssh/document-db-tunnel-key.pem -N -L 27017:prod-docdb.cluster-cojqzcfnokt7.eu-west-1.docdb.amazonaws.com:27017 ec2-user@54.171.148.145
+mongosh "mongodb://dude:2wgYj4LwHc*U@localhost:27017/prod?tls=true&tlsAllowInvalidCertificates=true&authMechanism=SCRAM-SHA-1&authSource=master"
+nc -zv localhost 27017
+wget https://truststore.pki.rds.amazonaws.com/eu-west-1/eu-west-1-bundle.pem
+mongosh "mongodb://dude:2wgYj4LwHc*U@localhost:27017/prod?tls=true&tlsCAFile=eu-west-1-bundle.pem&authMechanism=SCRAM-SHA-1&authSource=admin"
+mongosh "mongodb://localhost:27017/?tls=true&tlsCAFile=eu-west-1-bundle.pem"
+mongosh "mongodb://dude:2wgYj4LwHc%2U@localhost:27017/prod?tls=true&tlsCAFile=eu-west-1-bundle.pem&authMechanism=SCRAM-SHA-1&authSource=admin"
+mongosh --verbose "mongodb://dude:2wgYj4LwHc%2AU@localhost:27017/prod?tls=true&tlsCAFile=eu-west-1-bundle.pem&authMechanism=SCRAM-SHA-1&authSource=admin"
+mongosh "mongodb://dude:2wgYj4LwHc%2AU@localhost:42845/bs-userservice?tls=true&tlsAllowInvalidCertificates=true&authSource=master&authMechanism=SCRAM-SHA-1"
+mongosh "mongodb://dude:2wgYj4LwHc*AU@localhost:42845/bs-userservice?tls=true&tlsAllowInvalidCertificates=true&authSource=master&authMechanism=SCRAM-SHA-1"
+wget https://truststore.pki.rds.amazonaws.com/eu-west-1/eu-west-1-bundle.pem
+mongosh "mongodb://dude:2wgYj4LwHc%2AU@localhost:42845/bs-userservice?tls=true&tlsCAFile=eu-west-1-bundle.pem&authSource=master&authMechanism=SCRAM-SHA-1"
+lsof -i :42845
+mongosh "mongodb://dude:2wgYj4LwHc%2AU@localhost:42845/bs-userservice?tls=true&tlsAllowInvalidCertificates=true&authSource=master&authMechanism=SCRAM-SHA-1"
+mongosh "mongodb://dude:2wgYj4LwHc%2AU@localhost:42845/bs-userservice?tls=true&tlsCAFile=eu-west-1-bundle.pem&authSource=master&authMechanism=SCRAM-SHA-1"
+mongosh --verbose "mongodb://dude:2wgYj4LwHc%2AU@localhost:42845/bs-userservice?tls=true&tlsCAFile=eu-west-1-bundle.pem&authSource=master&authMechanism=SCRAM-SHA-1"
+mongosh --verbose
+yayr mongosh
+yayq mongosh
+yayr mongosh-bin
+yay -Rns mongosh
+where npm
+which npm
+sudo npm install -g mongosh@1.10.6
+mongosh --version
+ssh -i ~/.ssh/document-db-tunnel-key.pem -N -L 42845:prod-docdb.cluster-cojqzcfnokt7.eu-west-1.docdb.amazonaws.com:27017 ec2-user@54.171.148.145
+mongosh "mongodb://dude:2wgYj4LwHc%2AU@localhost:42845/bs-userservice?tls=true&tlsAllowInvalidCertificates=true&authSource=master&authMechanism=SCRAM-SHA-1"
+wget https://truststore.pki.rds.amazonaws.com/eu-west-1/eu-west-1-bundle.pem
+mongosh "mongodb://dude:2wgYj4LwHc%2AU@localhost:42845/bs-userservice?tls=true&tlsCAFile=eu-west-1-bundle.pem&authSource=master&authMechanism=SCRAM-SHA-1"
+ssh -i ~/.ssh/document-db-tunnel-key.pem -N -L 27017:prod-docdb.cluster-cojqzcfnokt7.eu-west-1.docdb.amazonaws.com:27017 ec2-user@54.171.148.145
+mongo "mongodb://dude:2wgYj4LwHc%2AU@localhost:42845/bs-userservice?tls=true&tlsCAFile=eu-west-1-bundle.pem&authSource=master&authMechanism=SCRAM-SHA-1"
+mongosh --verbose "mongodb://dude:2wgYj4LwHc%2AU@localhost:42845/bs-userservice?tls=true&tlsAllowInvalidCertificates=true&authSource=master&authMechanism=SCRAM-SHA-1"
+lsof -i :42845
+mongosh "mongodb://dude:2wgYj4LwHc%2AU@localhost:42845/bs-userservice?tls=true&tlsAllowInvalidCertificates=true&authSource=master&authMechanism=SCRAM-SHA-1"
+mongosh "mongodb://dude:2wgYj4LwHc%2AU@localhost:42845/bs-userservice?tls=true&tlsCAFile=eu-west-1-bundle.pem&authSource=master&authMechanism=SCRAM-SHA-1"
+mongo "mongodb://dude:2wgYj4LwHc%2AU@localhost:42845/bs-userservice?tls=true&tlsAllowInvalidCertificates=true&authSource=master&authMechanism=SCRAM-SHA-1"
+nc -zv localhost 42845
+yay -S mongodb-tools-bin
+mongo --version
+pkgfile --update
+sudo pkgfile --update
+ls /usr/bin | grep mongo
+yay -S mongodb-bin
+mongo --version
+$env.PATH
+ls /usr/bin | grep mongo
+ssh -i ~/.ssh/document-db-tunnel-key.pem -N -L 42845:prod-docdb.cluster-cojqzcfnokt7.eu-west-1.docdb.amazonaws.com:27017 ec2-user@54.171.148.145
+ls **
+history **
+$env.config.keybindings
+which bash
+^which 
+which 
+history | where exit_status == 0
+history
+history | columns 
+yayq starship
+yayr starship
+which starship
+yayq starship
+yazi /home/andrei/.local/share/nushell/vendor/autoload/starship.nu
+cd Work/Panda1/
+cd Work/Panda/
+ngit
+cd Work/Panda/
+git merge --abort
+git reset --hard
+git status
+git add Assets/Code/Lib<\n>git add Assets/GameLib<\n>git commit<\n>
+git merge --abort
+git reset --hard
+cd Work/Panda/
+git status
+git add Assets/GameLib
+git commit
+git status
+git add Assets/GameLib
+git commit
+git push
+git checkout origin/releases/current^ -- Assets/GameLib
+git submodule init
+git log -- Assets/GameLib
+git checkout <commit-hash> -- Assets/GameLib
+git checkout 4697b06adfe9c5a4fe79557681be5d68abab6b98 -- Assets/GameLib
+git checkout 4697b06adfe9c5a4fe79557681be5d68abab6b98 -- Assets/Code/Lib
+git status
+git submodule init
+git reset --hard
+git status
+ls
+git submodule init
+ls
+y
+git submodule init
+git submodule pull
+git submodule update
+y
+git status
+git pull
+git pull dev
+git pull origin/dev
+git checkout dev
+y
+git status
+git checkout dev
+git pull dev
+git pull origin/dev
+git pull
+cd ..
+git status
+git add .
+git status
+git commit -m "[#] libs"
+git push
+git status
+git add .
+git status
+git restore --staged packages/
+git statis
+git status
+git commit -m "[#] libs"
+git push
+git log
+git log --graph
+git log --graph --oneline
+clear
+cd Work/Panda/
+git submodule status
+y
+git-panda-check.sh 
+git submodule foreach --quiet '<\n>  branch=$(git symbolic-ref --short -q HEAD || echo detached)<\n>  if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/$branch 2>/dev/null)" ]; then<\n>    echo "⚠️  $name ($branch) is not up to date with origin/$branch"<\n>  fi<\n>'<\n>
+y
+git-panda-check.sh 
+sysupdate 
+config nu
+$.config
+cd Work/Panda1/
+lazygit
+yayq lazygit
+cd Work/Panda1/
+shutdown now
+cd Work/Panda/
+lazygit
+k
+y
+cd Work/Panda/
+lazygit
+ps --forest
+jobs
+job list
+ps -o pid,pgid,comm -p $(ps -o pgid= $$ | xargs) --forest
+ps aux | grep yazi
+ps | grep yazi
+ps | grep nu
+echo $env.PID
+$env.PID
+$env.PWD
+$$
+$nu
+$nu.pid
+ps | where ppid == $nu.pid
+ps | where ppid > 0
+ps | where name == "yazi"
+ps | where pid == $env.PID
+ps | where pid == $env.p
+ps | where pid == $nu.pid
+ps | where pid == $nu.pid | get ppid
+ps | where == (ps | where pid == $nu.pid | get ppid)
+ps | where == (ps | where pid == $nu.pid | get ppid.0)
+(ps | where pid == $nu.pid | get ppid.0)
+let pId == (ps | where pid == $nu.pid | get ppid.0)
+let pid = (ps | where pid == $nu.pid | get ppid.0)
+ps | where == pid
+ps | where == $pid
+ps | where == (pid)
+ps | where == $pid
+ps | where pid == $pid
+let pid = (ps | where pid == $nu.pid | get ppid.0)
+ps | where pid == (ps | where pid == $nu.pid | get ppid.0)
+cd Work/Panda/
+git status
+lazygit
+lazygit
+cd Work/Panda/
+lazygit
+y
+mongosh "mongodb://dude:2wgYj4LwHc%2AU@localhost:27017/master?tls=true&tlsAllowInvalidCertificates=true&authSource=master&authMechanism=SCRAM-SHA-1"
+mongosh "mongodb://dude:2wgYj4LwHc%2AU@localhost:27017/master?tls=true&tlsCAFile=eu-west-1-bundle.pem&authSource=master&authMechanism=SCRAM-SHA-1"
+mongo --version
+ssh -i ~/.ssh/document-db-tunnel-key.pem -N -L 27017:prod-docdb.cluster-cojqzcfnokt7.eu-west-1.docdb.amazonaws.com:27017 ec2-user@54.171.148.145
+cd Work/Panda/
+journal
+echo $env.config.keybindings | where keycode == tab
+y
+echo $env.config.keybindings | where keycode == tab
+keybindings default
+keybindings default 0
+keybindings default 0 | 0
+keybindings list
+keybindings default | to nuon
+keybindings default | get 0 | to nuon
+keybindings default | get 0 | select event| to nuon
+keybindings default | get 0 | get event| to nuon
+keybindings default | get 0 | get event
+cd ~/.cache/plasma_engine_potd
+y
+lazygit
+y
+git rm -r --cached packages
+rm -rf packages
+ls
+lazygit
+y
+lazygit
+y
+lazygit
+rm -rf packages
+git rm -r --cached packages 2>/dev/null || true
+git rm -r --cached packages 2>/dev/null or true
+lazygit
+git status
+y
+lazygit
+git ls-files | grep '^packages/'
+ls -l | grep -i packages<\n>
+git status<\n>
+y
+lazygit
+cd ..
+cd Panda/
+ls
+compositor_enabled=$(qdbus-qt5 org.kde.KWin /Compositor org.kde.kwin.Compositing.active)
+lazygit
+yayq 7zip
+y
+nu "resize_images.nu" "~/Work/Worksheets/Art/" 512 80
+sh "resize_images.nu" "~/Work/Worksheets/Art/" 512 80
+sh "resize_images.sh" "~/Work/Worksheets/Art/" 512 80
+sh "resize_images.sh" "~/Work/Worksheets/Art" 512 80
+sh "resize_images.sh" "home/andrei/Work/Worksheets/Art" 512 80
+sh "resize_images.sh" "/home/andrei/Work/Worksheets/Art" 512 80
+sh "resize_images.sh" "/home/andrei/Work/Worksheets/Art/Indonesian" 512 80
+sh "convert_to_ktx.sh" "/home/andrei/Work/Worksheets/Art/Indonesian" "--lower_left_maps_to_s0t0 --bcmp"
+y
+yayq
+yayq toktx
+yayq ktx
+which toktx
+where toktx
+which toktx
+sh "convert_to_ktx.sh" "/home/andrei/Work/Worksheets/Art/Indonesian" "--lower_left_maps_to_s0t0 --bcmp"
+sh "convert_to_ktx.sh" "/home/andrei/Work/Worksheets/Art/Indonesian/Thumbnails" "--lower_left_maps_to_s0t0 --bcmp"
+sh "convert_to_ktx.sh" "/home/andrei/Work/Worksheets/Art/Indonesian/Thumbnails/" "--lower_left_maps_to_s0t0 --bcmp"
+sh "convert_to_ktx.sh" "/home/andrei/Work/Worksheets/Art/Indonesian/" "--lower_left_maps_to_s0t0 --bcmp"
+sh "convert_to_ktx.sh" "/home/andrei/Work/Panda/Ktx""/home/andrei/Work/Worksheets/Art/Indonesian/" "--lower_left_maps_to_s0t0 --bcmp"
+sh "convert_to_ktx.sh" "/home/andrei/Work/Panda/Ktx" "/home/andrei/Work/Worksheets/Art/Indonesian/" "--lower_left_maps_to_s0t0 --bcmp"
+y
+sysupdate 
+shutdown now
+cd Work/Panda/
+lazygit 
+cd Work/Panda1
+y
+cat "AWS_art-2_Indonesian.ktx"
+open --raw AWS_art-10_Indonesian.ktx | bytes slice 0..12
+open --raw AWS_art-10_Indonesian.ktx | bytes
+open --raw AWS_art-10_Indonesian.ktx | bytes at 0..12
+open --raw AWS_art-10_Indonesian.ktx | bytes at 0..18
+y
+open --raw AWS_art-10_Czech.ktx | bytes at 0..18
+open --raw AWS_art-10_Czech.ktx | bytes at 0..12
+y
+file "ktx.dll"
+yayq exiftool
+exiftool "ktx.dll"
+exiftool "ktx.exe"
+exiftool "toktx.exe"
+y
+open --raw AWS_art-10_Indonesian.ktx | bytes at 0..12
+cd Work
+cd Worksheets/Art/Indonesian/Thumbnails/
+open --raw AWS_art-10_Indonesian.ktx | bytes at 0..12
+cd ~
+cd Work/Panda/
+ls *.yaml
+ls **.yaml
+ls (**.yaml)
+ls **/**.yaml
+ls **/*
+ls **/*.yaml
+ls **/*.meta
+ls **/*.meta | get 0
+ls **/*.meta | get 0..10
+ls **/*.meta | range 0..10
+ls **/*.meta | slice 1..10
+ls **/*.meta | get 0 | cat
+ls **/*.meta | get 0 | echo
+ls **/*.meta | get 0 | open
+ls **/*.meta | get 0 | open --raw
+ls **/*.meta | get 0.name | open --raw
+ls **/*.meta | where version >= 2
+ls **/*.meta <\n>| slice 0..10 <\n>| each { |f| <\n>    let data = open $f.name<\n>    { file: $f.name, version: $data.fileFormatVersion }<\n>}
+ls **/*.meta | slice 1..10 | from yaml
+ls **/*.meta | slice 1..10 | each { |f| open $f.name | from yaml }
+ls **/*.meta | get 0
+ls **/*.meta | get 0 | open --raw
+ls **/*.meta | get 0.name | open --raw
+ls **/*.meta | get 0.name | open --raw | from yaml
+ls **/*.meta | get 0.name | open | from yaml
+(ls **/*.meta | get 0.name | open --raw) | lines | str collect | from yaml
+facad
+y
+facad
+y
+dotnet
+dotnet -h
+dotnet --list-sdks
+mono --version
+yayq mono
+mono --version
+vim-log 
+nvin /home/andrei/.local/state/nvim/lsp.log
+nvim /home/andrei/.local/state/nvim/lsp.log
+vim-log 
+cd ~/.local/share/kwin/scripts/
+ps | grep nvim
+kill 1486624
+ps | grep nvim
+kill 1679773
+ps | grep nvim
+kill 3447
+y
+facad
+cd ~/.local/share/kwin/scripts/
+facad
+z Work
+cd ~/Work/Panda/
+facad
+facad Assets
+cd Assets/
+cd Code/
+facad
+cd Games/
+facad
+cd Cafe
+facad
+y
+cd ..
+facad 
+ls
+facad
+ls
+y
+y
+log-tail /tmp/kitty_script.log
+nvim
+plasma-logout
+yazi
+y
+vim-log 
+cd Work/Panda/
+C
+cd Work/Panda/
+yazi
+yazu
+cd Work/Panda/
+lazygit 
+cd ..
+ls
+cd Panda1
+lazygit 
+cd ..
+cd Panda
+yazi
+cd Work/Panda1/
+lazygit 
+cd Work/Panda1/
+vim-log 
+y
+cd Work/Panda1/
+nvim
+cd Work/Panda/
+nvim
+kitty @ set-tab-title Yazi
+k
+kitty @ nvim_tab_kitten "waka"
+kitty @ nvim_tab_kitten.py "waka"
+kitty @ --help
+q
+kitty @ kitten nvim_tabs_kitten
+kitty @ kitten nvim_tabs_kitten.py
+kitty @ kitten nvim_tabs_kitten.py "waka"
+kitty @ kitten nvim_tabs_kitten.py --waka
+cd Work/Panda/
+nvimn
+nvim
+$env
+y
+cd~
+cd ~
+nvim
+cd ..
+cd -
+cd +
+cd ~/.config/kitty
+nvim
+y
+cd ~
+nvim
+y
+cd ~
+nvim
+y
+cd Panda
+nvi
+nvm
+cd Panda
+log-tail /tmp/kitty_script.log
+nvim
+rm /tmp/kitty_script.log
+log-tail /tmp/kitty_script.log
+kitty @ action
+kitty @ help
+kitty @ --help
+q
+$env
+kitty @ set-user-vars env:KITTY_MY_VAR=WAKA
+$env
+journalt kitty
+cd /tmp
+ls
+kitty @ set-user-vars env:KITTY_MY_VAR=WAKA
+nvim /tmp/kitty_script.log
+tail -f /tmp/kitty_script.log
+yayq lnav
+nivm
+kitty @ set-user-vars -h
+$env
+tail -f "kitty_nvim_1"
+$.env
+$env
+nvim
+y
+y
+lnav /tmp/kitty_script.log
+shutdown now
+ps | grep steam
+ps
+yayq steam
+yays steam
+shutdown now
+sysupdate 
+shutdown now
+journalt steam
+journal steam
+journal-errors
+journal-errors steam
+steam
+Steam -vgui
+steam -vgui
+cd ~/.cache/nvidia/GLCache
+ls
+y
+steam
+y
+journalctl -b -0 -g steam | curl -F 'file=@-' 0x0.st
+y
+steam-runtime --reset
+steam
+journalctl -b -0 -g steam
+sudo pacman -R steam
+sudo pacman -S steam
+steam
+mv ~/.steam/config/config.vdf ~/.steam/config/config.vdf.bak
+cd mv ~/.steam/config/
+cd ~/.steam/config/
+cd ~/.steam
+ls
+y
+journalctl -b -0 -g steam
+git-panda 
+lazygit --help
+git-panda 
+nvim
+cat
+echo $TERM
+echo $env.TERM
+nvim
+kitten show-key -m kitty
+nvim
+nvim
+y
+nvim
+d
+kitty --debug-font-fallback
+y
+y
+nvim
+y
+neovide "kitty.conf"
+y
+vi utils.py
+neovide "neovide.lua"
+y
+nvim
+y
+y
+sysupdate 
+yayq telegram-desktop
+shutdown now
+yayq telegram
+yayr kotatogram-desktop-bin
+yayq telegram
+y
+lazygit
+setxkbmap us colemak_dh_ortho
+y
+ls
+cd home
+cd .config
+cd yazi
+ls
+vi keymap
+y
+nvim
+cd ~/.cache/plasma_engine_potd
+ls
+y
+shutdown now
+problem with transitioning to colemak is that you need to relearn all keys again
+y
+nvim
+Y
+y
+ya pack -a Lil-Dank/lazygit
+y
+y
+sysupdate 
+yayd vi-mongo
+yayr vi-mongo
+sysupdate 
+y
+y
+grep BufReadPost
+yayq pipgrep
+yayq ripgrep
+ripgrep BufReadPost
+rg
+rg BufReadPost
+rg "BufReadPost"
+pg lua
+pg "lua"
+pg 'BufReadPost'
+rg "BufReadPost"
+rg "lua"
+y
+cd ..
+pg "vim.lsp.buf.formatting"
+pg 'vim.lsp.buf.formatting'
+rg 'vim.lsp.buf.formatting'
+y
+rg 'ode'
+ssh-keygen -t rsa -b 4096 -C "animal_village"
+y
+ssh-keygen -t rsa -b 4096 -C "animal_village"
+y
+cd Work/Panda/
+setxkbmap -print -query
+loadkeys
+xwininfo -tree | grep Vivaldi
+setxkbmap us -variant colemak_dh
+setxkbmap -print -query
+y
+chmod +x
+chmod +x "xkb.sh"
+y
+shutdown now
+setxkbmap -print -query
+setxkbmap us -variant colemak_dh
+setxkbmap -print -query
+y
+svi 00-keyboard.conf
+setxkbmap -print -query
+plasma-logout
+cd /etc/
+y
+ls
+cd kde_settings.conf
+ls
+svi keyboard.conf
+malee613
+svi keyboard.conf
+sudo dcmd
+setxkbmap -print -query
+y
+sudo doublecmd
+y
+cd
+cd Work/Panda/
+plasma-logout
+sensors 
+y
+audio-get-current.nu 
+cd .scripts/
+audio-get-current.nu "main switch"
+audio-get-current.nu "switch"
+echo current_line
+echo $current_line
+wpctl status
+y
+audio-get-current.nu get_sinks
+audio-get-current.nu "get_sinks"
+audio-get-current.nu "sinks"
+wpctl status
+nu -c "source audio-get-current.nu; get_sinks"
+audio-get-current.nu "get_sinks"
+audio-get-current.nu get_sinks
+audio.nu sinks
+audio.nu sinks | describe 
+audio.nu sinks | first {|s| $s.default}
+audio.nu sinks | first default
+audio.nu sinks | first default | first
+audio.nu sinks | where default | first
+audio.nu sinks | where default == true | first
+audio.nu sinks
+wpctl status
+audio.nu current
+audio.nu sinks
+audio.nu current
+audio.nu switch
+audio.nu current-name
+audio.nu current-ion
+audio.nu current-icon
+audio.nu swap
+audio.nu switch
+audio.nu
+nu audio.nu
+y
+nu "audio.nu"
+audio.nu sinks
+yayq lightdm
+ya update
+ya --help
+y
+ls
+cd ..
+lr
+ls
+vi init.lua
+nvim
+xrandr
+vi /usr/share/X11/xkb/rules/base.lst
+hyprctl dispatch
+hyprctl dispatch exit
+hyprctl monitors
+hyprhyprctl dispatch exit
+hyprctl dispatch exit
+sysupdate 
+setxkbmap -print -query
+setxkbmap us -variant colemak_dh_ortho
+setxkbmap -print -query
+y
+open /var/log/pacman.log <\n>| lines <\n>| filter $it =~ '\[ALPM\] installed' <\n>| last 20<\n>
+y
+lnav "lsp.log"
+y
+yayq nvim
+which nvim
+nvim
+yay -S neovim-nightly-bin<\n>
+yay -q neovim-nightly-bin<\n>
+yay -q neovim-git
+yayr neovim-git
+yay -Rns neovim-git
+yayq neovim
+nvim
+y
+mono --version
+mono-msbuid --version
+yayq mono-msbuild
+setxkbmap -print -query
+y
+localectl status
+localectl set-x11-keymap us,ru pc105 colemak_dh_ortho,
+localectl status
+setxkbmap -print -query
+localectl set-keymap us
+localectl status
+gw
+sysupdate 
+sysupdate
+shutdown now
+find . -type f -name config.h | grep /keymaps/vial/<\n>
+shutdown now
+sysupdate
+yayq samsung
+yayq magician
+magician 
+sudo magician 
+sudo magician --list
+yayq hddtemp
+hddtemp 
+hddtemp "/dev/nvme0n1p2"
+hddtemp /dev/nvme0n1p2
+lsblk
+hddtemp /dev/sda
+sudo hddtemp /dev/sda
+sudo hddtemp /dev/sdb
+sudo hddtemp /dev/nvme1n1
+sudo hddtemp /dev/sdc
+sudo hddtemp /dev/nvme0n1
+sudo hddtemp /dev/nvme0n1p2
+sudo hddtemp /dev/nvme1n1p2
+sudo hddtemp /dev/nvme1n1p5
+sudo smartctl -a /dev/sda
+sudo smartctl -a /dev/nvme1n1p5 
+sysupdate
+plasmashell --version
+sysupdate
+shutdown now
+sysupdate
+y
+git show --summary --pretty=short releases/current
+git show --summary --pretty=short features/Unity6
+git show --summary --pretty=short feature/Unity6
+y
+cd ~
+sysupdate
+shutdown now
+y
+localectl list-x11-keymap-variants colemak
+localectl status
+y
+touch keyboard.conf
+sudo touch keyboard.conf
+svi keyboard.conf
+setxkbmap -print -query
+svi keyboard.conf
+y
+cd -
+y
+sysupdate
+yayq mint-themes
+yayr mint-themes
+sysupdate
+yay -Q mint
+glxinfo | grep "OpenGL renderer"
+qdbus org.kde.KWin /KWin org.kde.KWin.supportInformation
+y
+hyprctl dispatch exit
+y
+setxkbmap -print -query
+setxkbmap -layout us -variant colemak_dh_ortho
+localectl status
+localectl set-x11-keymap us pc105 colemak_dh_ortho
+setxkbmap -print -query
+localectl set-x11-keymap us,ru pc105 colemak_dh_ortho,<\n>
+setxkbmap -print -query
+localectl status<\n>
+localectl set-keymap us<\n>
+localectl status<\n>
+y
+shutdown now
+localectl status<\n>
+setxkbmap -print -query
+setxkbmap -query
+localectl status<\n>
+y
+sudo pacman --needed --noconfirm -S git python-pip libffi
+python3 -m pip install --user qmk
+pacman -S python-qmk
+yay -S python-qmk
+qmk setup
+yays qmk
+yayq qmk
+y
+vi p
+y
+files-pack.nu '*.skel.bytes'
+yayq zip
+files-pack.nu '*.skel.bytes'
+y
+files-pack.nu '*.skel.bytes'
+y
+# It's also possible to use qmk setup instead of git clone: qmk setup holykeebs/qmk_firmware<\n>git clone --recurse-submodules git@github.com:holykeebs/qmk_firmware.git -b hk-master<\n>cd qmk_firmware
+qmk setup
+qmk
+shutdown now
+y
+rg '1e8a610c9e01c3648bac42585e5fc676' -l --glob '*.meta' --glob '*.unity'<\n>
+rg --no-ignore '1e8a610c9e01c3648bac42585e5fc676'<\n>
+rg --no-ignore -l '1e8a610c9e01c3648bac42585e5fc676' --glob '*.meta' --glob '*.unity'<\n>
+rg --no-ignore -l '1e8a610c9e01c3648bac42585e5fc676' --glob '*.meta'
+fd -e meta -e unity . ./Assets | xargs sed -i 's/1e8a610c9e01c3648bac42585e5fc676/2391c88e4c1de5044a4648c092682269/g'<\n>
+cd -
+cd +
+cd ..
+y
+fd -e meta -e unity . ./Assets | xargs sed -i 's/1e8a610c9e01c3648bac42585e5fc676/2391c88e4c1de5044a4648c092682269/g'<\n>
+y
+ls **/*.meta **/*.unity | each {|f| open $f.path | str replace -a '1e8a610c9e01c3648bac42585e5fc676' '2391c88e4c1de5044a4648c092682269' | save -f $f.path }<\n>
+y
+replace-guid.nu 1e8a610c9e01c3648bac42585e5fc676 2391c88e4c1de5044a4648c092682269
+rg --no-ignore '1e8a610c9e01c3648bac42585e5fc676' --glob '*.meta' --glob '*.unity'<\n>
+cd ..
+replace-guid.nu 1e8a610c9e01c3648bac42585e5fc676 2391c88e4c1de5044a4648c092682269
+rg --no-ignore '1e8a610c9e01c3648bac42585e5fc676'<\n>
+replace-guid.nu 1e8a610c9e01c3648bac42585e5fc676 2391c88e4c1de5044a4648c092682269
+y
+replace-guid.nu 1e8a610c9e01c3648bac42585e5fc676 2391c88e4c1de5044a4648c092682269
+y
+files-pack.nu '*.ogg'
+files-pack.nu 'Assets' '*.ogg'
+files-pack.nu 'Assets/' '*.ogg'
+files-pack.nu ($PWD) '*.ogg'
+files-pack.nu ($env.PWD) '*.ogg'
+y
+files-pack.nu ($env.PWD) '*.ogg' --no-zip
+y
+cd ..
+cd ~/Work/Panda1
+files-pack.nu ($env.PWD) '*.wav' --no-zip
+y
+files-pack.nu ($env.PWD) '*.wav' --no-zip
+sysupdate
+shutdown now
+y
+git config lfs.ssh://git@35.210.6.15:50122/anekrasov/intellectokids-oxford-math.git.locksverify true<\n>
+y
+git config --global lfs.locksverify true<\n>
+git config --global lfs.locksverify
+y
+replace-guid.nu 1e8a610c9e01c3648bac42585e5fc676 2391c88e4c1de5044a4648c092682269
+y
+y
+ls **/*.png.meta | where { open $in.name | str contains 'internalIDToNameTable:' }<\n>
+ls **/*.png.meta | where {<\n>  let content = open $in.name | str join "\n"<\n>  $content =~ 'internalIDToNameTable:' and not ($content =~ 'internalIDToNameTable: \[\]')<\n>} | get name<\n>
+shutdown now
+y
+ls **/*.ogg | to-zip
+ls **/*.ogg | to-zip.nu
+ls **/*.ogg
+ls **/*.png.meta
+cd Assets/
+ls **/*.png.meta
+ls **/*.png.meta | to-zip.nu
+ls **/* | where type == file
+ls **/*.png.meta | to-zip.nu
+ls **/*.png.meta | get name | to-zip.nu
+ls **/*.png.meta | describe
+ls **/*.png.meta | to-zip.nu
+ls **/*.png.meta | get name
+ls **/*.png.meta | to-zip.nu
+ls **/*.png.meta | length
+ls **/*.png.meta | describe<\n>ls **/*.png.meta | length<\n>ls **/*.png.meta | get name | length
+ls **/*.png.meta | to-zip.nu
+which to-zip.nu
+ls **/*.png.meta | to-zip.nu
+# Test 1: Does the script run at all?<\n>echo "test" | to-zip.nu
+echo "test" | to-zip.nu
+to-zip.nu . $(ls **/*.png.meta | get name | first 3)
+echo "test" | nu minimal_debug.nu
+echo "test" | minimal_debug.nu
+[a b c] | minimal_debug.nu
+["a" "b" "c"] | minimal_debug.nu
+echi ["a" "b" "c"]
+echo ["a" "b" "c"]
+echo ["a" "b" "c"] | totext
+echo ["a" "b" "c"] | to text
+["a" "b" "c"] | to text | minimal_debug.nu
+["a" "b" "c"] | minimal_debug.nu
+def echo_me [] {<\n>  print $in<\n>}<\n>true | echo_me
+[ a b c ] | each {<\n>  print $in<\n>  print $in<\n>  $in<\n>}
+true | test.nu
+true | test
+true | test.nu
+[a b c] | test.nu
+["a" "b" "c"] | test.nu
+["a" "b" "c"] | test_list 
+["a" "b" "c"] | to test 
+source $nu.config-path
+["a" "b" "c"] | to test 
+y
+ls **/*.png.meta | to zip 
+$env.PWD
+y
+ls **/*.png.meta | to zip 
+source $nu.config-path
+ls **/*.png.meta | to zip 
+source $nu.config-path
+ls **/*.png.meta | to zip 
+source $nu.config-path
+ls **/*.png.meta | to zip 
+y
+ls **/*.png.meta | to zip 
+y
+source $nu.config-path
+ls **/*.png.meta | to copy
+y
+source $nu.config-path
+ls **/*.png.meta | to copy
+source $nu.config-path
+ls **/*.png.meta | to copy
+source $nu.config-path
+ls **/*.png.meta | to copy
+y
+ls **/*.png.meta | to copy
+y
+ls **/*.png.meta | get filenames 
+y
+ls **/*.png.meta | to copy
+y
+ls **/*.png.meta | to copy
+y
+ls **/*.png.meta | to zip 
+y
+ls **/*.png.meta | to copy --flat
+y
+ls **/*.png.meta | where {<\n>  let content = open $in.name | str join "\n"<\n>  $content =~ 'internalIDToNameTable:' and not ($content =~ 'internalIDToNameTable: \[\]')<\n>} | get name<\n>
+ls **/*.png.meta | where {<\n>  let content = open $in.name | str join "\n"<\n>  $content =~ 'internalIDToNameTable:' and not ($content =~ 'internalIDToNameTable: \[\]')<\n>} | to copy
+y
+ls **/*.png.meta | where {<\n>  let content = open $in.name | str join "\n"<\n>  $content =~ 'internalIDToNameTable:' and not ($content =~ 'internalIDToNameTable: \[\]')<\n>} | to copy
+y
+ls **/*.png.meta | where {<\n>  let content = open $in.name | str join "\n"<\n>  $content =~ 'spriteMode: 2'<\n>}
+ls **/*.png.meta | where { <\n>    open $in.name | any { |line| $line =~ 'spriteMode: 2' }<\n>}
+ls **/*.png.meta | where { <\n>    open $in.name | lines | any { |line| $line =~ 'spriteMode: 2' }<\n>}
+ls **/*.png.meta | where { <\n>    open $in.name | lines | any { |line| $line =~ 'spriteMode: 0' }<\n>}
+y
+sysupdate
+ls **/*.png.meta | where { <\n>    open $in.name | lines | any { |line| $line =~ 'spriteMode: 0' }<\n>}
+y
+ls **/*.png.meta | where { <\n>    open $in.name | lines | any { |line| $line =~ 'spriteMode: 0' }<\n>}
+cd ..
+cs "Assets/"
+cd Assets/
+ls **/*.png.meta | where { <\n>    open $in.name | lines | any { |line| $line =~ 'spriteMode: 0' }<\n>}
+y
+y
+git reset --hard 6d92d1791155d4d20def33938d4b914876d3d620
+git diff-tree --no-commit-id --name-only -r 6d92d1791155d4d20def33938d4b914876d3d620 \<\n>  | grep '\.png\.meta$' > changed_png_meta_files.txt
+git diff-tree --no-commit-id --name-only -r 6d92d1791155d4d20def33938d4b914876d3d620 |<\n>  lines | <\n>  where $it =~ '\.png\.meta$' |<\n>  save changed_png_meta_files.txt<\n>
+y
+git-find-files-by-commit-hash.nu 6d92d1791155d4d20def33938d4b914876d3d620 png.meta spriteMode<\n>
+y
+git-find-files-by-commit-hash.nu 6d92d1 png.meta spriteMode --lines-only
+ls **/*.png.meta | where { <\n>    open $in.name | lines | any { |line| $line =~ 'spriteMode: 0' }<\n>}y
+y
+replace.nu .png.meta "spriteMode: 0" "spriteMode: 1"
+replace.nu .png.meta "spriteMode: 1" "spriteMode: 1"
+replace.nu .png.meta "spriteMode: 1" "spriteMode: 2"
+y
+ls **/*.png.meta | where { <\n>    open $in.name | lines | any { |line| $line =~ 'spriteMode: 0' }<\n>}
+git-find-files-by-commit-hash.nu 55712932687e65cf02fb4c4652238c6793dfb01d png.meta spriteMode --lines-only
+git-find-files-by-commit-hash.nu 55712932 png.meta spriteMode --lines-only
+cd ..
+git-find-files-by-commit-hash.nu 55712932 png.meta spriteMode --lines-only
+cd Assets/
+git-find-files-by-commit-hash.nu 55712932 png.meta spriteMode --lines-only
+y
+git-find-files-by-commit-hash.nu 55712932 png.meta spriteMode --lines-only
+y
+git-reset-files-to-commit.nu 6d92d1 filtered_files_png.meta_spriteMode_lines_changed.txt
+git-reset-files-to-commit.nu 55712932 filtered_files_png.meta_spriteMode_lines_changed.txt
+sysupdate
+ps aux | grep -E 'pacman|yay|paru'<\n>
+sysupdate
+logger steam
+steam 
+cd .local/share/Steam/
+ls
+rm -rf "$HOME/.local/share/Steam/>$'\xEA'$'\x0B'"
+rm -rf "\xEA\u{b}"
+rm -rf \xEA\u{b}
+ls
+ls -ld "$HOME/.local/share/Steam/>$'\xEA'$'\x0B'"
+ls -ld "$HOME/.local/share/Steam/>"$'\xEA\x0B'
+ls -ld "$HOME/.local/share/Steam/\>"$'\xEA\x0B'
+rm -rf ~/.local/share/Steam/\>*
+rm -rf "$HOME/.local/share/Steam/>"$'\xEA\x0B'
+ls -i ~/.local/share/Steam | less<\n>
+ls -i | less<\n>
+ls --help
+cd ~/.steam/steam/logs/<\n>
+steam -nobrowser
+steam -debuglog
+rm -rf ~/.steam/steam/config<\n>rm -rf ~/.steam/steam/appcache<\n>
+sudo pacman -Rns steam<\n>
+sudo pacman -Rns steam-native-runtime steam<\n>
+rm -rf ~/.steam ~/.local/share/Steam ~/.cache/Steam<\n>
+steam
+sudo pacman -S steam<\n>
+sudo pacman -Rns steam steam-native-runtime proton-cachyos<\n>
+steam-runtime --reset
+yayq flatpack
+journalctl -f | grep steam<\n>
+journalctl -f | grep steam
+journalctl _COMM=steam<\n>
+coredumpctl list | grep steam<\n>
+coredumpctl info PID<\n>
+steam --reset
+steam -no-cef-sandbox --disable-gpu<\n>
+flatpak install flathub com.valvesoftware.Steam<\n>
+y
+git clone https://github.com/Yowkees/keyball.git
+y
+sysupdate
+y
+git clone https://github.com/qmk/qmk_firmware.git --depth 1 --recurse-submodules --shallow-submodules -b 0.22.14 qmk
+y
+ln -s ~/Repositories/keyball/qmk_firmware/keyboards/keyball keyball<\n>
+make SKIP_GIT=yes keyball/keyball39:default<\n>
+y
+make SKIP_GIT=yes keyball/keyball39:default<\n>
+cd -
+make SKIP_GIT=yes keyball/keyball39:default<\n>
+ls keyboards/keyball/keyball39
+ls
+cd qmk
+ls keyboards/keyball/keyball39
+make SKIP_GIT=yes keyball/keyball39:default<\n>
+ls keyboards/keyball/keyball39
+ls
+keyboards/
+ls
+y
+cd -
+make SKIP_GIT=yes keyball/keyball39:default<\n>
+y
+qmk setup
+/usr/bin/python -m pip install --user -r /home/andrei/Repositories/qmk/requirements.txt<\n>
+python -m venv .venv<\n>source .venv/bin/activate<\n>pip install -r requirements.txt
+. .venv/bin/activate.nu<\n>
+.venv/bin/python -m pip install -r requirements.txt<\n>
+cd ~/Repositories/qmk<\n>^python -m venv .venv<\n>^./.venv/bin/python -m pip install -r requirements.txt<\n>^./.venv/bin/qmk setup<\n>^./.venv/bin/qmk compile -kb keyball/keyball39 -km default<\n>
+^./.venv/bin/python -m pip install qmk<\n>
+^./.venv/bin/qmk setup<\n>^./.venv/bin/qmk compile -kb keyball/keyball39 -km default<\n>
+^./.venv/bin/qmk setup<\n>^./.venv/bin/qmk compile -kb keyball/keyball39 -km default<\n>y
+^./.venv/bin/qmk config user.qmk_home "$PWD"<\n>
+$env.PWD
+^./.venv/bin/qmk config user.qmk_home $env.PWD<\n>
+^./.venv/bin/qmk config user.qmk_home ($env.PWD)<\n>
+^./.venv/bin/qmk compile ...<\n>
+^./.venv/bin/qmk config user.qmk_home $"($env.PWD)"<\n>
+let-env QMK_HOME = $env.PWD<\n>
+echo $env.QMK_HOME<\n>
+$env.QMK_HOME = $env.PWD<\n>
+$env.QMK_HOME
+^./.venv/bin/qmk compile ...<\n>
+^./.venv/bin/qmk compile -kb keyball/keyball39 -km default
+qmk compile -kb keyball/keyball39 -km default
+y
+qmk compile -kb keyball/keyball39 -km default
+qmk --help
+^./.venv/bin/qmk compile -kb keyball/keyball39 -km default
+o$env.QMK_HOME
+$env.QMK_HOME
+y
+$env.QMK_HOME
+oy
+$env.QMK_HOME
+qmk compile -kb keyball/keyball39 -km default
+^./.venv/bin/qmk compile -kb keyball/keyball39 -km default
+cd ~/Repositories/qmk/
+qmk compile -kb keyball/keyball39 -km default
+cd ~/Repositories/qmk/
+qmk compile -kb keyball/keyball39 -km default
+$env.QMK_HOME
+qmk compile -kb keyball/keyball39 -km default
+$env.QMK_HOME
+cd ~/Repositories/qmk/
+qmk compile -kb keyball/keyball39 -km default
+cd ~/Repositories/qmk/
+qmk compile -kb keyball/keyball39 -km default
+qmk-run compile -kb keyball/keyball39 -km default
+y
+qmk-run compile -kb keyball/keyball39 -km default
+cd ~/Repositories/qmk/
+qmk-run compile -kb keyball/keyball39 -km default
+qmk flash<\n>
+qmk-run flash
+qmk-run flash -kb keyball/keyball39 -km default<\n>
+qmk-run compile -kb keyball/keyball39 -km default -e CONVERT_TO_UF2=yes<\n>
+qmk-run compile -kb keyball/keyball39 -km via -e CONVERT_TO_UF2=yes<\n>
+qmk-run compile -kb keyball/keyball39 -km default -e CONVERT_TO_UF2=yes<\n>
+qmk-run compile -kb keyball/keyball39 -km default
+qmk-run compile -kb keyball/keyball39 -km via -e CONVERT_TO_UF2=yes<\n>
+y
+sh "build-keyball-all.sh"
+sudo sh "build-keyball-all.sh"
+y
+# It's also possible to use qmk setup instead of git clone: qmk setup holykeebs/qmk_firmware<\n>git clone --recurse-submodules git@github.com:holykeebs/qmk_firmware.git -b hk-master
+# Build Keyball39 firmware with "default" keymap<\n>$ make SKIP_GIT=yes keyball/keyball39:default<\n><\n># Build Keyball44 firmware with "default" keymap<\n>$ make SKIP_GIT=yes keyball/keyball44:default<\n><\n># Build Keyball61 firmware with "default" keymap<\n>qmk-run SKIP_GIT=yes keyball/keyball61:default
+qmk-run SKIP_GIT=yes keyball/keyball39:default
+cd ~/Repositories/qmk/
+qmk-run SKIP_GIT=yes keyball/keyball39:default
+make SKIP_GIT=yes keyball/keyball39:default
+sudo pacman -S pipx<\n>pipx install qmk<\n>
+yayq pipx
+make SKIP_GIT=yes keyball/keyball39:default
+pipx install qmk
+make SKIP_GIT=yes keyball/keyball39:default
+/home/andrei/.local/share/pipx/venvs/qmk/bin/python -m pip install -r /home/andrei/Repositories/qmk/requirements.txt
+make SKIP_GIT=yes keyball/keyball39:default
+y
+git https://github.com/idank/qmk_firmware.git keyball-updated
+cd ..
+cd -
+y
+git clone --branch keyball-updated --single-branch https://github.com/idank/qmk_firmware.git<\n>
+y
+make SKIP_GIT=yes keyball/keyball39:default
+git submodule update --init --recursive
+make SKIP_GIT=yes keyball/keyball39:default
+y
+git clone https://github.com/vial-kb/vial-qmk.git<\n>
+cd -
+git clone https://github.com/vial-kb/vial-qmk.git<\n>
+y
+git submodule update --init --recursive
+yazi
+y
+y
+ln -s /home/andrei/Repositories/qmk/keyboards/keyball keyball<\n>
+y
+make SKIP_GIT=yes keyball/keyball39:default
+make SKIP_GIT=yes keyball/keyball39:vial
+cd -
+make SKIP_GIT=yes keyball/keyball39:vial
+y
+git clone https://github.com/ukoasis/vial-qmk.git
+git clone https://github.com/ukoasis/vial-qmk.git vial-keyball-qmk
+y
+git-submodule-update 
+make SKIP_GIT=yes keyball/keyball39:default
+y
+make SKIP_GIT=yes keyball/keyball39:default
+y
+make SKIP_GIT=yes keyball/keyball39:bmp
+y
+make SKIP_GIT=yes keyball/keyball39:via
+cd -
+make SKIP_GIT=yes keyball/keyball39:via
+y
+make SKIP_GIT=yes keyball/keyball39:vial
+make SKIP_GIT=yes keyball/keyball39:vial 
+make SKIP_GIT=yes keyball/keyball39:via
+y
+make SKIP_GIT=yes keyball/keyball39:via
+y
+make SKIP_GIT=yes keyball/keyball39:via
+y
+git clone https://github.com/holykeebs/qmk_firmware.git qmk-holykeebs
+git-submodule-update 
+cd qmk-holykeebs/
+git-submodule-update 
+y
+git-submodule-update 
+shutdown now
+y
+make SKIP_GIT=yes keyball/keyball39:via
+y
+make SKIP_GIT=yes keyball/keyball39:via
+y
+lnln -s ~/Repositories/keyball/qmk_firmware/keyboards/keyball keyball<\n>
+ln -s ~/Repositories/qmk-holykeebs/keyboards/keyball keyball<\n>
+y
+ln -s ~/Repositories/qmk-holykeebs/keyboards/keyball keyball<\n>
+y
+make SKIP_GIT=yes keyball/keyball39:vial
+python3 -c "import random; print('{' + ', '.join([f'0x{random.randint(0,255):02X}' for _ in range(8)]) + '}')"
+make SKIP_GIT=yes keyball/keyball39:vial
+inb   
+y
+y
+y
+make SKIP_GIT=yes keyball/keyball39:via
+sysupdate 
+shutdown now
+y
+make SKIP_GIT=yes keyball/keyball39:vial
+y
+make SKIP_GIT=yes keyball/keyball39:vial
+y
+sysupdate 
+yayr gitkraken
+yayq discord
+y
+ls *.ogg
+ls
+ls */**.ogg
+ls **/**.ogg
+ls **/*.ogg
+ls **/*.wav
+y
+ls **/*.wav
+ls **/*.wav | rename-meta-files 
+ls **/*.wav | rename-meta-files mp3
+cd Work/Panda/Assets/AssetBundle/Rockband/Localization/
+ls
+ls **/*.wav | rename-meta-files mp3
+ls **/*.ogg | rename-meta-files mp3
+# Delete all .tmp files recursively<\n>rm **/*.wav
+# Delete all .tmp files recursively<\n>rm **/*.ogg
+# Delete all .tmp files recursively<\n>rm **/*.ogg.meta
+# Delete all .tmp files recursively<\n>rm **/*.wav.meta
+lazygit
+y
+shutdown now
+macmini 
+y
+git lfs ls-files
+git lfs pull
+git lfs install
+git lfs pull
+y
+git lfs pull
+log-tail2 kitty
+journalctl kitty
+y
+$.env.KITTY_SESSION_ID
+echo $.env.KITTY_SESSION_ID
+$.env
+kitty @ ls
+y
+git lfs pull
+y
+git reset Unity6_spine
+y
+git reset --hard Unity6_spine
+lazygit
+git lfs pull
+lazygit
+git lfs checkout
+lazygit
+plasma-logout 
+sysupdate 
+shutdown now
+themes
+y
+ls
+y
+ls | test.nu 
+localectl list-x11-keymap-variants us
+y
+y
+viamake SKIP_GIT=yes keyball/keyball39:vial 
+make SKIP_GIT=yes keyball/keyball39:vial 
+y
+make SKIP_GIT=yes keyball/keyball39:vial 
+y
+make SKIP_GIT=yes keyball/keyball39:vial 
+y
+make SKIP_GIT=yes keyball/keyball39:vial 
+y
+rg --files 'oled'
+rg --files
+rg -f
+rg --files oled
+rg --files | grep 'oled'
+y
+make SKIP_GIT=yes keyball/keyball39:vial
+qmk compile -kb keyball -km vial --compiledb
+qmk list-keyboards
+qmk compile -kb keyball/keyball39 -km vial --compiledb
+make SKIP_GIT=yes keyball/keyball39:vial
+qmk compile -kb keyball/keyball39 -km vial --compiledb
+make SKIP_GIT=yes keyball/keyball39:vial
+macmini 
+y
+vi /home/andrei/Work/Panda_Unity6/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build.gradle<\n>
+shutdown now
+y
+ln -s ~/UnityBuildReports/ "/mnt/mint/home/andrei/UnityBuildReports/"<\n>
+y
+ln -s "/mnt/mint/home/andrei/UnityBuildReports/" ~/UnityBuildReports/
+y
+ln -s "/mnt/mint/home/andrei/UnityBuildReports/" ~/UnityBuildReports/
+vi /home/andrei/Work/Panda_Unity6/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build.gradle<\n>
+y /home/andrei/Work/Panda_Unity6/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build.gradle<\n>=
+y
+macmini 
+y
+y /home/andrei/Work/Panda_Unity6/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary
+y
+git lfs checkout
+git lfs list
+git lfs ls-files
+git lfs track "*.ogg"
+git lfs checkout
+y
+ffmpeg -i "oup_bee_fly.ogg" 2>&1 | gpep -i bitrate
+ffmpeg -i "oup_bee_fly.ogg" out+err> | find -i bitrate<\n>
+ffmpeg -i "oup_bee_fly.ogg" out+err>
+ffmpeg -i "oup_bee_fly.ogg"
+ffmpeg -i "oup_bee_fly.ogg" -ar 22050 -f ogg "oup_bee_fly.converted.ogg"
+y
+ffmpeg -i "oup_bee_fly.converted.ogg"
+filter-audio-samplerate.nu . 22050 ">"
+filter-audio-samplerate.nu filter_by_sample_rate . 22050 ">"
+filter-audio-samplerate.nu . 22050 ">"
+filter-audio-samplerate.nu . 22050 "=="
+filter-audio-samplerate.nu . 22060 "<"
+filter-audio-samplerate.nu . 22060 ">"
+filter-audio-samplerate.nu . 22050 "=="
+filter-audio-samplerate.nu . 22050 "==" | get name
+filter-audio-samplerate.nu . 22050 "=="
+filter-audio-samplerate.nu . 22051 "=="
+filter-audio-samplerate.nu . 22050 "==" | get name
+filter-audio-samplerate.nu . 22050 "==" | describe 
+filter-audio-samplerate.nu . 22050 "==" | get name
+filter-audio-samplerate.nu . 22050 | get name
+filter-audio-samplerate.nu . 22050
+filter-audio-samplerate.nu . 22050 | get name
+source ~/.scripts/filter-audio-samplerate.nu
+filter-audio-samplerate . 22050 | get name
+filter-audio-samplerate . 22050 | from nuon | get name
+filter-audio-samplerate.nu . 22050 | from nuon | get name
+filter-audio-samplerate.nu . 22050 | get name
+nu filter-audio-samplerate.nu . 22050 | get name
+nu ./filter-audio-samplerate.nu . 22050 | get name
+nu ~/.scripts/filter-audio-samplerate.nu . 22050 | get name
+regenerate-module.sh 
+y
+regenerate-module.sh 
+y
+filter-audio-samplerate.nu . 22050 | get name
+filter-audio-samplerate.nu . 22050
+y
+filter-audio-samplerate.nu . 22050
+reload-commands 
+filter-audio-samplerate.nu . 22050
+y
+filter-audio-samplerate.nu . 22050
+ls | to test 
+reload-commands 
+ls | to test 
+reload-commands 
+ls | to test 
+y
+filter-audio-samplerate . 22050
+fiter-audio-samplerate . 22050
+fiter-audio-by-samplerate . 22050
+fiter-audio-by-sample-rate . 22050
+fiter-audio-by-sample-rate . 22050 | get name
+# Test glob<\n>timeit { glob "**/*.{ogg,wav,mp3}" }<\n><\n># Test ls + where<\n>timeit { ls **/* | where name =~ '\.(ogg|wav|mp3)$' }
+y
+# Test glob<\n>timeit { glob "**/*.{ogg,wav,mp3}" }<\n><\n># Test ls + where<\n>timeit { ls **/* | where name =~ '\.(ogg|wav|mp3)$' }
+timeit { glob "**/*.{ogg,wav,mp3}" }
+timeit { ls **/* | where name =~ '\.(ogg|wav|mp3)$' }
+y
+list-audio-files 
+ls
+y
+list-audio-files | where-audio-sample-rate 20050
+y
+list-audio-files | where-audio-sample-rate 20050
+list audio-files | where audio sample-rate 20050
+y
+list audio-files | filter audio sample-rate 20050
+list audio-files | with sample-rate 20050
+list audio-files | with sample-rate
+y
+list audio-files | only audio sample-rate 20050 ">" 
+list audio-files | only audio sample-rate 20050 ">" | convert audio rate 22050 converted
+list audio-files | only audio sample-rate 20050 ">" | convert audio rate 22050 --suffix converted
+list audio-files | only audio sample-rate 20050 ">" | get name | convert audio rate 22050 --suffix converted
+y
+list audio-files | only audio sample-rate 20050 ">" | get name | convert audio rate 22050 --suffix converted
+ls
+list audio-files | only audio sample-rate 20050 ">" | get name | convert audio rate 22050 --suffix converted
+list audio-files | only audio sample-rate 20050 ">" | get name | convert audio rate 22050 --suffix converted | table --width 100
+list audio-files | only audio sample-rate 20050 ">" | get name | convert audio rate 22050 --suffix converted | table -w { name: 25, status: 12, old_rate: 8, new_rate: 8, old_size: 8, new_size: 8 }
+cd ..
+list audio-files | only audio sample-rate 22050 ">" | get name | convert audio rate 22050
+y
+list audio-files | with sample-rate
+clear
+y
+git lfs pushall
+git lfs push -all
+git lfs push
+git lfs pushall
+git lfs push --all
+lazygit
+lfs init
+git lfs init
+git lfs
+git lfs status
+git lfs init
+git lfs help
+git lfs install
+y
+git lfs contenttype
+gib lfs fsck
+git lfs fsck
+git lfs track
+git lfs update
+laz
+lazygit
+git config lfs.contenttype false
+git lfs push --all origin
+cd ..
+y
+cs "Repositories/"
+list audio-files | only audio sample-rate 22050 ">" | with sample-rate 
+y
+list audio-files | only audio sample-rate 22050 ">" | with sample-rate 
+list audio-files | only audio sample-rate 22050 ">" | get name | with sample-rate 
+cd ..
+list audio-files | only audio sample-rate 22050 ">" | get name | with sample-rate 
+y
+list audio-files | only audio sample-rate 25000 ">" | get name | convert audio rate 22050
+lazygit
+git lfs status
+lazygit
+y
+list audio-files | only audio sample-rate 25000 ">" | with sample-rate 
+y
+cd ..
+y
+list audio-files
+list audio-files | only audio sample-rate 25000 ">" | get name | with sample-rate 
+list audio-files | only audio sample-rate 25000 ">" | get name | convert audio rate 22050
+list audio-files | only audio sample-rate 25000 ">"
+list audio-files | only audio sample-rate2 25000 ">"
+y
+list audio-files | only audio sample-rate2 25000 ">"
+y
+n
+list audio-files | only audio sample-rate 25000 ">" | get name | convert audio rate 22050
+y
+list audio-files | only audio sample-rate 25000 ">" | get name | convert audio rate 22050
+y
+list audio-files | only audio sample-rate 25000 ">" | get name | convert audio rate 22050
+y
+list audio-files | only audio sample-rate 25000 ">"
+cd AssetBundle/
+list audio-files | only audio sample-rate 25000 ">" | get name | convert audio rate 22050
+lazygit
+y
+y
+list audio-files | with sample-rate
+list audio-files
+y
+list audio-files
+list audio-files | with sample-rate
+list audio-files | only audio sample-rate 25000 ">"
+list audio-files | only audio sample-rate 25000 "<"
+yayq gittyup
+yayd gittyup
+yayr gittyup
+lazygit
+y
+macmini 
+shutdown now
+sysupdate 
+yayd smartgit
+yayr smartgit
+sysupdate 
+shutdown now
+y
+macmini 
+exit
+macmini 
+y
+yayq steam
+yayr steam
+disk-usage 
+duf
+yayq gparted
+kquitapp5 plasmashell && kstart5 plasmashell<\n>
+kquitapp5 plasmashell and kstart5 plasmashell<\n>
+killall plasmashell<\n>
+killall -9 kdeinit5 kstart5<\n>
+kquitapp5 plasmashell and kstart5 plasmashell<\n>
+journalctl --user -b | grep plasmashell<\n>
+y
+sudo touch nvidia.conf
+y
+kitty @ launch 
+kitty @ launch vim
+kitty @ launch vim --type=tab
+y
+kitty @ launch vim config.toml --type=tab
+kitty @ launch vim config.toml
+y
+kitty @ launch nvim config.toml
+kitty @ launch nvim ~/.config/yazi/config.toml
+y
+yayq posh
+y
+y
+cd work
+y
+plasma-logout 
+kitty @ launch nvim ~/.config/yazi/config.toml
+y
+kitty @ launch overlay -- nvim ~/.config/yazi/config.toml
+kitty @ launch --type overlay -- nvim ~/.config/yazi/config.toml
+kitty @ launch --type os-panel -- nvim ~/.config/yazi/config.toml
+kitty @ launch --type os-window -- nvim ~/.config/yazi/config.toml
+kitty @ launch --location vsplit -- nvim ~/.config/yazi/config.toml
+kitty @ launch --location hsplit -- nvim ~/.config/yazi/config.toml
+kitty @ launch --location before -- nvim ~/.config/yazi/config.toml
+kitty @ launch --location last rt nvim ~/.config/yazi/config.toml
+kitty @ launch --location last nvim ~/.config/yazi/config.toml
+kitty @ launch --location last --marker general nvim ~/.config/yazi/config.toml
+kitty @ launch --location last --marker itext 1 general nvim ~/.config/yazi/config.toml
+kitty @ launch --location last --marker "itext 1 general" nvim ~/.config/yazi/config.toml
+kitty @ launch --type os-panel lines=2
+kitty @ launch --type os-panel lines=10
+kitty @ close-window --match title:os-panel
+kitty @ ls
+kitty @ launch --type os-panel lines=10
+kitty @ close-window --match id:2
+ls
+ns
+ls
+kitty @ close-window --match id:2
+y
+qmk-run SKIP_GIT=yes keyball/keyball39:vial
+make SKIP_GIT=yes keyball/keyball39:vial
+lazygit
+make SKIP_GIT=yes keyball/keyball39:vial
+plasma-logout 
+y
+python3 "fix_via.py"
+y
+make SKIP_GIT=yes keyball/keyball39:vial
+y
+make SKIP_GIT=yes keyball/keyball39:vial
+# Generate info.json for Keyball39<\n>qmk info -kb keyball/keyball39 --format json > keyboards/keyball/keyball39/info.json
+qmk generate-info-json -kb keyball/keyball39
+make SKIP_GIT=yes keyball/keyball39:vial
+qmk lint -kb keyball/keyball39
+qmk compile -kb keyball/keyball39 -km vial
+qmk lint -kb keyball/keyball39
+qmk compile -kb keyball/keyball39 -km vial
+qmk compile -kb keyball/keyball39 -km vial -e CONVERT_TO=promicro
+lsblk
+lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL<\n>
+mount-usb.nu 
+mount-usb
+lsblk -j<\n>
+lsblk -J
+lsblk -J | from json
+lsblk -J
+lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL<\n>
+lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL -J
+lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J
+lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J O | from json
+lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J | from json
+clear
+<\n>    lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J<\n>    | from json<\n>    | get blockdevices<\n>    | select children<\n>    
+# Find device with label "Games"<\n>lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J | from json | get blockdevices | where { |dev| $dev.children | any { |child| $child.label == "Games" } }
+lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J | from json | get blockdevices | where { |dev| ($dev.children | default []) | any { |child| $child.label == "Games" } }
+lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J | from json | get blockdevices | where { |dev| "children" in $dev and ($dev.children | any { |child| $child.label == "Games" }) }
+# If you want the parent device (sda) instead of the partition (sda2)<\n>lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J | from json | get blockdevices | where { |dev| ($dev.children | default []) | any { |child| $child.label == "Games" } } | get name | first
+lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J | from json | get blockdevices | each { |dev| $dev.children | default [] } | flatten | where mountpoint == null | get name
+let device = (lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J | from json | get blockdevices | each { |dev| $dev.children | default [] } | flatten | where label == "RPI-RP2" and mountpoint == null | get name | first)
+mount-us
+mount-usb
+let device = (lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J | from json | get blockdevices | <\n>    each { |dev| $dev.children | default [] }<\n>    | flatten | where label == "Games"<\n>    | get name | get 0?)
+# Check each step<\n>let devices = (lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J | from json | get blockdevices)<\n>print $devices<\n><\n>let flattened = ($devices | each { |dev| $dev.children | default [] } | flatten)<\n>print $flattened<\n><\n>let filtered = ($flattened | where label == "Games")<\n>print $filtered<\n><\n>let names = ($filtered | get name)<\n>print $names
+let devices = (lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J | from json | get blockdevices)<\n>print "All devices:"<\n>print $devices<\n><\n>let flattened = ($devices | each { |dev| <\n>    if "children" in $dev { <\n>        $dev.children <\n>    } else { <\n>        [] <\n>    } <\n>} | flatten)<\n>print "Flattened children:"<\n>print $flattened<\n><\n>let filtered = ($flattened | where label == "Games")<\n>print "Filtered for 'Games':"<\n>print $filtered
+let device = (lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J | from json | get blockdevices | <\n>    each { |dev| <\n>        if "children" in $dev { <\n>            $dev.children <\n>        } else { <\n>            [] <\n>        } <\n>    }<\n>    | flatten <\n>    | where label == "Games"<\n>    | get name <\n>    | get 0?)
+let device = (lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J | from json | get blockdevices | <\n>    each { |dev| <\n>        if "children" in $dev { <\n>            $dev.children <\n>        } else { <\n>            [] <\n>        } <\n>    }<\n>    | flatten <\n>    | where label == "Games"<\n>    | get name <\n>    | get 0?)<\n><\n>print $device
+mount-usb
+write-firmware-to-usb 
+# Check current groups<\n>groups
+write-firmware-to-usb 
+y
+y
+# Check what VID/PID your keyboard reports<\n>lsusb | grep 5957<\n># Should show: 5957:0200
+qmk compile -kb keyball/keyball39 -km via
+write-firmware-to-usb 
+make SKIP_GIT=yes keyball/keyball39:via
+y
+make SKIP_GIT=yes keyball/keyball39:via
+kitty @ ls
+kitty @ ls | from json
+kitty @ ls | from json | select tabs
+kitty @ ls | from json | select tabs | get 2
+kitty @ ls | from json | select tabs | select 2
+kitty @ ls | from json | select tabs
+kitty @ ls | from json | select tabs | get 0
+kitty @ ls | from json | select tabs | get 0 | get 2
+kitty @ ls | from json | select tabs | get 0
+kitty @ ls | from json | select tabs | get 0 | get 0
+kitty @ ls | from json | select tabs | get 0 | describe 
+kitty @ ls | from json | select tabs | get 0 | describe | go json
+kitty @ ls | from json | select tabs | get 0 | describe | to json
+kitty @ ls | from json | select tabs | get 0
+kitty @ ls | from json | select tabs | get 0 | to json
+kitty @ ls | from json | get tabs
+kitty @ ls | from json | get tabs | get 0
+kitty @ ls | from json | get tabs | get 0 | get 2
+kitty @ ls | from json | get tabs | get 0 | get 0
+log-tail2 kitty
+z
+y
+log-tail kitty
+jctlt kitty
+kitty @ ls | from json | get tabs | get 0 | get 0 | to json
+kitty @ ls
+journalt kitty
+y
+kitty @ ls
+kitty @ ls | from json | get tabs 
+kitty @ ls | from json | get tabs | to json
+kitty @ ls | from json | get tabs
+y
+let device = (lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J | from json | get blockdevices | <\n>    each { |dev| <\n>        if "children" in $dev { <\n>            $dev.children <\n>        } else { <\n>            [] <\n>        } <\n>    }<\n>    | flatten <\n>    | where label == "Games"<\n>    | get name <\n>    | get 0?)<\n><\n>print $device
+write-firmware-to-usb 
+write-firmware-vial-to-usb  
+yb
+yayq librewolf-fix-bin
+yayq librewolf
+yayq firefox
+yayq zen
+y
+log-tail kitty
+log-tail2 kitty
+y
+rm kitty_script.log
+y
+git lfs init
+git lfs fetch
+git lfs checkout
+lazygit
+git lfs install
+y
+wl-copy /home/andrei/Work/Panda/Assets/AssetBundle/MainMenu/OfflineActivities/Cover/Image Container_1.png
+/home/andrei/Work/Panda/Assets/AssetBundle/MainMenu/OfflineActivities/Cover/Image Container_1.png | wl-copy
+wl-copy < /home/andrei/Work/Panda/Assets/AssetBundle/MainMenu/OfflineActivities/Cover/Image Container_1.png
+wl-copy < "/home/andrei/Work/Panda/Assets/AssetBundle/MainMenu/OfflineActivities/Cover/Image Container_1.png"
+"/home/andrei/Work/Panda/Assets/AssetBundle/MainMenu/OfflineActivities/Cover/Image Container_1.png" | wl-copy
+"/home/andrei/Work/Panda/Assets/AssetBundle/MainMenu/OfflineActivities/Cover/Image Container_1.png" | wl-copy -p
+echo "/home/andrei/Work/Panda/Assets/AssetBundle/MainMenu/OfflineActivities/Cover/Image Container_1.png" | wl-copy
+echo "/home/andrei/Work/Panda/Assets/AssetBundle/MainMenu/OfflineActivities/Cover/Image Container_1.png" | wl-copy --type image/png
+wl-copy < "/home/andrei/Work/Panda/Assets/AssetBundle/MainMenu/OfflineActivities/Cover/Image Container_1.png" --type image/png
+echo "/home/andrei/Work/Panda/Assets/AssetBundle/MainMenu/OfflineActivities/Cover/Image Container_1.png" | wl-copy --type text/uri-list
+qdbus org.kde.klipper /klipper org.kde.klipper.klipper.setClipboardContents "file:///home/andrei/Work/Panda/Assets/AssetBundle/MainMenu/OfflineActivities/Cover/Image Container_1.png"
+wl-paste --list-types
+wl-paste --clear
+wl-paste -l
+echo $XDG_SESSION_TYPE
+echo env.$XDG_SESSION_TYPE
+echo $env.XDG_SESSION_TYPE
+wl-copy --type image/png < "/home/andrei/Work/Panda/Assets/AssetBundle/MainMenu/OfflineActivities/Cover/Image Container_1.png"
+file "/home/andrei/Work/Panda/Assets/AssetBundle/MainMenu/OfflineActivities/Cover/Image Container_1.png"<\n>ls -la "/home/andrei/Work/Panda/Assets/AssetBundle/MainMenu/OfflineActivities/Cover/Image Container_1.png"
+# Copy the file to /tmp with a simple name<\n>cp "/home/andrei/Work/Panda/Assets/AssetBundle/MainMenu/OfflineActivities/Cover/Image Container_1.png" /tmp/test.png<\n>wl-copy --type image/png < /tmp/test.png
+# Alternative method<\n>cat "/home/andrei/Work/Panda/Assets/AssetBundle/MainMenu/OfflineActivities/Cover/Image Container_1.png" | wl-copy --type image/png
+this worked!
+yayq kanata
+sudo kanata --cfg ~/.config/kanata/your_config.cfg<\n>
+sudo kanata --cfg ~/.config/kanata/gallium.cfg<\n>
+sudo kanata --cfg ~/.config/kanata/Gallium.cfg<\n>
+y
+sudo cp /usr/share/X11/xkb/symbols/us /usr/share/X11/xkb/symbols/kanata
+y
+sudo mv /usr/share/X11/xkb/symbols/kanata /usr/share/X11/xkb/symbols/prometeus
+y
+sudo rm -rf /var/lib/xkb/*
+plasma-logout 
+sudo kanata --cfg ~/.config/kanata/gallium.cfg<\n>
+o
+localectl list-x11-keymap-layouts | grep kanata
+localectl list-x11-keymap-layouts | grep prometeus
+ls /usr/share/X11/xkb/symbols/ | grep kanata
+ls /usr/share/X11/xkb/symbols/ | grep prometeus
+localectl list-x11-keymap-layouts | grep prometeus
+ls /usr/share/X11/xkb/symbols/ | grep prometeus
+# Clear cache<\n>sudo rm -rf /var/lib/xkb/*<\n><\n># Also clear user cache if it exists<\n>rm -rf ~/.cache/xkb/<\n><\n># Trigger udev reload<\n>sudo udevadm trigger --subsystem-match=input --action=change
+localectl list-x11-keymap-layouts | grep prometeus
+# Check evdev.xml<\n>grep -A 10 -B 2 "prometeus" /usr/share/X11/xkb/rules/evdev.xml<\n><\n># Check evdev.lst<\n>grep "prometeus" /usr/share/X11/xkb/rules/evdev.lst
+# Clear system XKB cache<\n>sudo rm -rf /var/lib/xkb/*<\n><\n># Clear user cache<\n>rm -rf ~/.cache/xkb/ 2>/dev/null<\n><\n># Clear any other XKB-related caches<\n>sudo rm -rf /tmp/xkb_* 2>/dev/null
+y
+sudo rm -rf /var/lib/xkb/*<\n>qdbus org.kde.keyboard /Layouts org.kde.KeyboardLayouts.reloadConfig
+sudo xmllint --noout /usr/share/X11/xkb/rules/evdev.xml
+grep -A 15 -B 2 "prometeus" /usr/share/X11/xkb/rules/evdev.xml
+grep "prometeus" /usr/share/X11/xkb/rules/evdev.lst
+# Update base files<\n>sudo cp /usr/share/X11/xkb/rules/evdev.xml /usr/share/X11/xkb/rules/base.xml<\n>sudo cp /usr/share/X11/xkb/rules/evdev.lst /usr/share/X11/xkb/rules/base.lst<\n><\n># Clear cache<\n>sudo rm -rf /var/lib/xkb/*<\n><\n># Reload<\n>qdbus org.kde.keyboard /Layouts org.kde.KeyboardLayouts.reloadConfig
+localectl list-x11-keymap-layouts | grep prometeus
+sudo udevadm trigger --subsystem-match=input --action=change
+# Check available D-Bus methods<\n>qdbus org.kde.keyboard /Layouts<\n><\n># Try to get the layout list from KDE directly<\n>qdbus org.kde.keyboard /Layouts org.kde.KeyboardLayouts.getLayoutsList
+find ~/.cache ~/.config -name "*keyboard*" -o -name "*layout*" 2>/dev/null
+# Check available D-Bus methods for KDE 6<\n>qdbus org.kde.keyboard /Layouts<\n><\n># Try to get the layout list from KDE 6<\n>qdbus org.kde.keyboard /Layouts org.kde.KeyboardLayouts.getLayoutsList
+# Clear KDE 6 caches<\n>rm -rf ~/.cache/kded6_keyboard* 2>/dev/null<\n>rm -rf ~/.cache/ksycoca6* 2>/dev/null<\n>rm -rf ~/.config/kded6rc 2>/dev/null<\n><\n># Force KDE 6 to rebuild its service cache<\n>kbuildsycoca6 --noincremental
+# Check if KDE 6 looks in different locations<\n>find /usr/share/X11/xkb/ -name "*rules*" -type d<\n>ls -la /usr/share/X11/xkb/rules/
+qdbus org.kde.keyboard /Layouts org.kde.KeyboardLayouts.getLayoutsList --literal
+qdbus org.kde.keyboard /Layouts getLayoutsList
+busctl --user call org.kde.keyboard /Layouts org.kde.KeyboardLayouts getLayoutsList
+# Look at KDE's keyboard configuration files<\n>ls ~/.config/ | where name =~ "kxkbrc"<\n>cat ~/.config/kxkbrc
+qdbus --literal org.kde.keyboard /Layouts getLayoutsList
+cat ~/.config/kxkbrc 2>/dev/null || echo "No kxkbrc file found"
+# Stop the keyboard service<\n>systemctl --user stop plasma-kwin_wayland.service<\n><\n># Kill any remaining keyboard-related processes<\n>killall kded6<\n>pkill -f keyboard<\n><\n># Wait a moment<\n>sleep 5<\n><\n># Start the service again<\n>systemctl --user start plasma-kwin_wayland.service
+gasudo kanata --cfg ~/.config/kanata/Gallium.cfg<\n>
+busctl --user call org.kde.keyboard /Layouts org.kde.KeyboardLayouts getLayoutsList
+ls /usr/share/X11/xkb/rules/ | where name =~ "xml"<\n>ls /usr/share/X11/xkb/rules/ | where name =~ "lst"
+# Check if it's in all the rule files<\n>grep "prometeus" /usr/share/X11/xkb/rules/*.lst<\n>grep "prometeus" /usr/share/X11/xkb/rules/*.xml
+ls -la /usr/share/X11/xkb/symbols/prometeus<\n>head -20 /usr/share/X11/xkb/symbols/prometeus
+# Test if the layout compiles properly<\n>setxkbmap -print -layout prometeus
+# Try to force the system to recognize it<\n>sudo localectl set-x11-keymap prometeus,us,ru
+qdbus org.kde.keyboard /Layouts getLayoutsList
+busctl --user call org.kde.keyboard /Layouts org.kde.KeyboardLayouts getLayoutsList
+shutdown now
+busctl --user call org.kde.keyboard /Layouts org.kde.KeyboardLayouts getLayoutsList
+qdbus org.kde.keyboard /Layouts getLayoutsList
+# Test if the layout compiles properly<\n>setxkbmap -print -layout prometeus
+grep -r colemak ~/.config/<\n>
+localectl status<\n>
+grep -r colemak /usr/share/X11/xkb/symbols/<\n>
+localectl status<\n>
+y
+ps aux | grep kanata<\n>pgrep kanata
+ps | grep kanata<\n>pgrep kanata
+# Check if any other keyboard remapping tools are running<\n>ps aux | grep -E "(kanata|kmonad|xmodmap|xcape)"
+# Check if any other keyboard remapping tools are running<\n>ps | grep -E "(kanata|kmonad|xmodmap|xcape)"
+# Check running processes for keyboard tools<\n>ps | where name =~ "kanata|kmonad|xmodmap|xcape"
+# Check if any systemd services are running<\n>systemctl --user list-units | where name =~ "kanata|kmonad"<\n>sudo systemctl list-units | where name =~ "kanata|kmonad"
+# Check if there are any keyboard-related background processes<\n>ps | where command =~ "keyboard"
+# Check current keyboard settings<\n>localectl status
+# Check what layout is currently active<\n>setxkbmap -query
+# Remove the colemak variant that's currently active<\n>setxkbmap -layout us,ru -variant ,
+# Set the layout to match what localectl shows<\n>setxkbmap -layout prometeus,us,ru
+# Make sure the system uses your prometeus layout<\n>sudo localectl set-x11-keymap prometeus,us,ru
+# Look for any configuration files that might have set colemak_dh_ortho<\n>grep -r "colemak" ~/.config/<\n>grep -r "colemak" /etc/X11/
+grep -r "colemak" /etc/X11/
+xev
+kitty --debug-keyboard
+sudo rm -rf /var/lib/xkb/*
+# Check what layout is currently active<\n>setxkbmap -query
+# Check current keyboard settings<\n>localectl status
+vi /usr/X11/include/X11/keysymdef.h
+cd /usr/X11/include/X11/
+xev
+yayq xev
+wev
+kitty --debug-keyboard
+wev
+sudo rm -rf /var/lib/xkb/*
+shutdown now
+sysupdate 
+shutdown now
+y
+y
+shutdown now
+wev
+y
+convert_to_ktx.sh "/home/andrei/Work/Panda/Ktx" "/home/andrei/Work/PrintoutsPacks/Hygiene_Habits" "--lower_left_maps_to_s0t0 --bcmp"
+sh convert_to_ktx.sh "/home/andrei/Work/Panda/Ktx" "/home/andrei/Work/PrintoutsPacks/Hygiene_Habits" "--lower_left_maps_to_s0t0 --bcmp"
+sudo sh convert_to_ktx.sh "/home/andrei/Work/Panda/Ktx" "/home/andrei/Work/PrintoutsPacks/Hygiene_Habits" "--lower_left_maps_to_s0t0 --bcmp"
+convert_to_ktx.sh "/home/andrei/Work/Panda/Ktx" "/home/andrei/Work/PrintoutsPacks/Hygiene_Habits" "--lower_left_maps_to_s0t0 --bcmp"
+sudo sh convert_to_ktx.sh "/home/andrei/Work/Panda/Ktx" "/home/andrei/Work/PrintoutsPacks/Hygiene_Habits" "--lower_left_maps_to_s0t0 --bcmp"
+y
+toktx --help
+y
+toktx
+ls
+sudo sh convert_to_ktx2.sh "/home/andrei/Work/Panda/Ktx" "/home/andrei/Work/PrintoutsPacks/Hygiene_Habits" "--lower_left_maps_to_s0t0 --bcmp"
+sudo sh convert_to_ktx_2.sh "/home/andrei/Work/Panda/Ktx" "/home/andrei/Work/PrintoutsPacks/Hygiene_Habits" "--lower_left_maps_to_s0t0 --bcmp"
+sudo sh convert_to_ktx2.sh "/home/andrei/Work/Panda/Ktx" "/home/andrei/Work/PrintoutsPacks/Hygiene_Habits" "--lower_left_maps_to_s0t0 --bcmp"
+sudo sh convert_to_ktx.sh "/home/andrei/Work/Panda/Ktx" "/home/andrei/Work/PrintoutsPacks/Hygiene_Habits" "--lower_left_maps_to_s0t0 --bcmp"
+# Check if the file exists and its size<\n>ls -la /home/andrei/Work/Panda/Ktx/lib/libktx.so.4<\n><\n># Check the file type<\n>file /home/andrei/Work/Panda/Ktx/lib/libktx.so.4<\n><\n># Check if it's a valid ELF file<\n>readelf -h /home/andrei/Work/Panda/Ktx/lib/libktx.so.4 2>&1 | head -5
+which toktx
+which ktx
+yayq ktx
+sudo sh convert_to_ktx.sh "/home/andrei/Work/Panda/Ktx" "/home/andrei/Work/PrintoutsPacks/Hygiene_Habits" "--lower_left_maps_to_s0t0 --bcmp"
+sysupdate 
+shutdown now
+y
+svi prometeus
+malee613
+sysupdate 
+y
+ls **/*.{png,jpeg,jpg,psd} | sort-by size
+ls **/*.{png,jpg,jpeg,psd} | sort-by size
+ls **/* | where name =~ '\.(png|jpg|jpeg|psd)$'
+# Затем отфильтровать нужные расширения<\n>ls **/* | where name =~ '\.(png|jpg|jpeg|psd)$' | sort-by size
+ls **/* | where name =~ '\.(png|jpg|jpeg|psd)$' | get size | math sum
+y
+yayq mint-y-icons
+sysupdate 
+yayr mint-y-icons
+shutdown now
+.cache/Unity/upm
+y
+shutdown now
+yayq discord
+sysupdate 
+shutdown now
+mac
+yayq discord
+macmini 
+shutdown now
+y
+pwd
+;
+y
+qmk compile -kb keyball/keyball39 -km vial
+y
+make SKIP_GIT=yes keyball/keyball39:vial
+cd -
+make SKIP_GIT=yes keyball/keyball39:vial
+y
+make SKIP_GIT=yes keyball/keyball39:vial
+y
+y
+sysupdate 
+y
+sysupdate 
+y
+bat App.config
+bat ideavim.rc
+y
+bat ".ideavimrc"
+y
+bat "CafeAnalytic.cs"
+ya pkg add pirafrank/what-size
+y
+printf "\e]66;s=2;Double sized text\a\n\n"
+printf "\e]66;n=1:d=2;Half sized text\a\n"
+printf "\e]66;n=1:d=2:w=1;Ha\a\e]66;n=1:d=2:w=1;lf\a\n"
+.
+hyprctl devices
+sysupdate 
+sysupdate
+shutdown now
+sysupdate
+plasma-logout 
+sudo netstat -tunelp | grep -i kdeconnect
+yayq netstat
+sudo netstat -tunelp | grep -i kdeconnect
+fist
+yayr netstat
+yayr netstat-nat
+sudo netstat -tunelp | grep -i kdeconnect
+sudo ss -tunelp | grep kdeconnect<\n>
+sudo ufw status<\n>
+sudo ufw allow 1714:1764/udp<\n>sudo ufw allow 1714:1764/tcp<\n>
+sudo ufw reload<\n>
+sudo ufw status<\n>
+kdeconnect-cli -l<\n>
+ping <phone-ip><\n>
+kdeconnect-cli -l<\n>
+ping 192.168.1.36
+ip a<\n>
+yay -Sy && yay -S hyprland-per-window-layout
+yay -S hyprland-per-window-layout
+pkill -SIGUSR2 waybar<\n>
+hyprctl devices
+ps | grep steam
+ps
+ps | grep bash
+ps | grep steam
+yayq augram
+yayq ayugram
+yayr ayugram-desktop
+pkill -SIGUSR2 waybar
+hyprctl devices<\n>
+hyprctl input<\n>
+pkill -SIGUSR2 waybar
+ls -l /usr/share/X11/xkb/rules/evdev.xml<\n>xmllint /usr/share/X11/xkb/rules/evdev.xml<\n>
+xmllint /usr/share/X11/xkb/rules/evdev.xml<\n>
+hyprctl input<\n>
+hyprctl devices<\n>
+ps | grep vivaldi
+audio.nu sinks
+audio.nu switch
+ps | grep steam
+yayq hyprpicker
+hyprpicker
+hyprpicker --help
+grim 
+grim -g "$(slurp)"
+slurp
+grim -g "$(slurp)"
+spectacle 
+satty
+yayq satty
+grimblast --freeze save area - | satty --output-filename /tmp/screenshot.png --initial-tool brush --copy-command wl-copy --save-after-copy --early-exit --filename -
+satty
+grimblast --freeze save area - | satty --output-filename /tmp/screenshot.png --initial-tool brush --copy-command wl-copy --save-after-copy --early-exit --filename -
+satty -c
+grimblast --freeze save area - | satty --output-filename /tmp/screenshot.png --initial-tool brush --copy-command wl-copy --save-after-copy --early-exit --filename -
+satty
+satty -
+satty -f -
+grimblast --freeze save area -
+grimblast --freeze save area - | satty --filename -
+dophin
+dophine
+dolphin 
+pkill waybar && waybar &<\n>
+pkill waybar; waybar &<\n>
+pkill waybar; waybar
+waybar
+waybar &
+kill (pgrep waybar); waybar &<\n>
+waybar &<\n>
+job spawn {waybar}
+job list
+job kill 1
+job list
+job spawn {waybar}
+shutdown now
+hyprctl clients
+git lfs init
+git lfs checkout
+y
+git lfs checkout
+git lfs status
+git lfs reset --hard
+git lfs install
+git reset --hard
+y
+plasma-logout 
+hyprctl clients
+ps | grep steam
+ps | grep slack
+kill (pgrep slack)<\n>
+kill 452<\n>
+kill 2636570
+ps | grep slack
+ps
+ps | grep slack
+kill 2636563
+hyprctl clients
+hyprctl monitors
+hyprctl clients
+sudo systemctl edit --force --full hyprland.target<\n>
+sudo systemctl enable hyprland.target<\n>
+journalctl -b -1<\n>
+journalctl -b -1 -p err
+sudo nano /etc/systemd/system/hyprland.service<\n>
+cd /etc/systemd/system/
+ls
+sudo yazi
+sudo systemctl daemon-reload<\n>
+y
+grimblast --freeze save area - | satty --filename -
+y
+ls
+nvim hyprland.conf
+y
+mkdir sddm-profiles
+su mkdir sddm-profiles
+sudo mkdir sddm-profiles
+git-panda1 
+yy
+y
+rm hyprland.conf
+sudo rm hyprland.conf
+cd --
+y
+nvim hyprland.conf
+nvim 90-plasma.conf
+nvim hyprland.conf
+nvim 90-hyprland.conf
+y
+rm hyprland.conf
+sudo rm hyprland.conf
+y
+vi sddm-autologin-switch.service
+sudo systemctl enable sddm-autologin-switch.service<\n>
+y
+journalctl -b -1 -p err
+sysupdate
+shutdown now
+cat /proc/cmdline<\n>
+ls -l /etc/sddm.conf.d/<\n>
+cat /etc/sddm.conf.d/90-autologin.conf<\n>
+sudo mv /etc/sddm.conf.d/90-autologin.conf /etc/sddm.conf.d/zz-autologin.conf<\n>
+ls -l /etc/sddm.conf.d/<\n>
+grep -R Session /etc/sddm.conf.d/<\n>
+shutdown now
+obs
+yayq obs
+wf-recorder -g "$(slurp)"
+yayq wf-recorder
+y
+git clone https://gitlab.com/csmarckitus1/photoshop.git
+y
+make
+gcc -ggdb3 -O0 -std=c99 -Wall -Werror -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wshadow -pedantic -w -o Photoshop2020 Photoshop.c ./scripts/Requirements.c ./scripts/Installer.c ./scripts/Cameraraw.c ./scripts/Configure.c ./scripts/Uninstaller.c ./Photoshop2020
+y
+Photoshop2020
+sudo pacman -S valgrind
+y
+make 
+make
+yayr valgrind
+y
+wine "Photoshop.exe"
+yayq icoutils
+wrestool -x -t 14 "/mnt/Windows/Program Files/Adobe/Adobe Photoshop CC 2017/Photoshop.exe" > photoshop.ico
+i
+y
+switch-to-hyprland.sh 
+shutdown now
+switch-to-hyprland.sh 
+ps | grep kde
+walland -s bing
+yayq hyprpaper
+walland -s bing
+xdg-open https://www.youtube.com/shorts/chWd51no7Ps
+xdg-open -h
+xdg-open --help
+man xdg-open
+xdg-settings 
+xdg-settings --help
+xdg-settings check
+xdg-settings check default-web-browser
+: xdg-mime query default x-scheme-handler/https
+pkill waybar && waybar &
+pkill waybar and waybar &
+pkill waybar
+waybar &<\n>
+hyprctl devices
+waybar
+hyprctl switchxkblayout yowkees-keyball39 prometeus
+hyprctl switchxkblayout yowkees-keyball39 us
+xmllint --noout /usr/share/X11/xkb/rules/evdev.xml
+grep prometeus /usr/share/X11/xkb/rules/evdev.xml
+waybar --log-level debug > waybar_debug.log 2>&1<\n>grep -i "language\|xkb" waybar_debug.log
+waybar --log-level debug out> waybar_debug.log err> waybar_debug.log
+open waybar_debug.log | lines | where ($it | str contains -i "language") || ($it | str contains -i "xkb")
+open waybar_debug.log | lines | where ($it | str contains -i "language")
+hyprctl switchxkblayout 0 0
+hyprctl switchxkblayout 0 1
+hyprctl switchxkblayout yowkees-keyball39 0  # prometeus
+hyprctl switchxkblayout yowkees-keyball39 1  # ru
+hyprctl devices
+hyprctl monitors
+waybar
+systemctl hibernate
+systemctl suspend<\n>
+btop
+ip link
+nmcli device status
+sudo systemctl restart NetworkManager
+nmcli radio wifi on
+nmcli device wifi list
+nmcli device wifi connect "483/135 2.4G"
+nmcli device wifi connect "483/135 2.4G" password 909909909
+nmcli device wifi connect "483/135 2.4G" password "909909909"
+nmcli device wifi connect "483/135 5G" password "909909909"
+nmcli device wifi connect 94:46:96:F3:E6:41 password "909909909"
+nmcli device wifi connect 94:46:96:F3:E6:41 password "909909909" --ask
+nmcli connection add type wifi ifname wlan con-name mywifi \
+nmcli connection add type wifi ifname wlan con-name mywifi \ssid "483/135 5G" \wifi-sec.key-mgmt wpa-psk \wifi-sec.psk "909909909"
+nmcli connection add type wifi ifname wlan con-name mywifi ssid "483/135 5G" wifi-sec.key-mgmt wpa-psk wifi-sec.psk "909909909"
+nmcli connection up mywifi
+switch-to-plasma.sh 
+yayq rofi
+yayr rofi
+commandline edit --insert (<\n>          history<\n>          | get command<\n>          | reverse<\n>          | uniq<\n>          | str join (char -i 0)<\n>          | fzf --scheme=history <\n>              --read0<\n>              --layout=reverse<\n>              --height=40%<\n>              --bind 'ctrl-/:change-preview-window(right,70%|right)'<\n>              --preview='echo -n {} | nu --stdin -c \'nu-highlight\''<\n>              # Run without existing commandline query for now to test composability<\n>              # -q (commandline)<\n>          | decode utf-8<\n>          | str trim<\n>        )
+<\n>          history<\n>          | get command<\n>          | reverse<\n>          | uniq<\n>          | str join (char -i 0)<\n>          | fzf --scheme=history <\n>              --read0<\n>              --layout=reverse<\n>              --height=40%<\n>              --bind 'ctrl-/:change-preview-window(right,70%|right)'<\n>              --preview='echo -n {} | nu --stdin -c \'nu-highlight\''<\n>              # Run without existing commandline query for now to test composability<\n>              # -q (commandline)<\n>          | decode utf-8<\n>          | str trim
+<\n>          history<\n>          | get command<\n>          | reverse<\n>          | uniq<\n>          | str join (char -i 0)<\n>          | fzf --scheme=history <\n>              --read0<\n>              --layout=reverse<\n>              --height=40%<\n>              --preview='echo -n {} | nu --stdin -c \'nu-highlight\''<\n>              # Run without existing commandline query for now to test composability<\n>              # -q (commandline)<\n>          | decode utf-8<\n>          | str trim
+<\n>          history<\n>          | get command<\n>          | reverse<\n>          | uniq<\n>          | str join (char -i 0)<\n>          | fzf --scheme=history <\n>              --read0<\n>              --layout=reverse<\n>              --height=40%<\n>              --preview='echo -n {} | nu --stdin -c \'nu-highlight\''<\n>              # Run without existing commandline query for now to test composability<\n>              # -q (commandline)<\n>          | str trim
+<\n>          history<\n>          | get command<\n>          | reverse<\n>          | uniq<\n>          | str join (char -i 0)<\n>          | fzf --scheme=history <\n>              --read0<\n>              --layout=reverse<\n>              --height=40%<\n>              --preview='echo -n {} | nu --stdin -c \'nu-highlight\''<\n>              # Run without existing commandline query for now to test composability<\n>              -q (commandline)<\n>          | str trim
+cd work
+cd Panda1/
+cd Panda1
+switch-to-plasma.sh 
+switch-to-hyprland.sh 
+switch-to-hyprland.sh
+walland -s bing
+systemctl --user restart waybar
+hyprctl reload
+pkill waybar
+waybar
+hyprctl monitors
+hyprctl reload
+hyprctl dispatch exit
+pkill waybar
+xmllint --noout /usr/share/X11/xkb/rules/evdev.xml
+sudo dpkg-reconfigure xkb-data
+# Clear XKB cache<\n>sudo rm -rf /var/lib/xkb/*
+setxkbmap ru
+ls -la /usr/share/X11/xkb/symbols/prometeus
+# Check both possible locations<\n>grep -A 8 -B 2 "prometeus" /usr/share/X11/xkb/rules/evdev.xml<\n>grep -A 8 -B 2 "prometeus" /usr/share/xkeyboard-config-2/rules/evdev.xml
+find /usr/share -name "evdev.xml" 2>/dev/null<\n>find /usr/share -name "base.xml" 2>/dev/null
+ls /usr/share/**/**/evdev.xml | where type == file<\n>ls /usr/share/**/**/base.xml | where type == file
+pkill waybar
+open waybar_debug.log | lines | where ($it | str contains -i "language")
+nmcli connection up mywifi
+ip link show
+nmcli device status
+nmcli connection show mywifi
+nmcli connection modify mywifi connection.interface-name wlan0<\n># Replace 'wlan0' with whatever your actual interface name is
+nmcli connection show mywifi
+nmcli connection up mywifi
+nmcli device status
+nmcli connection show mywifi | grep autoconnect
+waybar --log-level debug out> waybar_debug.log err> waybar_debug.log
+open waybar_debug.log | lines | where ($it | str contains -i "language")
+hyprctl -j activeworkspace | jq -r '.lastwindow' 2>/dev/null
+hyprctl -j activeworkspace
+yayq mako
+svi prometeus
+malee613
+sudo nvim "prometeus"
+shutdown now
+yayq mako
+notify-send "hello"
+notify-send -u critical \<\n>  "This is a critical message\!" \<\n>  "OK, that was just a demo ;)"
+notify-send -u normal "hello world\!" "This is a normal message"<\n> 
+notify-send -u normal "This is a normal message"<\n> 
+notify-send -u critical "This is a normal message"<\n> 
+hyprctl notify -1 10000 "rgb(ff1ea3)" "Hello everyone!"
+hyprctl layouts
+yayq hyprland-plugins
+hyprctl reload
+hyprctl workspaces
+hyprctl wi
+hyprctl clients
+hyprctl layouts
+hyprctl clients
+notify-send -u critical "This is a normal message"<\n> 
+notify-send -u critical "This is a normal message"<\n>makoctl reload 
+notify-send -u critical "This is a normal message"<\n> 
+notify-send -u normal "This is a normal message"<\n> 
+notify-send -u critical "This is a normal message"<\n>makoctl reload 
+hyprctl monitors
+makoctl reload
+notify-send -u critical "This is a normal message"<\n>makoctl reload 
+notify-send -u normal "This is a normal message"
+makoctl reload
+notify-send -u normal "This is a normal message"
+makoctl reload
+notify-send -u normal "This is a normal message"
+hyprctl plugin list
+hyprpm update
+hyprpm add https://github.com/hyprwm/hyprland-plugins
+hyprpm list
+hyprpm enable hyprexpo
+makoctl reload
+notify-send -u normal "This is a normal message"
+hyprpm enable hyprtrails
+hyprpm enable Hyprspace
+hyprpm enable hyprspace
+hyprpm list
+hyprpm add https://github.com/KZDKM/Hyprspace
+hyprpm enable Hyprspace
+hyprpm enable hyprexpo
+hyprpm -h
+hyprpm disable hyprtrails
+hyprctl binds
+i
+chmod +x "layout-switch.sh"
+xdg-open https://imgur.com/7t27GZu
+xdg-settings get default-web-browser<\n>
+nano ~/.local/share/applications/vivaldi-stable.desktop<\n>
+vi ~/.local/share/applications/vivaldi-stable.desktop<\n>
+update-desktop-database ~/.local/share/applications<\n>
+xdg-settings set default-web-browser vivaldi-stable.desktop<\n>
+xdg-open https://imgur.com/7t27GZu
+xdg-mime query default text/html
+xdg-settings get default-web-browser
+find /usr/share/applications/ ~/.local/share/applications/ -name "*vivaldi*" -type f
+cat > ~/.local/share/applications/my-vivaldi.desktop << EOF<\n>[Desktop Entry]<\n>Version=1.0<\n>Name=My Vivaldi<\n>Comment=Access the Internet<\n>GenericName=Web Browser<\n>Keywords=web;browser;internet;<\n>Exec=/usr/bin/vivaldi-stable --ozone-platform=wayland --password-store=kwallet6 --profile-directory="Default" --new-window %U<\n>Terminal=false<\n>X-MultipleArgs=false<\n>Type=Application<\n>Icon=vivaldi<\n>Categories=Network;WebBrowser;<\n>MimeType=x-scheme-handler/http;x-scheme-handler/https;text/html;<\n>StartupNotify=true<\n>StartupWMClass=vivaldi-stable<\n>EOF
+XDG_UTILS_DEBUG_LEVEL=2 xdg-open https://imgur.com/7t27GZu
+update-desktop-database ~/.local/share/applications/
+xdg-settings set default-web-browser my-vivaldi.desktop
+XDG_UTILS_DEBUG_LEVEL=2 xdg-open https://imgur.com/7t27GZu
+cat ~/.config/mimeapps.list
+ps aux | grep vivaldi
+ps | grep vivaldi
+xdg-open https://imgur.com/7t27GZu
+cd scripts/
+chmod +x "logoutlaunch.sh"
+switch-to-plasma.sh 
+wlsunse
+~/.scripts/audio.nu current
+~/.scripts/audio.nu current-name
+~/.scripts/audio.nu switch
+fix-hdr-colors.sh
+chmod +x "fix-hdr-colors.sh"
+fix-hdr-colors.sh
+/home/andrei/.config/hypr/scripts/fix-hdr-colors.sh
+fix-hdr-colors.sh
+/home/andrei/.config/hypr/scripts/fix-hdr-colors.sh
+y
+sudo systemctl enable fix-hdr-colors.service
+sudo systemctl start fix-hdr-colors.service
+sudo systemctl status fix-hdr-colors.service
+sudo systemctl disable fix-hdr-colors.service
+sudo systemctl enable fix-hdr-colors.service
+sudo systemctl start fix-hdr-colors.service
+sudo systemctl status fix-hdr-colors.service
+sudo systemctl disable fix-hdr-colors.service
+sudo systemctl enable fix-hdr-colors.service
+ps | grep walland
+walland -s bing
+y
+yayq unity-hub
+sysupdate
+ls **/* | where type == file | length
+cd Assets/
+ls **/* | where type == file | length
+y
+ls **/* | where name =~ "(?i)\.(png|jpe?g)$" | length
+ls **/*.{png,PNG,jpg,JPG,jpeg,JPEG} | length
+# This will work even if no files are found (returns 0)<\n>ls **/* | where name =~ "(?i)\.(png|jpe?g)$" | length
+# Raw string approach - this should work<\n>ls **/* | where name =~ r#"(?i)\.(png|jpe?g)$"# | length
+# Check if filename (lowercased) ends with image extensions<\n>ls **/* | where type == file | where ($it.name | str downcase) =~ "\\.png$|\\.jpe?g$" | length
+kitty @ list-keymaps
+grep "^map" ~/.config/kitty/kitty.conf<\n>
+sysupdate
+yayq unityhub
+yayq unity
+ladybird
+yayq ladybird
+sysupdate
+shutdown now
+/home/andrei/.config/hypr/scripts/fix-hdr-colors.sh
+sysupdate
+shutdown now
+inxi -Fza
+journalctl | grep -i ghostty
+kcmshell5 qtquicksettings
+kcmshell6 qtquicksettings
+ya pack -a tasnimAlam/thumbnail
+yayq swayimg
+y
+duf
+disk-usage 
+;
+git checkout --ours $(git diff --name-only --diff-filter=U)
+git checkout --ours (git diff --name-only --diff-filter=U | str trim | str collect " ")<\n>
+git checkout --ours (git diff --name-only --diff-filter=U | str trim | str collect --sep " ")<\n>
+git checkout --ours (git diff --name-only --diff-filter=U | str trim | str join " ")
+git add (git diff --name-only --diff-filter=U)
+git diff --name-only --diff-filter=U | str trim | str join " "
+git diff --name-only --diff-filter=U | each { |file| git checkout --ours $file }
+git diff --name-only --diff-filter=U | each { |file| git checkout --ours $"($file)" }
+git diff --name-only --diff-filter=U | each { |file| <\n>    echo $"Processing: ($file)"<\n>    git checkout --ours $file<\n>}
+git diff --name-only --diff-filter=U -z | split row (char null) | where ($it != "") | each { |file| <\n>    echo $"Processing: ($file)"<\n>    git checkout --ours $file<\n>}
+git diff --name-only --diff-filter=U | each { |file| echo $"File: '($file)'" }
+git diff --name-only --diff-filter=U
+git diff --name-only --diff-filter=U | lines | each { |file| git checkout --ours $file }
+git diff --name-only --diff-filter=U | lines
+sysupdate
+shutdown now
+hyprctl clients
+hyprctl monitors
+hyprctl activewindow | grep pid | awk
+hyprctl activewindow | grep pid
+hyprctl activewindow | from yaml | get dip
+hyprctl activewindow | from yaml | get pid
+hyprctl activewindow | from yaml 
+hyprctl activewindow
+hyprctl activewindow | grep pid
+hyprctl activewindow | grep pid | awk '{print $2}'<\n>
+hyprctl activewindow | grep pid | awk '{print $1}'<\n>
+hyprctl activewindow | grep pid | awk '{print $2}'<\n>
+ps | grep telegram
+ps
+gpep | fzf
+grep | fzf
+ps | fzf
+ps | grep Telegram
+hyprctl activewindow | grep pid | awk '{print $2}'<\n>
+pkill 5337
+ps | grep Telegram
+ps | fzf
+hyprctl activewindow | grep pid | awk '{print $2}'<\n>
+ps | fzf
+pkill -TERM -P 397685
+ps | fzf
+hyprctl devices
+hyprctl activeworkspace
+hyprctl clients
+hyprctl configerrors
+hyprctl clients
+hyprctl clients | grep -A 20 "class: Unity"
+hyprctl workspaces
+hyprctl configerrors
+hyprctl clients
+hyprpm add https://github.com/zakk4223/hyprWorkspaceLayouts
+hyprpm enable hyprWorkspaceLayouts
+hyprctl dispatch layoutmsg setlayout master
+hyprctl dispatch layoutmsg setlayout dwindle
+ps | fzf
+ps -u $USER -o pid,comm,args | fzf | awk '{print $1}' | xargs kill -9<\n>
+ps | fzf | get pid | each { kill $in }<\n>
+e
+ps | fzf | get pid | each { kill $in }<\n>
+ps -ef | fzf --ansi
+ps -aux | fzf --ansi
+hyprctl clients
+hyprctl activeworkspace
+hyprctl workspaces -j | jq '.[].name, .[].layout'
+hyprctl workspaces | grep -A 5 "workspace name:Unity"
+# Watch workspace changes in real-time<\n>hyprctl --batch "workspaces; activeworkspace"
+hyprctl dispatch workspace-layouts:help
+hyprctl dispatch layoutmsg mfact 0.8
+hyprctl dispatch layoutmsg wslyout-mfact 0.8
+hyprctl dispatch layoutmsg wslayout-mfact 0.8
+hyprland-dialog 
+ю
+hyprctl kill
+hyprctl layouts
+hyprctl switchxkblayout yowkees-keyball39 1  # ru
+hyprctl switchxkblayout yowkees-keyball39 2
+hyprctl switchxkblayout yowkees-keyball39 0
+pkill waybar
+waybar
+pkill waybar
+waybar
+hyprctl dispatch resizeactive -100 0
+hyprctl dispatch resizeactive 100 0
+hyprctl dispatch resizeactive 600 0
+hyprctl dispatch resizeactive 1200 0
+hyprctl dispatch resizeactive 1100 0
+hyprctl dispatch resizeactive 100 0
+hyprctl dispatch resizeactive 1000 0
+hyprctl dispatch resizeactive 1100 0
+hyprctl dispatch resizewindowpixel, exact 50% 70%, resizewindowpixel, exact 50% 70%
+hyprctl dispatch resizewindowpixel exact 50% 70%
+hyprctl dispatch resizewindowpixel exact 50% 70% title:^(Explorer)$
+hyprctl dispatch resizewindowpixel  exact 50% 70%, title:^(Explorer)$
+hyprctl dispatch resizewindowpixel exact 50% 70%, title:^(Explorer)$
+hyprctl dispatch resizewindowpixel exact 50% 70%
+hyprctl dispatch focuswindow "title:^(Explorer)$"<\n>hyprctl dispatch resizeactive exact 50% 70%
+hyprctl dispatch focuswindow "title:^(Explorer)$"<\n>hyprctl dispatch resizewindowpixel exact 50% 70%
+<\n>hyprctl dispatch resizewindowpixel exact 50% 70% "title:^(Explorer)$"
+hyprctl dispatch resizewindowpixel exact 50% 70% "title:^(Explorer)$"
+hyprctl dispatch focuswindow "title:^(Explorer)$"<\n>hyprctl dispatch resizeactive exact 50% 70%
+hyprctl dispatch focuswindow "title:^(Explorer)$"<\n>hyprctl dispatch resizeactive exact -50% 70%
+hyprctl dispatch focuswindow "title:^(Explorer)$"<\n>hyprctl dispatch resizeactive exact 50% 70%
+hyprpm disable wslayout
+hyprpm disable hyprWorkspaceLayouts
+waybar
+hyprctl dispatch focuswindow "title:^(Explorer)$"<\n>hyprctl dispatch resizeactive exact 50% 70%
+hyprctl dispatch focuswindow "title:^(Explorer)$"<\n>hyprctl dispatch resizeactive exact 10% 70%
+hyprctl dispatch focuswindow "title:^(Explorer)$"<\n>hyprctl dispatch resizeactive exact 90% 70%
+hyprctl dispatch focuswindow "title:^(Explorer)$"<\n>hyprctl dispatch resizeactive exact 92% 70%
+hyprctl notify -1 10000 "rgb(ff1ea3)" "Hello everyone!"
+cd scripts/
+window-watcher.sh
+y
+chmod +x "window-watcher.sh"
+window-watcher.sh
+y
+hyprctl clients
+echo $env.HYPRLAND_INSTANCE_SIGNATURE
+cd scripts/
+y
+/home/andrei/.config/hypr/scripts/window-watcher.sh
+hyprctl clients
+/home/andrei/.config/hypr/scripts/window-watcher.sh
+hyprctl clients -j | from json
+hyprctl clients -j
+hyprctl clients
+window-selection.nu
+chmod +x "window-selection.nu"
+window-selection.nu
+./window-selection.nu
+hyprctl clients -j | from json
+./window-selection.nu
+wofi --show=dmenu
+yayq hyprshot
+hyprshot 
+hyprshot -m region
+hyprshot -m region --clipboard-only
+hyprshot -m region -d --clipboard-only
+hyprctl clients
+/home/andrei/.config/hypr/scripts/window-watcher.sh
+hyprctl clients -j | from json
+hyprctl clients -j
+hyprctl clients
+hyprctl dispatch resizewindowpixel exact 30% 100%, "title:^(Start Page - Vivaldi)$"
+hyprctl dispatch resizewindowpixel exact 40% 100%, "title:^(Start Page - Vivaldi)$"
+hyprctl dispatch resizewindowpixel exact 100% 100%, "title:^(Start Page - Vivaldi)$"
+hyprctl dispatch resizewindowpixel exact 30% 100%, "title:^(Start Page - Vivaldi)$"
+hyprctl dispatch resizewindowpixel exact 50% 100%, "title:^(Start Page - Vivaldi)$"
+yayq hyprland-settings
+# Check conflicts for cachyos-hyprland-settings<\n>pacman -Si cachyos-hyprland-settings | grep Conflicts<\n><\n># Check conflicts for cachyos-kde-settings  <\n>pacman -Si cachyos-kde-settings | grep Conflicts
+pacman -Si cachyos-hyprland-settings | grep Provides<\n>pacman -Si cachyos-kde-settings | grep Provides
+expac '%n: %H' cachyos-hyprland-settings cachyos-kde-settings
+pacman -Ql cachyos-kde-settings | head -20<\n>pacman -Fl cachyos-hyprland-settings | head -20
+macmini 
+cat /etc/systemd/logind.conf
+cat ~/.config/systemd/user/logind.conf
+loginctl show-session $(loginctl | grep $(whoami) | awk '{print $1}') -p HandlePowerKey
+loginctl show-session (loginctl | lines | where $it =~ (whoami | str trim) | first | split row | get 0) -p HandlePowerKey
+let session_id = (loginctl | lines | where $it =~ (whoami | str trim) | first | split row | get 0)<\n>loginctl show-session $session_id -p HandlePowerKey
+let username = (whoami | str trim)<\n>let session_id = (loginctl | lines | parse "{session} {uid} {user} {seat} {tty}" | where user == $username | get session | first)<\n>loginctl show-session $session_id -p HandlePowerKey
+let session_id = (loginctl | lines | where $it =~ (whoami | str trim) | first | split row ' ' | get 0)<\n>loginctl show-session $session_id -p HandlePowerKey
+loginctl show-session -p HandlePowerKey
+journalctl | grep -i hyprland
+fix-hdr-colors.sh
+/home/andrei/.config/hypr/scripts/fix-hdr-colors.sh
+journalctl | grep -i wofi
+log-tail2 wofi
+journalt wofi
+ps -aux | fzf --ansi
+ps | fzf --ansi
+wofi --normal-window drun
+wofi --normal-window --show drun
+y
+wev<\n>
+yayq msbuild
+yayq nmapplet
+yayq nm-apllet
+yayq nm-applet
+yayq applet
+yayq android-udev
+yayq android-tools
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+adb devices
+adb logcat
+adb logcat -s Unity<\n>
+adb logcat -v time | grep --line-buffered -e "FATAL EXCEPTION" -e "crash"<\n>
+adb logcat -v time | grep --line-buffered "com.intellectokids.academy"<\n>
+adb logcat -v time AndroidRuntime:E libc:F Unity:I *:S<\n>
+hyprctl activeworkspace
+hyprctl descriptions
+hyprctl clients
+hyprctl layouts
+hyprctl rollinglog
+wev<\n>
+hyprctl activewindow | grep submap
+y
+hyprctl clients
+hyprctl workspaces
+wev<\n>
+btop
+shutdown now
+wev
+hyprctl clients
+hyprctl activeworkspace
+hyprctl clients
+sysupdate
+ps | fzf --ansi
+yayq hyprsunset
+git diff --name-only --diff-filter=U | lines | each { |file| git checkout --ours $file }
+git diff --name-only --diff-filter=U | lines
+git diff --name-only --diff-filter=U | lines | each { |file| git checkout --ours $file }
+sysupdate
+ps | fzf --ansi
+ю
+vial
+git lfs init
+git lfs checkout
+git lfs fetch
+y
+git lfs checkout
+ю
+$devices.keyboards | where main == true | first | get active_keymap)
+(hyprctl devices -j | from json).keyboards | where main == true | first | get active_keymap)
+((hyprctl devices -j | from json).keyboards | where main == true | first | get active_keymap)
+./keyboard_layout.nu flag
+./keyboard_layout.nu name
+((hyprctl devices -j | from json).keyboards | where main == true | first | get active_keymap)
+./keyboard_layout.nu get_layout_name
+./keyboard_layout.nu flag
+./keyboard_layout.nu current-flag
+./keyboard_layout.nu current-name
+($active_keymap | str contains "ru" or $active_keymap | str contains "Russian")
+./keyboard_layout.nu current-name
+hyprctl clients
+./layout-per-window.nu display
+chmod +x "layout-per-window.nu"
+./layout-per-window.nu display
+./layout-per-window.nu store
+./layout-per-window.nu list
+./layout-per-window.nu restore
+./layout-per-window.nu list
+./layout-per-window.nu restore
+open window-layouts.json
+open window-layouts.json | from json
+./layout-per-window.nu restore
+cat ~/.config/hyprland/window-layouts.json
+cat ~/.config/hypr/window-layouts.json
+./layout-per-window.nu restore
+("~/.config/hypr/window-layouts.json" | path expand)
+./layout-per-window.nu restore
+yayq hue
+git clone --recursive git://github.com/BradyBrenot/huestacean.git<\n>cd huestacean
+$(main_keyboards)
+$main_keyboards
+./layout-per-window.nu switch
+/home/andrei/.config/hypr/scripts/window-watcher.sh
+./layout-per-window.nu find-window-in-storage
+./layout-per-window.nu restore
+ps | fzf --ansi
+waybar
+chmod +x "updates.nu"
+./updates.nu
+$env
+./updates.nu
+ps | fzf | get pid | each { kill $in }
+ps | fzf | get pid
+ps | get pid
+ps
+ls ps
+ds
+ps
+ps | fzf | get pid | each { kill $in }
+ps | fzf 
+ps | fzf --ansi
+ps | fzf --ansi -j
+ps | get pid | fzf | into int | kill $in
+ps | fzf | parse "{pid} {name} {cpu} {mem} {virtual}" | get pid | each { kill $in }
+ps | fzf | parse "{pid} {name} {cpu} {mem} {virtual}"
+($pid)
+ps | fzf --with-nth=2,4
+ps | each { |row| $"($row.pid)|($row.ppid)|($row.name)|($row.status)|($row.cpu)|($row.mem)|($row.virtual)" } | fzf | split row "|" | first | into int | kill $in
+ps | fzf | split row "│" | get 1
+ps | fzf | split row "│" | get 1 | str trim | into int | kill $in
+ps | fzf
+ps | fzf | split row "│" | get 2
+ps | fzf | split row "│" | get 2 | str trim | into int | kill $in
+waybar
+pkill 
+pkill --help
+pk
+pk 
+waybar
+pk
+waybar
+./updates.nu
+~/.config/hypr/scripts/updates.nu
+yayr mint-l-theme
+yayq mint-
+yayr hyperland-per-window-layout
+yayq hyperland-per-window-layout
+yayq hyperland
+yayq per-window
+yayr hyprland-per-window-layout
+git clone --recursive git://github.com/BradyBrenot/huestacean.git<\n>cd huestacean
+waybar
+chmod +x "workspace-theme.nu"
+/home/andrei/.config/hypr/scripts/window-watcher.sh
+pk
+./workspace-theme.nu
+waybar
+chmod +x "workspace-theme.nu"
+waybar --help
+waybar -?
+pkill -SIGUSR2 waybar
+chmod +x "update-waybar-style.nu"
+./update-waybar-style.nu unity
+./update-waybar-style.nu "bar-bg" "#ff5588"
+./update-waybar-style.nu -- "bar-bg" "#ff5588"
+nu ./update-waybar-style.nu -- "bar-bg" "#ff5588"
+nu ./update-waybar-style.nu "bar-bg" "#ff5588"
+nu -c 'print $env.argv' "bar-bg" "#ff5588"
+nu ./update-waybar-style.nu "bar-bg" "#ff5588"
+nu ./update-waybar-style.nu "bar-bg" #ff5588
+nu ./update-waybar-style.nu bar-bg #ff5588
+./update-waybar-style.nu bar-bg #ff5588
+./update-waybar-style.nu
+./update-waybar-style.nu bar-bg #ff5588
+./update-waybar-style.nu
+./update-waybar-style.nu "" color_value
+./update-waybar-style.nu "" #00FF00
+./update-waybar-style.nu "" "#00FF00"
+./update-waybar-style.nu "bar-bg" "#00FF00"
+./update-waybar-style.nu "bar-bg" #00FF00
+nu ./update-waybar-style.nu "bar-bg" "#00FF00"
+nu ./update-waybar-style.nu "bar-bg" "#00FFFF"
+nu ./update-waybar-style.nu bar-bg #00FFFF
+nu ./update-waybar-style.nu --help
+nu ./update-waybar-style.nu bar-bg "#00FFFF"
+./update-waybar-style.nu bar-bg "#00FFFF"
+./update-waybar-style.nu "bar-bg" "#00FFFF"
+./update-waybar-style.nu "bar-bg" \#00FFFF
+./update-waybar-style.nu "bar-bg" \#0000FF
+./change-workspace-style.nu
+/home/andrei/.config/hypr/scripts/window-watcher.sh
+chmod +x "window-watcher.nu"
+/home/andrei/.config/hypr/scripts/window-watcher.nu
+/home/andrei/.config/hypr/scripts/window-watcher.sh
+/home/andrei/.config/hypr/scripts/window-watcher.nu
+let line =
+let line = "activewindow>>kitty,~/.config/hypr> /home/andrei/.config/hypr/scripts/window-watcher.nu"<\n>line | str substring 14..
+let line = "activewindow>>kitty,~/.config/hypr> /home/andrei/.config/hypr/scripts/window-watcher.nu"<\n>$line | str substring 14..
+let line = "activewindow>>kitty,~/.config/hypr> /home/andrei/.config/hypr/scripts/window-watcher.nu"<\n>$line | str substring 14..| split column "," class title
+let line = "activewindow>>kitty,~/.config/hypr> /home/andrei/.config/hypr/scripts/window-watcher.nu"<\n>let parts = $line | str substring 14..| split column "," class title
+let line = "activewindow>>kitty,~/.config/hypr> /home/andrei/.config/hypr/scripts/window-watcher.nu"<\n>let parts = $line | str substring 14..| split column "," class title<\n>let class = $parts.class.0?<\n>let title = $parts.title.0?<\n>    <\n>print $"Window focused: ($class) - ($title)"
+/home/andrei/.config/hypr/scripts/window-watcher.nu
+"workspacev2>>-1357,Main" | parse "{type}>>{data}"
+nu -v
+timeit { "activewindow>>kitty,terminal" | str substring 14.. }<\n>timeit { "activewindow>>kitty,terminal" | parse "{type}>>{data}" }<\n>timeit { "activewindow>>kitty,terminal" | split column ">>" type data }
+timeit { "activewindow>>kitty,terminal" | str substring 14.. }
+timeit { "activewindow>>kitty,terminal" | parse "{type}>>{data}" }
+timeit { "activewindow>>kitty,terminal" | split column ">>" type data }
+timeit { "activewindow>>kitty,terminal" | split column ">>" type data | first }
+timeit { "activewindow>>kitty,terminal" | parse "{type}>>{data}" }
+def detailed_benchmark [iterations: int = 1000] {<\n>    let test_data = "activewindow>>kitty,terminal session"<\n>    <\n>    print $"Running ($iterations) iterations..."<\n>    <\n>    let substring_time = timeit { <\n>        1..$iterations | each { $test_data | str substring 14.. } <\n>    }<\n>    <\n>    let parse_time = timeit { <\n>        1..$iterations | each { $test_data | parse "{type}>>{data}" } <\n>    }<\n>    <\n>    print $"Substring: ($substring_time)"<\n>    print $"Parse: ($parse_time)"<\n>}<\n><\n>detailed_benchmark 10000
+def detailed_benchmark [iterations: int = 1000] {<\n>  let test_data = "activewindow>>kitty,terminal session"<\n><\n>  print $"Running ($iterations) iterations..."<\n><\n>  let substring_time = timeit { <\n>    1..$iterations | each {<\n>      let someValue = $test_data | str substring 14..<\n>      let someValue2 = $test_data | str replace "activewindow>>" "" <\n>      let someValue3 = $someValue2 | split column "," addr workspace | first<\n>    } <\n>  }<\n><\n>  let column_time = timeit { <\n>    1..$iterations | each {<\n>      let someValue = $test_data | split column ">>" type data | first<\n>      let someValue2 = $someValue | split column "," addr workspace | first<\n><\n>    } <\n>  }<\n><\n>  let parse_time = timeit { <\n>    1..$iterations | each { <\n>      let someValue =  $test_data | parse "{type}>>{data}"<\n>      let someValue2 =  $someValue | parse "{type},{data}"<\n>    } <\n>  }<\n><\n>  print $"Substring: ($substring_time)"<\n>  print $"Column: ($column_time)"<\n>  print $"Parse: ($parse_time)"<\n>}<\n><\n>detailed_benchmark 10000
+def fast_parse_event [event_line: string] {<\n>    let separator_pos = $event_line | str index-of ">>"<\n>    if $separator_pos == -1 {<\n>        return []<\n>    }<\n>    <\n>    [{<\n>        type: ($event_line | str substring 0..$separator_pos),<\n>        data: ($event_line | str substring ($separator_pos + 2)..)<\n>    }]<\n>}<\n>def detailed_benchmark [iterations: int = 1000] {<\n>  let test_data = "activewindow>>kitty,terminal session"<\n><\n>  print $"Running ($iterations) iterations..."<\n><\n>  let substring_time = timeit { <\n>    1..$iterations | each {<\n>      let someValue = $test_data | str substring 14..<\n>      let someValue2 = $test_data | str replace "activewindow>>" "" <\n>      let someValue3 = $someValue2 | split column "," addr workspace | first<\n>    } <\n>  }<\n><\n>  let column_time = timeit { <\n>    1..$iterations | each {<\n>      let someValue = $test_data | split column ">>" type data | first<\n>      let someValue2 = $someValue | split column "," addr workspace | first<\n><\n>    } <\n>  }<\n><\n>  let parse_time = timeit { <\n>    1..$iterations | each { <\n>      let someValue =  $test_data | parse "{type}>>{data}"<\n>      let someValue2 =  $someValue | parse "{type},{data}"<\n>    } <\n>  }<\n><\n>    let manual_time = timeit {<\n>        1..$iterations | each {<\n>            let sep_pos = $test_data | str index-of ">>"<\n>            let type = $test_data | str substring 0..$sep_pos<\n>            let data = $test_data | str substring ($sep_pos + 2)..<\n><\n>            let sep_pos = $data | str index-of ","<\n>            let t = $data | str substring 0..$sep_pos<\n>            let d = $data | str substring ($sep_pos + 2)..<\n>        }<\n>    }<\n>  print $"Substring: ($substring_time)"<\n>  print $"Column: ($column_time)"<\n>  print $"Parse: ($parse_time)"<\n>  print $"Parse: ($manual_time)"<\n>}<\n><\n>detailed_benchmark 10000
+/home/andrei/.config/hypr/scripts/window-watcher.nu
+layout-per-window.nu cleanup
+./layout-per-window.nu cleanup
+(hyprctl clients -j | from json) | get pid
+(hyprctl clients -j | from json)
+(hyprctl clients -j | from json) | get [pid,class]
+(hyprctl clients -j | from json) | select pid class
+./layout-per-window.nu list
+./layout-per-window.nu cleanup
+pk
+waybar
+pk
+waybar
+(hyprctl clients -j | from json)
+hyprctl clients
+/home/andrei/.config/hypr/scripts/window-watcher.nu
+yayq swaybg
+exec = swaybg -c #0F111A
+swaybg -c #0F111A
+swaybg -c 0F111A
+swaybg -c FF0000
+swaybg -c 000000
+waybar
+/home/andrei/.config/hypr/scripts/window-watcher.nu
+swaybg -c 0000FF
+/home/andrei/.config/hypr/scripts/window-watcher.nu
+ps | fzf
+ps ...
+cargo install nu_plugin_mongo
+yayq cargo
+cargo install nu_plugin_mongo
+path add "/home/andrei/.cargo/bin"
+which nu_plugin_mongo
+plugin list 
+plugin use 
+plugin use /home/andrei/.cargo/bin/nu_plugin_mongo
+plugin use "/home/andrei/.cargo/bin/nu_plugin_mongo"
+plugin add "/home/andrei/.cargo/bin/nu_plugin_mongo"
+plugin use "/home/andrei/.cargo/bin/nu_plugin_mongo"
+mongc "mongodb://dude:2wgYj4LwHc%2AU@localhost:27017/master?tls=true&tlsCAFile=eu-west-1-bundle.pem&authSource=master&authMechanism=SCRAM-SHA-1"
+mongoc "mongodb://dude:2wgYj4LwHc%2AU@localhost:27017/master?tls=true&tlsCAFile=eu-west-1-bundle.pem&authSource=master&authMechanism=SCRAM-SHA-1"
+mongoc open "mongodb://dude:2wgYj4LwHc%2AU@localhost:27017/master?tls=true&tlsCAFile=eu-west-1-bundle.pem&authSource=master&authMechanism=SCRAM-SHA-1"
+mongoc open "mongodb://dude:2wgYj4LwHc%2AU@localhost:42845/bs-userservice?tls=true&tlsCAFile=eu-west-1-bundle.pem&authSource=master&authMechanism=SCRAM-SHA-1"
+ssh -i ~/.ssh/document-db-tunnel-key.pem -N -L 27017:prod-docdb.cluster-cojqzcfnokt7.eu-west-1.docdb.amazonaws.com:27017 ec2-user@54.171.148.145
+/home/andrei/.config/hypr/scripts/window-watcher.nu
+y
+dysk
+rm -rf ~/.cache/mesa_shader_cache/*<\n>
+pk
+ps | grep window_wather.nu<\n>
+ps | fzf
+pgrep -a -f window_watcher.nu<\n>
+ps | sort-by start_time | last 30 | select pid etime cmd<\n>
+ps | where cmd =~ "window_watcher.nu"<\n>
+ps | where cmd =~ "nu"<\n>
+ps | where cmd =~ "nu"<\n>^ps -o pid,etime,cmd --sort=start_time -u $env.USER | tail -n 30<\n>
+^ps -o pid,etime,cmd --sort=start_time -u $env.USER | tail -n 30<\n>
+^ps -o pid,etime,cmd --sort=start_time -u $env.USER | tail -n 100<\n>
+^ps -o pid,etime,cmd --sort=start_time -u $env.USER | tail -n 200<\n>
+pk
+ps | fzf
+pstree -p 5452
+lsof -p 5452
+ps -p 5452 -o pid,ppid,etime,cmd<\n>
+^ps -p 5452 -o pid,ppid,etime,cmd<\n>
+pk
+ps
+ps -l
+ps -h
+pk
+timeshift
+timeshift --list
+sudo timeshift --list
+sudo -E timeshift-launcher
+btrfs-assistant 
+sudo btrfs-assistant 
+sudo -E btrfs-assistant
+pk
+pk2
+pk
+pk2
+makoctl restore
+makoctl list
+makoctl history
+makoctl history | fzf
+/home/andrei/.config/hypr/scripts/window-watcher.nu
+> 'Hello, Nushell! This is a gradient.' | ansi gradient --fgstart '0x40c9ff' --fgend '0xe81cff'
+'Hello, Nushell! This is a gradient.' | ansi gradient --fgstart '0x40c9ff' --fgend '0xe81cff'
+yayq zen
+yayq zen-browser
+hyprctl clients
+sysupdate
+hyprctl workspaces
+hyprctl layers
+hyprctl workspaces
+hyprctl dispatch exit
+sysupdate
+shutdown now
+yayq quickshell
+sysupdate
+quickshell 
+yayq qt
+qmlimportscanner -rootPath . -importPath .<\n>
+pacman -Ql quickshell | grep qml<\n>
+mkdir -p ~/.config/qmlls<\n>nvim ~/.config/qmlls/qmlls.ini<\n>
+mkdir ~/.config/qmlls<\n>nvim ~/.config/qmlls/qmlls.ini<\n>
+y
+ls -la /usr/lib/qt6/qml/Quickshell
+which quickshell
+# Check for QML modules<\n>find /usr -path "*/qml/*" -name "*Quickshell*" 2>/dev/null<\n>find /usr -path "*/qml/*" -name "qmldir" -exec grep -l "Quickshell\|QuickShell" {} \; 
+# Search for Quickshell directories<\n>ls /usr/**/* | where type == dir and name =~ "Quickshell"<\n><\n># Search for qmldir files that mention Quickshell<\n>ls /usr/**/*.* | where name == "qmldir" | each { |file| <\n>    let content = (open $file.name | str contains "Quickshell")<\n>    if $content { $file.name }<\n>} | compact
+sudu
+sudo
+su
+y
+echo $env.QMLLS_CONFIG<\n>
+qmlls --config /home/andrei/.config/qmlls/qmlls.ini<\n>
+y
+git clone https://github.com/end-4/dots-hyprland
+cd dots-hyprland/
+kitty @ list-keymaps
+kitty @ --help
+kitty --debug-config
+yayq roslyn
+yayr roslyn-git
+yayd roslyn-git
+yayq roslyn-git
+yayq dotnet
+kitten shortcuts
+kitten --help
+kitten notify "Hello world" A good day to you
+y
+git clone https://gitlab.com/openjowelsofts/huenicorn.git
+mkdir build && cd build
+mkdir build and cd build
+cmake ..
+make
+sudo pacman -S git cmake make gcc curl opencv mbedtls glm nlohmann-json
+yay -S crow
+cmake ..
+sudo pacman -S wayland glib2 pipewire
+yayq pipewire
+y
+printf "\e]66;n=1:d=2;Half sized text\a\n"
+printf "\e]66;n=1:d=2:w=1;Ha\a\e]66;n=1:d=2:w=1;lf\a\n"
+printf "\e]66;n=1:d=2:w=2;Ha\a\e]66;n=1:d=2:w=1;lf\a\n"
+printf "\e]66;n=1:d=2:w=2:v=2;Ha\a\e]66;n=1:d=2:w=1;lf\a\n"
+printf "\e]66;n=1:d=2:w=2:v=2;Ha\a\e]66;n=1:d=2:w=1;lf\a\n Half"
+printf "\e]66;n=1:d=2:w=2:v=2;Hawawawa\a\e]66;n=1:d=2:w=1;lf\a\n Half"
+printf "\e]66;n=1:d=3:w=2:v=2;Hawawawa\a\e]66;n=1:d=2:w=1;lf\a\n Half"
+: printf "\e]66;n=1:d=2:w=2;Half sized text\a\n"
+printf "\e]66;n=1:d=2:w=2;Half sized text\a\n"
+printf "\e]66;n=1:d=2:w=4;Half sized text\a\n"
+printf "\e]66;n=1:d=2:w=6;Half sized text\a\n"
+printf "\e]66;n=1:d=2:w=8;Half sized text\a\n"
+printf "\e]66;n=1:d=2:w=9;Half sized text\a\n"
+printf "\e]66;n=1:d=2:w=10;Half sized text\a\n"
+printf "\e]66;n=1:d=2:w=11;Half sized text\a\n"
+printf "\e]66;n=1:d=2:w=12;Half sized text\a\n"
+printf "\e]66;n=1:d=2:w=12;Half sized textttt\a\n"
+printf "\e]66;n=1:d=2:w=12:v=2;Half sized textttt\a\n"
+printf "\e]66;n=1:d=2:w=20:v=2;Half sized textttt\a\n"
+printf "\e]66;n=1:d=3:w=20:v=2;Half sized textttt\a\n"
+printf "\e]66;n=1:d=3:w=1:v=2;Half sized textttt\a\n"
+printf "\e]66;n=1:d=3:w=0:v=2;Half sized textttt\a\n"
+printf "\e]66;n=1:d=3:w=10:v=2;Half sized textttt\a\n"
+printf "\e]66;n=1:d=2:w=10:v=2;Half sized textttt\a\n"
+cmake ..
+make
+reboot
+sudo pacman -S wayland glib2 pipewire<\n>
+cd
+cmake ..
+sudo pacman -S asio
+cmake ..
+make
+ls
+huenicorn
+chmod +x "huenicorn"
+huenicorn
+./huenicorn
+hyprpaper --help
+hyprctl monitors
+hyprctl devices
+hyprctl clients
+hyprpaper -c /home/andrei/.config/hypr/hyprpaper-dark-denim.conf
+pk
+hyprpaper -c /home/andrei/.config/hypr/hyprpaper-dark-denim.conf
+git lfs init
+git lfs ins
+git lfs install
+reboot
+y
+ya pkg add boydaihungst/pref-by-location
+y
+yazi
+ls
+z
+zoxide
+cd ..
+cd yazi
+ls
+vi keymap
+vi keymap.toml
+y
+Y
+y
+y
+nvim "init.lua"
+kitten @ set-background-image /home/andrei/Documents/dark-denim-tile.png
+kitten @ set-background-image /home/andrei/Documents/dark-denim-tile.png -layout=tiled
+kitten @ set-background-image /home/andrei/Documents/dark-denim-tile.png --layout=tiled
+kitten @ set-background-image --layout=tiled
+kitten @ set-background-image --layout tiled
+kitten @ set-background-image -h
+kitten @ set-background-image --layout=tiled -c=/home/andrei/Documents/dark-denim-tile.png
+kitten @ set-background-image --layout=tiled -c=yes
+kitten @ set-background-image --layout=tiled -c=yes /home/andrei/Documents/dark-denim-tile.png
+kitten @ set-background-image --layout=tiled -c=yes "/home/andrei/Documents/test_checker.png"
+kitten @ set-background-image --layout=tiled -c=yes "/home/andrei/Documents/test_checker_2.png"
+kitten @ set-background-image --layout=tiled -c=yes "/home/andrei/Documents/flowers.png"
+kitten @ set-background-image --layout=tiled -c=yes "/home/andrei/Documents/flowers.jpg"
+kitten @ set-background-image --layout=tiled -c=yes "/home/andrei/Documents/stripes.jpg"
+kitten @ set-background-image --layout=tiled -c=yes "/home/andrei/Documents/dark-denim-tile.png"
+y
+kitten @ set-background-image --layout=tiled -c=yes "/home/andrei/Documents/dark-denim-tile.png"
+y
+kitten @ set-background-image --layout=tiled -c=yes "/home/andrei/Documents/dark-denim-tile-2.png"
+kitten @ set-background-image --layout=tiled -c=yes "/home/andrei/Documents/dark-denim-tile-2.png"
+y
+kitten @ set-background-image --layout=tiled -c=yes "/home/andrei/Documents/dark-denim-tile-2.png"
+kitten @ set-background-image --layout=tiled -c=yes "/home/andrei/Documents/dark-denim-tile-3.png"
+kitten @ set-background-image --layout=tiled -c=yes "/home/andrei/Documents/dark-denim-tile-4.png"
+kitten @ set-background-image --layout=tiled -c=yes "/home/andrei/Documents/dark-denim-tile-5.png"
+kitten @ set-background-image --layout=tiled -c=yes "/home/andrei/Documents/dark-denim-tile-6.png"
+kitty --debug-config
+kitty
+btop
+quickshell 
+kitty --debug-keyboard
+quickshell ~/.config/quickshell/panel.qml<\n>
+quickshell --help<\n>
+quickshell -c ~/.config/quickshell/panel.qml<\n>
+quickshell<\n>
+hyprctl monitors
+quickshell<\n>
+quickshell -c ~/.config/quickshell/panel/shell.qml<\n>
+quickshell -c ~/.config/quickshell/Bar/shell.qml<\n>
+quickshell -c Bar/shell.qml<\n>
+quickshell -c ~/.config/quickshell/Bar/shell.qml<\n>
+quickshell -p ~/.config/quickshell/Bar/shell.qml<\n>
+quickshell -p ~/.config/quickshell/Test/shell.qml<\n>
+quickshell -p ~/.config/quickshell/Bar/shell.qml<\n>
+quickshell -p ~/.config/quickshell/Test/shell.qml<\n>
+quickshell -p ~/.config/quickshell/Bar/shell.qml<\n>
+btop
+hyprctl workspaces
+hyprctl dispatch workspace -1343
+hyprctl dispatch workspace -1341
+hyprctl dispatch workspace, name:Rider
+hyprctl dispatch workspace name:Rider
+sysupdate
+yayq electron
+yayq vesktop
+yayr vesktop
+yayq webcord
+quickshell -p ~/.config/quickshell/Bar/shell.qml<\n>
+quickshell -p ~/.config/quickshell/Bar/Bar.qml<\n>
+quickshell -p ~/.config/quickshell/Bar.qml<\n>
+quickshell -p "~/.config/quickshell/PopupMenu.qml"<\n>
+quickshell -p ~/.config/quickshell/PopupMenu.qml<\n>
+hyprctl clients
+hyprctl dispatch focuswindow "adress:561a38eb8b50"
+hyprctl dispatch focuswindow adress:561a38eb8b50
+(hyprctl clients -j | from json)
+hyprctl dispatch focuswindow adress:0x561a38eb8b50
+hyprctl dispatch focuswindow address:0x561a38eb8b50
+hyprctl dispatch focuswindow address:561a38eb8b50
+quickshell -p ~/.config/quickshell/Bar.qml<\n>
+quickshell -p ~/.config/quickshell/shell.qml<\n>
+quickshell<\n>
+log-tail2 /run/user/1000/quickshell/by-id/a73b195wv2t/log.qslog
+cd /run/user/1000/quickshell/by-id/a73b195wv2t/
+y
+quickshell<\n>
+qs ipc show
+qs ipc call osdVolume
+qs ipc show
+qs ipc call osdVolume toggle
+quickshell<\n>
+qs ipc call osdKeyboard toggle
+./home/andrei/.config/hypr/scripts/keyboard-layout.nu "display" "flag"
+./home/andrei/.config/hypr/scripts/keyboard-layout.nu display flag
+keyboard-layout.nu display flag
+./keyboard_layout.nu flag
+ls
+./keyboard-layout.nu flag
+./home/andrei/.config/hypr/scripts/keyboard-layout.nu display flag
+./keyboard-layout.nu display flag
+./keyboard-layout.nu flag
+./home/andrei/.config/hypr/scripts/keyboard-layout.nu flag
+cd -
+./scripts/keyboard-layout.nu flag
+scripts/keyboard-layout.nu flag
+nu scripts/keyboard-layout.nu flag
+nu /scripts/keyboard-layout.nu flag
+nu /scripts./keyboard-layout.nu flag
+ls
+cd -
+ls
+cd .
+ls
+cd ..
+ls
+nu /scripts./keyboard-layout.nu flag
+nu /scripts/keyboard-layout.nu flag
+nu scripts/keyboard-layout.nu flag
+nu ./home/andrei/.config/hypr/scripts/keyboard-layout.nu flag
+nu /home/andrei/.config/hypr/scripts/keyboard-layout.nu flag
+qs ipc call osdKeyboard toggle
+qs ipc call osdKeyboard trigger
+quickshell<\n>
+qs ipc show
+qs ipc call updatelayout trigger
+quickshell<\n>
+git init
+git add .
+git commit -m "First commit"
+quickshell<\n>
+hyprctl monitors
+quickshell -p ~/.config/quickshell/bar/shell.qml
+quickshell -p ~/.config/quickshell/Tray/shell.qml
+quickshell
+pk
+quickshell
+# Kill and restart the D-Bus session<\n>killall dbus-daemon<\n>dbus-launch --session
+# List active D-Bus services<\n>dbus-send --session --dest=org.freedesktop.DBus --type=method_call --print-reply /org/freedesktop/DBus org.freedesktop.DBus.ListNames
+quickshell
+hyprctl monitors
+quickshell -p ~/.config/quickshell/Elements/FocusFollowingPanel.qml
+hyprctl cursorpos -j
+clear
+hyprctl activewindow -j | jq '.at, .size'
+hyprctl activewindow -j | from json
+sysupdate
+quickshell
+hyprctl workspaces
+quickshell
+hyprctl clients -j
+window-watcher.sh
+hyprland -v
+hyprctl clients -j
+btop
+hyprctl clients -j
+hyprctl workspaces
+./layout-per-window.nu cleanup
+hyprctl clients -j | from json | get pid
+transpose 
+man transpose 
+transpose -h
+./layout-per-window.nu cleanup
+f
+z
+zoxide
+y
+./layout-per-window.nu cleanup
+y
+nvim "init.lua"
+y
+y
+sysupdate
+yayq unity
+yayq unityhub
+y
+pk
+quickshell
+hyprctl clients -j | from json
+hyprctl clients -j 
+resizewindowpixel exact 90% 100% address:0x55b245b35ad0
+hyprctl dispatch resizewindowpixel exact 90% 100% address:0x55b245b35ad0
+hyprctl dispatch resizewindowpixel exact 90% 100%, address:0x55b245b35ad0
+hyprctl dispatch resizewindowpixel exact 10% 100%, address:0x55b245b35ad0
+hyprctl dispatch resizewindowpixel, exact 10% 100%, address:0x55b245b35ad0
+hyprctl dispatch resizewindowpixel 10% 100%, address:0x55b245b35ad0
+hyprctl dispatch resizewindowpixel -10% 100%, address:0x55b245b35ad0
+hyprctl dispatch resizewindowpixel -10% -10%, address:0x55b245b35ad0
+hyprctl dispatch resizewindowpixel -10% 10%, address:0x55b245b35ad0
+hyprctl dispatch resizewindowpixel exact 10% 100%, address:0x55b245b35ad0
+hyprctl dispatch resizewindowpixel exact 90% 100%, address:0x55b245b35ad0
+hyprctl dispatch resizewindowpixel exact -90% 100%, address:0x55b245b35ad0
+hyprctl dispatch resizewindowpixel exact 200 200, address:0x55b245b35ad0
+hyprctl dispatch resizewindowpixel exact 455 2120, address:0x55b245b35ad0
+hyprctl dispatch resizewindowpixel exact 455 2120, address:0x55b2459e1510
+hyprctl dispatch resizewindowpixel exact 3383 2120, address:0x55b2459e1510
+hyprctl dispatch resizewindowpixel exact 3383 2120, initialClass:Unity
+hyprctl dispatch resizewindowpixel exact 3383 2120, initialClass:"Unity"
+systemctl suspend
+hyprctl dispatch resizewindowpixel exact 3383 2120, initialClass:^Unity$
+hyprctl dispatch resizewindowpixel exact 3383 2120, initialClass:^\(Unity\)$
+hyprctl dispatch resizewindowpixel exact 3383 2120, initialClass:^\\(Unity\\)$
+hyprctl dispatch resizewindowpixel exact 3383 2120, initialClass:^(Unity)$
+hyprctl dispatch resizewindowpixel exact 3383 2120 initialClass:^(Unity)$<\n>
+hyprctl dispatch resizewindowpixel exact 3383 2120 initialClass:^Unity$<\n>
+hyprctl dispatch resizewindowpixel exact 3383 2120 class:^Unity$<\n>
+hyprctl dispatch resizewindowpixel exact 3383 2120 class:^(Unity)$<\n>
+hyprctl dispatch resizewindowpixel exact 3383 2120 class:^\(Unity\)$<\n>
+hyprctl dispatch resizewindowpixel exact 3383 2120 class:^(Unity)$<\n>fish
+hyprctl dispatch resizewindowpixel exact 3383 2120 'initialClass:^(Unity)$'<\n>
+hyprctl dispatch resizewindowpixel exact 3383 2120, 'initialClass:^(Unity)$'<\n>
+hyprctl dispatch resizewindowpixel exact 3383 2120, 'class:^(Unity)$'<\n>
+hyprctl dispatch resizewindowpixel exact 3383 2120, 'initialClass:^(Unity)$'<\n>
+hyprctl dispatch resizewindowpixel exact 3383 2120, 'initialclass:^(Unity)$'<\n>
+hyprctl dispatch resizewindowpixel exact 3383 2120, 'initialclass:^(Unity)$ floating:false'<\n>
+hyprctl dispatch resizewindowpixel exact 3383 2120, 'initialclass:^(Unity)$, floating:false'<\n>
+hyprctl dispatch resizewindowpixel exact 3383 2120, 'initialclass:^(Unity)$'<\n>
+hyprctl clients -j
+./window-watcher.nu
+hyprctl clients -j
+pk2
+pk
+sysupdate
+reboot now
+reboot
+hyprctl clients -j
+pk
+SDL_VIDEODRIVER=wayland /home/andrei/Unity/Hub/Editor/6000.0.44f1/Editor/Unity &<\n>
+pkill -9 Unity
+pkill -9 unityhub<\n>
+pk
+systemctl suspend
+pk
+hyprctl clients -j
+hyprctl workspaces
+pk
+kitty --debug-keyboard
+systemctl suspend
+btop
+systemctl suspend
+quickshell
+systemctl suspend
+hyprctl monitors -j
+hyprctl clients -j
+hyprctl cursorpos -j
+hyprctl cursorpos
+systemctl suspend
+yayq whatsup
+yayq whatsapp
+pk
+yayq whatsapp
+systemctl suspend
+pk
+quickshell
+systemctl suspend
+quickshell
+systemctl suspend
+pk
+systemctl suspend
+sysupdate
+systemctl suspend
+yayr waybar
+quickshell
+systemctl suspend
+sysupdate
+reboot
+sysctl suspend
+systemctl suspend
+waybar
+quickshell
+qs ipc call bar audioUpdate
+qs ipc call Bar audioUpdate
+hyprctl workspaces
+hyprctl clients -j
+hyprctl clients -j from json
+hyprctl clients -j fromjson
+hyprctl clients -j | from json
+hyprctl clients -j | from json | where v {|v| true}
+hyprctl clients -j | from json | workspace.name == "Main"
+hyprctl clients -j | from json | where workspace.name == "Main"
+hyprctl clients -j | from json | where w.name == "Main"
+hyprctl clients -j | from json
+hyprctl clients -j | from json | where workspace.name == "Main"
+hyprctl clients -j | from json | where workspace.name == "Main" | to json
+dysk
+hyprctl workspaces
+y
+pk
+pk2
+nu ./home/andrei/.config/hypr/scripts/keyboard-layout.nu flag
+pk2
+adb logcat -v time AndroidRuntime:E libc:F Unity:I *:S<\n>
+sudo sh convert_to_ktx.sh "/home/andrei/Work/Worksheets/Cute Halloween/English/Thumbnails/" "/home/andrei/Work/Worksheets/Cute Halloween/English/Thumbnails/" --lower_left_maps_to_s0t0 --bcmp
+chmod +x "toktx"
+quickshell
+/home/andrei/.config/hypr/scripts/window-watcher.nu
+y
+quickshell
+pk
+sysupdate
+systemctl restart
+reboot
+yy
+sqlite3 favicons.sqlite "SELECT * FROM moz_icons LIMIT 5;"
+sqlite3 "file:favicons.sqlite?mode=ro" "SELECT * FROM moz_icons LIMIT 5;"
+cp favicons.sqlite favicons_copy.sqlite<\n>sqlite3 favicons_copy.sqlite "SELECT * FROM moz_icons LIMIT 5;"
+/home/andrei/.config/quickshell/Scripts/Python/zen-favicons-get.py
+python3 /home/andrei/.config/quickshell/Scripts/Python/zen-favicons-get.py
+cp "/home/andrei/.zen/e8z4c88n.Default (release)/favicons.sqlite" /tmp/favicons_copy.sqlite
+python3 /home/andrei/.config/quickshell/Scripts/Python/zen-favicons-get.py
+python3 zen-favicons-get.py github.com
+python3 /home/andrei/.config/quickshell/Scripts/Python/zen-favicons-get.py github.com
+pk
+hyprctl clients -j | from json | where workspace.name == "Main" | to json
+python3 "/home/andrei/.config/quickshell/Scripts/Python/zen-tabs-info.py"
+# Check if port 6000 is open<\n>netstat -tuln | grep 6000<\n># or<\n>ss -tuln | grep 6000
+netstat -tuln | grep 6000
+ss -tuln | grep 6000
+curl http://localhost:6000/json/list
+dysk
+lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J | from json
+lsblk -f -J | from json
+lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J | from json
+sudo mkdir -p /mnt/fingerssd
+sudo mount -t ntfs-3g /dev/sdd1 /mnt/fingerssd/
+lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J | from json
+nmcli device wifi list
+dysk
+sudo dmesg -w<\n>
+y
+wl-copy < "init.lua"
+wl-copy < init.lua
+wl-copy --type image/png < "/home/andrei/Work/Panda/Assets/AssetBundle/MainMenu/OfflineActivities/Cover/Image Container_1.png"
+copy "init.lua"
+nu /home/andrei/.scripts/copy.nu init.lua
+y
+sudo dmesg -w<\n>tail ~/.local/state/yazi/yazi.log 
+tail ~/.local/state/yazi/yazi.log 
+vi ~/.local/state/yazi/yazi.log
+y
+nu /home/andrei/.scripts/copy.nu "background_16on9.png"
+nu /home/andrei/.scripts/copy.nu background_16on9.png
+nu /home/andrei/.scripts/copy.nu file:///home/andrei/Documents/background_16on9.png
+nu /home/andrei/.scripts/copy.nu /home/andrei/Documents/background_16on9.png
+nu /home/andrei/.scripts/copy.nu /home/andrei/Documents/image_2025-09-04_00-54-51.png
+./home/andrei/.scripts/copy.nu /home/andrei/Documents/image_2025-09-04_00-54-51.png
+/home/andrei/.scripts/copy.nu /home/andrei/Documents/image_2025-09-04_00-54-51.png
+y
+y --debug
+yazi --debug
+$env.YAZI_LOG=debug yazi
+$env.YAZI_LOG="debug yazi"
+$env.YAZI_LOG = "debug"
+yazi
+with-env { YAZI_LOG: "debug" } { yazi }
+y
+copy2
+nu /home/andrei/.scripts/copy2.nu 
+nu /home/andrei/.scripts/copy2.nu "panda_cow.png"
+nu /home/andrei/.scripts/copy2.nu "panda_cow.png" "aisaka.icon"
+y
+with-env { YAZI_LOG: "debug" } { yazi }
+y
+with-env { YAZI_LOG: "debug" } { yazi }
+y
+vi keyball.vil
+nvim "colemak.vil"
+y
+with-env { YAZI_LOG: "debug" } { yazi }
+y
+with-env { YAZI_LOG: "debug" } { yazi }
+ya update
+ya pack -u
+y
+pk
+gparted 
+sudo gparted
+pacman -Qs gparted<\n>
+pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY gparted<\n>
+sudo -E gparted<\n>
+sudo env GDK_PIXBUF_USE_GLYCIN=0 GDK_BACKEND=x11 gparted<\n>
+sudo env GTK_THEME=Adwaita:dark GDK_PIXBUF_USE_GLYCIN=0 GDK_BACKEND=x11 gparted<\n>
+xhost +SI:localuser:root<\n>sudo env GDK_PIXBUF_USE_GLYCIN=0 GDK_BACKEND=x11 gparted<\n>xhost -SI:localuser:root<\n>
+sudo env GDK_PIXBUF_USE_GLYCIN=0 GDK_BACKEND=x11 gparted<\n>
+yayq hyprpolkitagent
+gparted 
+whoami
+xhost -SI:localuser:root
+sysupdate
+lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J | from json
+lsblk
+lsblk -o NAME,FSTYPE,MOUNTPOINT,LABEL -J | from json
+lsblk -f<\n>
+sudo blkid<\n>
+y
+ln -sf /mnt/mint/Unity/Hub/Editor /Hub/Editor
+ln -sf /mnt/mint/Unity/Hub/Editor /Hub
+sudo ln -sf /mnt/mint/Unity/Hub/Editor /Hub
+sudo ln -sf /mnt/mint/Unity/Hub/Editor Editor
+sudo ln -sf /mnt/mint/Unity/UnityBuildReports UnityBuildReports
+y
+y
+sy
+ya pkg list
+y
+yayq nushell
+yayq quickshell
+y
+qmk compile -kb keyball/keyball39 -km vial
+mount-usb
+pl
+pk
+ls
+y
+ls
+neovide --version
+log-tail2 /home/andrei/.local/state/nvim/lsp.log
+nvim /home/andrei/.local/state/nvim/lsp.log
+ghostty 
+sudo -E ghostty
+ghostty 
+with-env { GDK_BACKEND:"x11"} { ghostty }
+ghostty 
+sysupdate
+pk
+malee613y
+yayq quickshell
+y
+fg
+y
+fg
+pk
+y
+y
+pk
+y
+pk
+y
+pk
+pk2
+pk
+pk3
+ps | select pid cpu mem name cwd
+ps
+pk2
+pk3
+pk2
+pk3
+pk
+pk2
+pk3
+pk
+pk3
+ps
+ps | table -i false
+pk3
+ps | describe 
+ps | table -i false | describe 
+pk
+pk3
+y
+pk
+y
+sysupdate
+yayq vial-appimage
+sysupdate
+quickshell -v
+quickshell --version
+pk
+quickshell
+huenicorn
+./huenicorn
+lsblk -f<\n>
+sudo umount /dev/sdd1<\n>sudo umount /dev/sdd2<\n>sudo umount /dev/sdd3
+sudo umount /dev/sdd2<\n>sudo umount /dev/sdd3
+sudo fdisk /dev/sdd
+parted
+su
+gparted 
+parti
+yayq partitionmanager
+partitionmanager 
+reboot
+sudo mkfs.ext4 /dev/sdd1
+partitionmanager 
+hyprpm update
+lsblk -f<\n>
+mkdir "Downloads"
+sudo chown -R andrei:andrei /run/media/andrei/2e159d0c-d2f7-43d8-a967-99718f6ea319
+mkdir "Downloads"
+dysk
+hyprsunset -h
+hyprsunset -g
+hyprsunset -g 100
+btop
+pavucontrol<\n>
+pavucontrol -v<\n>
+pactl info | grep "Server Name"<\n>
+sudo pacman -S pavucontrol easyeffects<\n>
+pavucontrol
+sudo pavucontrol 
+sudo -E pavucontrol
+pactl get-sink-volume @DEFAULT_SINK@<\n>
+pactl list short sinks<\n>
+pactl get-sink-volume alsa_output.usb-Sennheiser_GSX_1000_Main_Audio_5698800039033011-00.analog-output-surround71<\n>
+pactl set-sink-volume alsa_output.usb-Sennheiser_GSX_1000_Main_Audio_5698800039033011-00.analog-output-surround71 150%<\n>
+pactl get-sink-volume alsa_output.usb-Sennheiser_GSX_1000_Main_Audio_5698800039033011-00.analog-output-surround71<\n>
+yayq vlc
+yayq vlc-plugin-ffmpeg
+vainfo     #comes_with_libva-utils
+vainfo
+yayq vainfo
+$ mpv --vo=gpu-next --target-colorspace-hint --gpu-api=vulkan --gpu-context=waylandvk Andor.S01E01.Kassa.2160p.DSNP.WEB-DL.DV.HDR.H.265.RGzsRutracker.mkv
+mpv --vo=gpu-next --target-colorspace-hint --gpu-api=vulkan --gpu-context=waylandvk Andor.S01E01.Kassa.2160p.DSNP.WEB-DL.DV.HDR.H.265.RGzsRutracker.mkv
+PB_Nicole_Love.sh
+./PB_Nicole_Love.sh
+btop
+quickshell
+find ~/.local/share/applications /usr/share/applications -name "*.desktop" -exec file {} \; | grep CRLF
+grep -r $'\r' --include="*.desktop"
+find ~/.local/share/applications /usr/share/applications -name "*.desktop" -exec file {} \; | grep CRLF
+^find ~/.local/share/applications /usr/share/applications -name "*.desktop" -exec file {} \; | ^grep CRLF<\n>
+# Or grep for carriage returns<\n>^grep -rl $"(char cr)" ~/.local/share/applications /usr/share/applications --include="*.desktop"
+sudo dos2unix /usr/share/applications/biglybt.desktop
+# Or manually with Nushell<\n>open /usr/share/applications/biglybt.desktop | str replace --all (char cr) "" | sudo tee /usr/share/applications/biglybt.desktop
+# Or grep for carriage returns<\n>^grep -rl $"(char cr)" ~/.local/share/applications /usr/share/applications --include="*.desktop"
+y
+qsb --glsl "100 es,120,150" --hlsl 50 --msl 12 -o test.frag.qsb test.frag
+yayq qsb
+yayq qt-shader
+yayq qt6-shader
+which qsb
+pacman -Ql qt6-shadertools
+y
+qsb --help
+yayq qt
+qsb --glsl "100 es,120,150" --hlsl 50 --msl 12 -o test.frag.qsb test.frag
+qsb --glsl "100 es,120,150" --hlsl 50 --msl 12 -o test.frag.qsb Test.frag
+y
+qsb --glsl "100 es,120,150" --hlsl 50 --msl 12 -o test.frag.qsb "nightsky.frag"
+qsb --glsl "100 es,120,150" --hlsl 50 --msl 12 -o nightsky.frag.qsb nightsky.frag
+qsb --glsl "100 es,120,150" --hlsl 50 --msl 12 -o nightsky-simple.frag.qsb nightsky-simple.frag
+qsb --glsl "100 es,120,150" --hlsl 50 --msl 12 -o tiles.frag.qsb tiles.frag
+qsb --glsl "100 es,120,150" --hlsl 50 --msl 12 -o wave.frag.qsb Wave.frag
+qsb --glsl "100 es,120,150" --hlsl 50 --msl 12 -o galaxy.frag.qsb galaxy.frag
+xdg-desktop-portal
+yayq xdg-desktop-portal
+yayq xdg-desktop-portal-hyprland
+pacman -Q | grep xdg-desktop-portal-
+yayr xdg-desktop-portal-kde
+obs
+yayq qt6-wayland 
+obs
+qsb --glsl "100 es,120,150" --hlsl 50 --msl 12 -o galaxy.frag.qsb galaxy.frag
+qsb --glsl "100 es,120,150" --hlsl 50 --msl 12 -o hexagonal-tiling.frag.qsb "hexagonal-tiling.frag"
+quickshell
+qsb --glsl "100 es,120,150" --hlsl 50 --msl 12 -o hexagonal-tiling.frag.qsb "hexagonal-tiling.frag"
+quickshell
+# Extract SPIR-V from qsb and analyze<\n>qsb -d hexagonal-tiling.frag.qsb
+spirv-dis extracted.spv | wc -l  # Line count = rough instruction count
+qsb --glsl "100 es,120,150" --hlsl 50 --msl 12 -o hexagons.frag.qsb "hexagons.frag"
+qsb --glsl "100 es,120,150" --hlsl 50 --msl 12 -o hexagons2.frag.qsb "hexagons2.frag"
+btop
+quickshell
+yayq glslViewer
+yayq ffmpeg
+wget https://github.com/patriciogonzalezvivo/glslViewer/releases/download/3.2.4/glslViewer-3.2.4-amd64.deb<\n>
+ar x glslViewer-3.2.4-amd64.deb
+tar xf data.tar.xz
+tar 
+tar xf data.tar.gz
+ls -la usr/bin/
+sudo cp usr/bin/glslviewer /usr/local/bin/<\n>
+sudo cp usr/bin/glslViewer /usr/local/bin/<\n>
+sudo chmod +x /usr/local/bin/glslViewer
+glslViewer 
+glslViewer --version
+ldd usr/bin/glslviewer
+ldd usr/bin/glslViewer
+ldd usr/bin/glslviewer | grep libav
+ldd usr/bin/glslViewer | grep libav
+# First, check what ncurses version you have<\n>ls -la /usr/lib/libncurses.so*
+# See what libncurses.so points to<\n>readlink -f /usr/lib/libncurses.so<\n><\n># Find all ncurses libraries<\n>ls -la /usr/lib/libncurses*
+sudo ln -s /usr/lib/libncursesw.so.6 /usr/lib/libncurses.so.6
+ldd usr/bin/glslviewer | grep "not found"
+ldd usr/bin/glslViewer | grep "not found"
+glslViewer --version
+sudo rm /usr/lib/libncurses.so.6
+makepkg -si
+sudo pacman -S glu ncurses
+sudo pacman -S ffmpeg
+cmake ..
+makepkg -si
+yayq ncurses
+yayq glu
+yayq xorg-server-xvfb
+makepkg -si
+git https://github.com/patriciogonzalezvivo/glslViewer.git
+git pull https://github.com/patriciogonzalezvivo/glslViewer.git
+git --help
+git clone https://github.com/patriciogonzalezvivo/glslViewer.git
+cd glslViewer/
+makepkg -si
+git submodule update --init --recursive
+mkdir build and cd build
+whereami
+cmake ..
+make
+yayq glslViewer
+ls /usr/include/libavcodec/avfft.h
+yayq ffmpeg
+ls /usr/include/libavcodec/avfft.h
+yayq glslViewer
+sudo pacman -S --overwrite '*' ffmpeg
+ls /usr/include/libavcodec/avfft.h
+yayq glslViewer
+pacman -Q ffmpeg4.4  # Verify
+makepkg -si
+rm -rf /home/andrei/.cache/yay/glslviewer-git/src/build
+yay -S glslviewer-git
+makepkg -si
+spirv-opt --print-all hexagonal-tiling.frag.spv -o optimized.spv
+qsb -d hexagonal-tiling.frag.qsb
+qsb --help
+qsb -d hexagonal-tiling.frag.qsb
+qsb -d hexagonal-tiling.frag.qsb > extracted.spv
+qsb -d hexagonal-tiling.frag.qsb | save -f extracted.spv
+qsb -d hexagonal-tiling.frag.qsb | spirv-dis - | lines | length
+qsb -d hexagonal-tiling.frag.qsb | spirv-dis - | lines | where $it =~ "Bound" | first
+glslangValidator -V hexagonal-tiling.frag -o temp.spv<\n>spirv-dis temp.spv | lines | where $it =~ "Bound" | first
+quickshell
+y
+qsb --help
+# Find qsb<\n>find /usr -name qsb 2>/dev/null<\n># or<\n>which qsb
+which qsb
+glslangValidator -V hexagonal-tiling.frag -o temp.spv<\n>spirv-dis temp.spv | lines | where $it =~ "Bound" | first
+glslangValidator -V hexagonal-tiling.frag -o temp.spv<\n>spirv-dis temp.spv | lines
+quickshell
+btop
+quickshell
+flatpak
+flatpak --version<\n>
+flatpak search glslviewer<\n>
+glslViewer --version
+glslViewer
+yay -S ncurses
+yayq ncurses
+ls /usr/lib/libncurses.so*<\n>
+ls /usr/lib/libncurses*.so.*<\n>
+sudo ln -sf /usr/lib/libncursesw.so.6 /usr/lib/libncurses.so.6<\n>
+sudo ldconfig<\n>
+ldd usr/bin/glslViewer
+glslViewer
+sudo rm -f /usr/local/bin/glslViewer<\n>sudo rm -rf /usr/local/share/glslViewer<\n>sudo rm -rf /usr/local/lib/glslViewer<\n>sudo rm -rf /usr/local/include/glslViewer<\n>
+which glslViewer<\n>
+ldconfig -p | grep ncurses<\n>
+make
+make clean
+cmake -DGLSLVIEWER_BUILD_AV=false .
+make -j$(nproc)
+make -j (nproc)<\n><\n>
+make clean<\n>
+cmake -DGLSLVIEWER_BUILD_AV=false .<\n>
+make -j (nproc)<\n>
+rm -rf build<\n>mkdir build<\n>cd build<\n>
+cmake -DGLSLVIEWER_BUILD_AV=OFF -DVERA_BUILD_AV=OFF ..<\n>
+make -j (nproc)<\n>
+cd ..
+git clean -xdf<\n>
+df -T /home/andrei/.config/
+sudo btrfs subvolume list /home<\n>
+sudo mkdir /tmp/tsnap<\n>sudo mount -o subvol=timeshift-btrfs/snapshots/2025-10-16_04-17-51/@ /dev/nvme1n1p5 /tmp/tsnap<\n>
+find ~/.local/share/nvim/undo -type f<\n>find ~/.local/share/nvim/backup -type f<\n>
+sudo btrfs restore -iv /dev/nvme1n1p5 /tmp/restore<\n>
+pk
+btrfs-assistant 
+sudo btrfs-assistant 
+sudo -E btrfs-assistant 
+y
+sysupdate
+reboot
+btrfs-assistant 
+sudo -E btrfs-assistant 
+pkexec btrfs-assistant
+pkexec env QT_QPA_PLATFORM=wayland btrfs-assistant<\n>
+btrfs-assistant --gui<\n>
+pkexec env QT_QPA_PLATFORM=wayland btrfs-assistant --gui<\n>
+btrfs-assistant
+shutdown now
+mount | grep btrfs<\n>
+sudo btrfs subvolume create /home/andrei/.config/nvim
+cp -a /home/andrei/.config/nvim_backup/* /home/andrei/.config/nvim/<\n>
+sudo chown -R andrei:andrei /home/andrei/.config/nvim<\n>
+y
+ls -ld /home/andrei/.config/nvim<\n>
+cp -r /home/andrei/.config/nvim_backup/* /home/andrei/.config/nvim/<\n>
+sudo snapper -c nvim create-config /home/andrei/.config/nvim<\n>
+sudo snapper -c nvim list-configs<\n>
+sudo snapper -c nvim create --description "Initial Neovim config snapshot"<\n>
+pk
+sudo btrfs subvolume create /home/andrei/.config/quickshell/
+sudo chown -R andrei:andrei "/home/andrei/.config/quickshell/"<\n>
+cp -r /home/andrei/.config/quickshell_bckup/* /home/andrei/.config/quickshell/<\n>
+sudo snapper -c quickshell create --description "Initial Quickshell config snapshot"<\n>
+sudo snapper -c quickshell create-config "/home/andrei/.config/quickshell/"<\n>
+git clean -xdf<\n>
+cmake -DGLSLVIEWER_BUILD_AV=OFF -DVERA_BUILD_AV=OFF ..<\n>
+cmake -DGLSLVIEWER_BUILD_AV=OFF -DVERA_BUILD_AV=OFF .<\n>
+git clean -xdf<\n>
+mkdir build
+cd build/
+cmake -DGLSLVIEWER_BUILD_AV=OFF -DVERA_BUILD_AV=OFF ..<\n>
+make -j (nproc)<\n>
+cd deps/vera/src/gl<\n>rm textureStreamAV.cpp textureStreamAudio.cpp textureStreamOMX.cpp textureStreamMMAL.cpp<\n>
+cd ..
+cd ~/Repositories/glslViewer/deps/vera/src/gl<\n>
+rm textureStreamAV.cpp textureStreamAudio.cpp textureStreamOMX.cpp textureStreamMMAL.cpp<\n>
+cd ~/Repositories/glslViewer<\n>make clean<\n>rm -rf build<\n>mkdir build<\n>cd build<\n>
+make clean
+cd build/
+make clean
+cd ..
+cd build/
+cmake ..
+make -j (nproc)
+git checkout tags/2.0.6
+make clean
+cmake ..
+cd build/
+make -j (nproc)
+git checkout 8d7f5c3<\n>
+cmake ..
+make -j$(nproc)<\n>
+make -j (nproc)
+yay -S glslviewer<\n>
+LC_ALL=C pacman -V|sed -r 's#[0-9]+#476#g'|md5sum|cut -c1-6<\n><\n>
+flatpak search shadered<\n>
+flatpak install --user flathub org.shadered.SHADERed -y
+pk
+quickshell
+sysupdate
+quickshell
+pk
+shutdown now
+yayq grub
+yayr grub-customizer
+yayr grub-hook
+yayr grub-btrfs
+yayq grub-hook
+glslangValidator --help
+qsb --help
+obs
+quickshell
+qsb --help
+yayq ydtool
+yayq libinput
+wev
+pk
+ya pkg add simla33/ucp
+y
+xclip -selection clipboard -o -t TARGETS 2>/dev/null 
+^xclip -selection clipboard -o -t TARGETS 2>/dev/null 
+which xclip
+wl-paste -t text/uri-list 2>/dev/null
+^wl-paste -t text/uri-list 2>/dev/null
+^wl-paste -t text/uri-list
+^wl-paste -t
+wl-paste 2>/dev/null
+^wl-paste 2>/dev/null
+wl-cli
+wl-paste --list-types
+y
+tail ~/.local/state/yazi/yazi.log
+vi ~/.local/state/yazi/yazi.log
+with-env { YAZI_LOG: "debug" } { yazi }
+git clone https://github.com/simla33/ucp.yazi.git
+ssh-keygen -t ed25519 -C "copathuk@gmail.com"<\n>
+y
+ssh-add -l<\n>
+^ssh-add -l<\n>
+pk
+quickshell
+yayq evtest
+quickshell
+y
+./switch-layout-on-right-alt.nu
+sudo ./switch-layout-on-right-alt.nu
+wev
+hyprctl devices -j | from json
+hyprctl devices -j
+sudo "./keyboard-layout.nu" "get_current_layout"
+./keyboard-layout.nu "get_current_layout"
+./keyboard-layout.nu "main currnt-flag"
+./keyboard-layout.nu "main current-flag"
+./keyboard-layout.nu "current-flag"
+./keyboard-layout.nu "switch_keyboard_layout"
+nu -c "use path/to/your/script.nu; switch_keyboard_layout"
+nu -c "use /home/andrei/.config/hypr/scripts/keyboard-layout.nu; switch_keyboard_layout"
+./keyboard-layout.nu "switch_layout"
+./keyboard-layout.nu switch_layout
+./keyboard-layout.nu flag
+./keyboard-layout.nu "switch-layout-on-right-alt.nu"
+./keyboard-layout.nu "switch-layout"
+hyprctl dispatch switchxkblayout yowkees-keyball39 next
+hyprctl switchxkblayout yowkees-keyball39 next
+layout-per-window switch
+~/.config/hypr/scripts/layout-per-window.nu switch
+quickshell
+~/.config/hypr/scripts/layout-per-window.nu switch
+./keyboard-layout.nu "switch_keyboard_layout"
+./keyboard-layout.nu switch_layout
+./keyboard-layout.nu switch-layout
+pk
+pk2
+kill 5903
+./keyboard-layout.nu switch_layout
+./keyboard-layout.nu switch-layout
+/home/andrei/.config/hypr/scripts/window-watcher.nu
+./home/andrei/.config/hypr/scripts/window-watcher.nu
+nu ./home/andrei/.config/hypr/scripts/window-watcher.nu
+nu /home/andrei/.config/hypr/scripts/window-watcher.nu
+nu /home/andrei/.config/hypr/scripts/window-watcher.py
+yayq luajit
+python3 /home/andrei/.config/hypr/scripts/window-watcher.py
+luajit /home/andrei/.config/hypr/scripts/window-watcher.lua
+yayq lua-socket
+luajit /home/andrei/.config/hypr/scripts/window-watcher.lua
+yayq luarocks
+yayr lua-socket
+sudo luarocks --lua-version=5.1 install luasocket
+sudo luarocks install luasocket
+sudo luarocks install lua-cjson
+luajit /home/andrei/.config/hypr/scripts/window-watcher.lua
+luarocks list
+luarocks list --lua-version=5.1
+luarocks list --lua-version=5.4
+sudo luarocks --lua-version=5.1 install luasocket
+yayq lua51
+sudo luarocks --lua-version=5.1 install luasocket
+sudo luarocks --lua-version=5.1 install lua-cjson
+luarocks list --lua-version=5.1
+luajit /home/andrei/.config/hypr/scripts/window-watcher.lua
+python3 /home/andrei/.config/hypr/scripts/window-watcher.py
+luajit /home/andrei/.config/hypr/scripts/window-watcher.lua
+yayq luastatic
+/home/andrei/.config/hypr/scripts/lua/hypr-watcher
+~/.config/hypr/scripts/lua/hypr-watcher
+pk
+~/.config/hypr/scripts/lua/hypr-watcher
+luarocks --lua-version=5.1 install luaposix
+sudo luarocks --lua-version=5.1 install luaposix
+~/.config/hypr/scripts/lua/hypr-watcher
+hyprctl clients -j | from json
+hyprctl clients -j
+luastatic
+~/.config/hypr/scripts/lua/hypr-watcher
+hyprctl dispatch resizewindowpixel exact 3383 2120 class:^(Unity)$<\n>fish
+~/.config/hypr/scripts/lua/hypr-watcher
+nvim
+luajit /home/andrei/.config/hypr/scripts/init.lua
+luajit /home/andrei/.config/hypr/scripts/lua/init.lua
+hyprctl devices -j
+git clone https://github.com/romus204/referencer.nvim<\n>
+y
+touch .luarc.json
+cd ~/.local/share/nvim/lazy/which-key.nvim/lua/which-key/
+y
+wev
+nvim -V9logfile.txt
+y
+log-tail2 /tmp/debug.log
+nvim -V9/tmp/nvim.log
+nvim -V9logfile.txt
+clear
+yayq exiftool
+yay -Qi exiftool | grep "Required By"
+pactree -r exiftool
+exiftool "93b95e4e-9ebf-43ef-b441-dbbcaef46f79.jpg" -modify_date=
+exiftool "93b95e4e-9ebf-43ef-b441-dbbcaef46f79.jpg" -h
+exiftool -json "93b95e4e-9ebf-43ef-b441-dbbcaef46f79.jpg" | from json
+exiftool -json "93b95e4e-9ebf-43ef-b441-dbbcaef46f79.jpg"
+exiftool -json "93b95e4e-9ebf-43ef-b441-dbbcaef46f79.jpg" | from json | get 0
+exiftool "93b95e4e-9ebf-43ef-b441-dbbcaef46f79.jpg" -МodifyDate=
+exiftool -all= "93b95e4e-9ebf-43ef-b441-dbbcaef46f79.jpg"
+exiftool -json "93b95e4e-9ebf-43ef-b441-dbbcaef46f79.jpg" | from json | get 0
+exiftool -json "Cute_Halloween_1.jpg" | from json | get 0
+exiftool -json *.jpg | from json | select FileName ImageWidth ImageHeight ModifyDate Software<\n>
+exiftool -json *.jpg | from json | select FileName ImageWidth ImageHeight FileModifyDate Software<\n>
+exiftool -json *.jpg | from json | select FileName ImageWidth ImageHeight FileModifyDate<\n>
+exiftool -json *.jpg | from json <\n>
+# Parse and display grouped by file<\n>exiftool -json *.jpg | from json | each { |img|<\n>    print $"($img.FileName)"<\n>    $img | transpose key value | each { |row|<\n>        if $row.key != "FileName" {<\n>            print $"    ($row.key): ($row.value)"<\n>        }<\n>    }<\n>    print ""<\n>}
+# Parse and display grouped by file<\n>exiftool -json *.jpg_original | from json | each { |img|<\n>    print $"($img.FileName)"<\n>    $img | transpose key value | each { |row|<\n>        if $row.key != "FileName" {<\n>            print $"    ($row.key): ($row.value)"<\n>        }<\n>    }<\n>    print ""<\n>}
+nu "download_halloween.nu"
+nu "discover_s3_files.nu"
+nu "download_halloween.nu" halloween 21
+nu "download_aws.nu" halloween 21
+nu download_aws_cli.nu halloween 21 --suffixes "_German"
+nu download_aws.nu halloween 21 --suffixes "_German"
+nu download_aws.nu halloween 21 --suffixes "_French"
+nu download_aws.nu halloween 21 --suffixes "_SpanishMexico"
+cp -r /Halloween /Halloween_bk<\n>
+cp -r Halloween Halloween_bk<\n>
+whereami
+wai
+cp -r Halloween Halloween_bk<\n>
+ls
+cd work
+ls
+cd Worksheets/
+ls
+cp -r Halloween Halloween_bk<\n>
+y
+exiftool -all= -overwrite_original *.jpg
+y
+exiftool -all= -overwrite_original *.jpg
+y
+exiftool -all= -overwrite_original *.jpg
+y
+exiftool -all= -overwrite_original *.jpg
+# Parse and display grouped by file<\n>exiftool -json *.jpg_original | from json | each { |img|<\n>    print $"($img.FileName)"<\n>    $img | transpose key value | each { |row|<\n>        if $row.key != "FileName" {<\n>            print $"    ($row.key): ($row.value)"<\n>        }<\n>    }<\n>    print ""<\n>}
+# Parse and display grouped by file<\n>exiftool -json *.jpg | from json | each { |img|<\n>    print $"($img.FileName)"<\n>    $img | transpose key value | each { |row|<\n>        if $row.key != "FileName" {<\n>            print $"    ($row.key): ($row.value)"<\n>        }<\n>    }<\n>    print ""<\n>}
+exiftool -json "AWS_halloween-10.jpg" | from json | get 0
+exiftool -json "93b95e4e-9ebf-43ef-b441-dbbcaef46f79.jpg" | from json | get 0
+exiftool -json "93b95e4e-9ebf-43ef-b441-dbbcaef46f79.jpg_original" | from json | get 0
+y
+y
+nvim
+cd /home/andrei/.local/share/nvim/lazy/lazydev.nvim/lua/lazydev/integrations/lspconfig
+yayr alacrity
+yayr alacritty
+y
+ls
+kitty --debug-keyboard
+ю
+yayq mono
+dotnet --version
+yayq omnisharp
+yayq msbuild
+OmniSharp 
+OmniSharp --version
+omnisharp --version
+omnisharp --languageserver
+dotnet --version
+msbuild --version
+yayq mono-msbuild
+y
+yayq roslyn-git
+yayq roslyn
+dotnet --version
+dotnet --help
+dotnet --list-sdks
+wget https://dot.net/v1/dotnet-install.sh
+chmod +x dotnet-install.sh
+./dotnet-install.sh --channel 10.0
+dotnet --list-sdks
+yayq roslyn
+cd /home/andrei/.cache/yay/roslyn-git/src/roslyn/global.json
+cd /home/andrei/.cache/yay/roslyn-git/src/roslyn/
+y
+makepkg -si
+y
+makepkg -si
+yayq dotnet-sdk
+which csc
+yayq dotnet-sdk
+dotnet tool install --global roslyn --add-source https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet5/nuget/v3/index.json
+./dotnet-install.sh --runtime dotnet --channel 7.0 --quality preview --install-dir ~/cli
+dotnet --version
+dotnet tool install --global Microsoft.CodeAnalysis.LanguageServer
+which omnisharp
+dotnet
+cd /home/andrei/.local/state/nvim
+which mono
+mono --version
+yayr
+yayr mono
+yayq mono-msbuild
+yayr mono-msbuild
+yayr mono
+cat /proc/sys/fs/inotify/max_user_watches<\n>cat /proc/sys/fs/inotify/max_user_instances
+sudo sysctl fs.inotify.max_user_watches=524288<\n>sudo sysctl fs.inotify.max_user_instances=512
+sudo sysctl fs.inotify.max_user_instances=8192
+cat /proc/sys/fs/inotify/max_user_watches<\n>cat /proc/sys/fs/inotify/max_user_instances
+ls **/*.sln
+ls **/*{.sln}
+ls **/*.{png,PNG,jpg,JPG,jpeg,JPEG} | length
+ls **/*.sln<\n>
+ls --recursive | where name ends-with ".sln"<\n>
+ls **/**<\n>
+ls **/*.sln<\n>
+ls **/*.cs<\n>
+ls **/*.sln<\n>
+ls *.sln<\n>
+cd -<\n>
+cd ..
+ls *.sln<\n>
+ls **/*.sln<\n>
+find ~/.local/state/nvim/swap -name "*.swp" -delete
+wev
+flatpak update
+pk
+cd /home/andrei/.local/share/nvim/lazy/LuaSnip
+dysk --help
+dysk .
+dysk
+yay -Sc --aur
+btop
+lsblk -f<\n>
+y
+y
+pk
+btop
+pi
+pk
+quickshell
+quickshell
+sysupdate
+reboot
+wpctl status<\n>
+nvim
+vi ~/.local/state/yazi/yazi.log
+а бирно еi
+y
+sysupdate
+pk
+btop
+y
+quickshell
+qu
+yayq warpinator
+yayq gvfs-mtp
+yayq mtpfs
+quickshell 
+shutdown now
+sysupdate
+shutdown now
+quickshell 
+sysupdate
+hyprctl dispatch exit
+sudo pacman -S ca-certificates ca-certificates-mozilla
+sudo update-ca-trust
+sudo pacman -S libsecret gtk3 nss gnome-keyring<\n>
+sudo ufw disable 
+shutdown now
+ю
+y
+quickshell 
+pk
+quickshell 
+pk
+sysupdate
+ю
+y
+nvim
+xdg-mime default org.kde.gwenview.desktop image/*<\n>
+xdg-mime query default image/jpeg<\n>
+xdg-mime default org.kde.gwenview.desktop image/jpeg<\n>xdg-mime default org.kde.gwenview.desktop image/png<\n>xdg-mime default org.kde.gwenview.desktop image/webp<\n>xdg-mime default org.kde.gwenview.desktop image/gif<\n>xdg-mime default org.kde.gwenview.desktop image/bmp<\n>xdg-mime default org.kde.gwenview.desktop image/tiff<\n>
+xdg-mime query default image/jpeg<\n>
+quickshell 
+y
+y
+unzip "Voice_Over_2.zip" vo2
+unzip "Voice_Over_2.zip" /vo2
+unzip "Voice_Over_2.zip" -d /vo2
+suda mkdir vo2
+sudo mkdir vo2
+unzip "Voice_Over_2.zip" -d /vo2
+unzip "Voice_Over_2.zip" -d ~/Downloads/vo2
+chmod u+rwx ~/Downloads/vo2<\n>
+sudo chmod u+rwx ~/Downloads/vo2<\n>
+unzip "Voice_Over_2.zip" -d ~/Downloads/vo2
+sudo chown andrei:andrei ~/Downloads/vo2<\n>
+unzip "Voice_Over_2.zip" -d ~/Downloads/vo2
+y
+vial
+quickshell 
+yayq warpinator
+chmod +x WiiUDownloader-Linux-x86_64.AppImage
+y
+sudo WiiUDownloader-Linux-x86_64.AppImage
+sudo ./WiiUDownloader-Linux-x86_64.AppImage<\n>
+sudo -E ./WiiUDownloader-Linux-x86_64.AppImage<\n>
+pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY ./WiiUDownloader-Linux-x86_64.AppImage<\n>
+./WiiUDownloader-Linux-x86_64.AppImage --appimage-extract<\n>
+./squashfs-root/AppRun<\n>
+GDK_BACKEND=x11 ./squashfs-root/AppRun<\n>
+quickshell <\n>
+pk
+btop
+quickshell <\n>
+sysupdate
+pk
+ю
+quickshell <\n>
+yayq tailscale
+sudo pacman -S tailscale<\n><\n>
+pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY ./WiiUDownloader-Linux-x86_64.AppImage
+cd Downloads/
+pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY ./WiiUDownloader-Linux-x86_64.AppImage
+ls
+pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "./WiiUDownloader-Linux-x86_64.AppImage"
+yayq citron
+yayq citra
+sudo pacman -Syu<\n>
+yayq citron
+yayq eden
+sysupdate
+sysupdate
+yayq nsz
+sysupdate
+shutdown now
+hyprpm update
+sysupdate
+wpctl status<\n>
+y
+yay quickshell
+ip link
+ip link show
+ip adress
+ip addr
+sudo systemctl restart NetworkManager
+systemctl status NetworkManager.service
+ping 1.1.1.1
+dkms status
+shutdown now
+wpctl status<\n>
+ln -s /mnt/Crucial4TB/Emulation/switch/storage/load /mnt/Crucial4TB/Emulation/storage/citron/load
+quickshell <\n>
+lsmod | grep hid_nintendo<\n>
+nsz --help
+nsz.py --help
+ln -s /mnt/Crucial4TB/Emulation/switch/prodkeys/Prodkeys.NET_v21-0-0/prod.keys prod.keys
+nsz -D "/mnt/Crucial4TB/Emulation/roms/Switch/The Legend of Zelda Breath of the Wild [01007EF00011E800][v1048576] (0.94 GB).nsz"<\n>
+nsz -D "/mnt/Crucial4TB/Emulation/roms/Switch/The Legend of Zelda Breath of the Wild [01007EF00011E000][v0] (13.48 GB).nsz"
+nsz -D "/mnt/Crucial4TB/Emulation/roms/Switch/The Legend of Zelda Breath of the Wild [DLC The Master Trials] [01007EF00011F001][v196608] (1.30 GB).nsz"
+./NX.Optimizer.3.2.0.AppImage<\n>
+chmod +x NX.Optimizer.3.2.0.AppImage<\n>
+./NX.Optimizer.3.2.0.AppImage<\n>
+which citron
+which eden
+yayq nxoptimizer
+./NX.Optimizer.3.2.0.AppImage<\n>
+./NX.Optimizer.AppImage<\n>
+`./NX Optimizer.AppImage`<\n>
+cwd
+$.cwd
+ls
+y
+ls
+nsz -D "Super Mario Odyssey [0100000000010800][v393216] (0.38 GB).nsz"
+y
+nsz -D "Captain Toad Treasure Tracker [01009BF0072D4000][v0] (1.48 GB).nsz"
+nsz -D "Captain Toad Treasure Tracker [01009BF0072D4800][v327680] (0.16 GB).nsz"
+nsz -D "Captain Toad Treasure Tracker [DLC Special Episode Shifty Shrine] [01009BF0072D5001][v65536] (0.25 GB).nsz"
+y
+nsz -D "Captain Toad Treasure Tracker [01009BF0072D4800][v196608] (0.16 GB).nsz"
+nsz -D "Super Mario Odyssey [0100000000010800][v393216] (0.38 GB).nsz"
+yayq cemu
+./NX.Optimizer.AppImage<\n>
+./NXOptimizer.AppImage<\n>
+y
+nsz -D "Super Mario RPG [0100BC0018138000][v0] (6.40 GB).nsz"
+nsz -D "Super Mario RPG [0100BC0018138800][v65536] (0.12 GB).nsz"
+nsz -D "Super Smash Bros Ultimate [01006A800016E000][v0] (13.63 GB).nsz"
+nsz -D "Super Smash Bros Ultimate [01006A800016E800][v1835008] (3.66 GB).nsz"
+nsz -D "Metroid Dread [010093801237C000][v0] (4.12 GB).nsz"
+nsz -D "Metroid Dread [010093801237C800][v327680] (0.14 GB).nsz"
+nsz -D "The Legend of Zelda Skyward Sword HD [01002DA013484000][v0] (7.07 GB).nsz"
+nsz -D "The Legend of Zelda Skyward Sword HD [01002DA013484800][v65536] (0.04 GB).nsz"
+quickshell <\n>
+yayq markdown
+y
+quickshell <\n>
+ю
+pk
+steam --show
+steam steam://open/main<\n>
+pk
+hyprpm update
+sudo pacman -S cmake base-devel<\n>
+hyprpm update
+sysupdate
+quickshell <\n>
+yayq cemu
+sudo pacman -S joycond<\n>
+yayq joycond<\n>
+quickshell <\n>
+ps
+sudo pacman -S joycond<\n>
+yayq joycond<\n>
+yayr ghostty
+quickshell <\n>
+systemctl --user restart xdg-desktop-portal.service
+blueman-applet 
+yayq joycond<\n>
+quickshell --version
+yayq qt
+sysupdate
+shutdown now
+hyprpm update
+ls /dev/input<\n>
+pk
+sdl2-jstest --list<\n>
+sudo pacman -S sdl2-jstest<\n>
+yayq sdl2
+yay -S sdl2-jstest<\n>
+sdl2-jstest --list<\n>
+sudo pacman -S sdl2-jstest
+ls /dev/input/by-id<\n>
+sudo systemctl stop joycond<\n>sudo systemctl restart bluetooth<\n>
+ls /dev/input/by-id<\n>
+sudo pacman -S sdl2-jstest
+sdl2-jstest --list<\n>
+bluetoothctl devices
+sudo systemctl stop joycond
+sdl2-jstest --list<\n>
+lsmod | grep hid_nintendo<\n>
+sudo modprobe hid_nintendo<\n>
+sdl2-jstest --list<\n>
+dmesg | grep -i nintendo<\n>
+sudo dmesg | grep -i nintendo<\n>
+yay -S gamecontrollerdb<\n>
+yayq gamecontroller<\n>
+sdl2-jstest --list<\n>
+unset SDL_GAMECONTROLLERCONFIG<\n>
+sdl2-jstest --list
+grep -R "SDL_GAMECONTROLLERCONFIG" -n ~/.config<\n>
+cat /usr/share/sdl/gamecontrollerdb.txt
+env | grep SDL_GAMECONTROLLER<\n>
+sdl2-jstest --list
+ls -lh /usr/share/sdl/gamecontrollerdb.txt<\n>
+grep -i "nintendo" /usr/share/sdl/gamecontrollerdb.txt<\n>
+export SDL_GAMECONTROLLERCONFIG="050000007e0500000920000001000000,Nintendo Switch Pro Controller,a:b0,b:b1,back:b8,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,dpup:h0.1,guide:b12,leftshoulder:b4,leftstick:b10,lefttrigger:b6,leftx:a0,lefty:a1,misc1:b13,rightshoulder:b5,rightstick:b11,righttrigger:b7,rightx:a2,righty:a3,start:b9,x:b2,y:b3,platform:Linux,"<\n>fish
+yayr joycond
+yayq joycod
+yayq joycond
+yayr joycond-autopair-git
+sdl2-jstest --list
+hyprctl devices -j
+hyprctl monitors -j
+pk
+yayq nintendo-switch-controller-dkms-dsu
+yayq dsu
+yayq cemu
+sdl2-jstest --list
+yayq betterjoy
+yayq cemu
+systemctl --user status joycond
+yayq joycond
+systemctl --user status joycond<\n>systemctl --user status joycond-cemuhook
+quickshell --version
+quickshell
+shutdown now
+systemctl --user status joycond<\n>systemctl --user status joycond-cemuhook
+sdl2-jstest --list
+sudo dmesg | grep -i nintendo<\n>
+yayq dkms-hid-nintendo
+yayq hid-nintendo
+joycond-cemuhook 
+pk
+yayr hid-nintendo
+yayq hid-nintendo
+yayr hid-nintendo-nso-dkms
+yayr joycond-autopair-git
+yayr joycond-cemuhook-git
+yayr joycond-autopair-git
+shutdown now
+sudo udevadm trigger --subsystem-match=input --action=change<\n>
+shutdown now
+sysupdate
+yayq aspnet-runtime
+yayr aspnet-runtime-preview-bin
+yayr dotnet-runtime-preview-bin
+yayr dotnet-sdk-preview-bin
+yayr dotnet-runtime-preview-bin
+yayr aspnet-runtime-preview-bin
+yayr dotnet-runtime-preview-bin
+yayq aspnet-runtime
+sysupdate
+yayr aspnet-targeting-pack-preview-bin
+sysupdate
+lsblk -f<\n>
+sudo dolphin
+dolphin  --sudo
+lsblk -f<\n>
+lsblk -f | grep EFI<\n>
+lsblk -f | grep efi<\n>
+mount | grep efi
+ls /boot/efi<\n>
+sudo ls -l /boot/efi<\n>
+lsblk -f
+sudo umount /mnt/mint<\n>sudo e2label /dev/nvme1n1p4 mint<\n>sudo mount /mnt/mint<\n>
+sudo mount -o remount /boot/efi<\n>
+y
+sudo mount -o remount /boot/efi<\n>
+systemctl daemon-reload
+sudo mount -o remount /boot/efi<\n>
+ls /boot/efi<\n>
+sudo ls -l /boot/efi<\n>
+i
+yayq nintendo
+yayq refind
+journalctl --user -u hyprland -b --no-pager<\n>
+journalctl -b | grep hypr<\n>journalctl -b | grep sddm<\n>
+sudo pacman -S qt6-wayland qt6-base qt6-svg qt6-declarative qt6-xcb<\n>
+sudo pacman -S xcb-util-cursor<\n>
+sudo pacman -Syu<\n>
+pacman -Qs hyprland hyprpolkit qt<\n>
+systemctl --user mask hyprpolkitagent.service<\n>
+bluetoothctl devices
+blueman-applet 
+sudo pacman -S qt6-wayland qt6-base qt6-svg qt6-declarative qt6-xcb<\n>sudo pacman -S xcb-util-cursor<\n>
+sudo pacman -S qt5-base qt5-wayland qt5-xcb-private-headers qt5-svg<\n>sudo pacman -S xcb-util-cursor<\n>
+sudo pacman -S qt5-quickcontrols qt5-quickcontrols2 qt5-graphicaleffects<\n>
+sudo pacman -S qt5-wayland<\n>
+journalctl --user -u hyprland -b --no-pager | tail -50
+hyprctl check<\n>
+journalctl --user -u hyprland -b --no-pager<\n>
+journalctl -b | grep sddm
+journalctl -b | grep hypr
+pacman -Qo /usr/lib/libhyprgraphics.so.3<\n>
+sudo pacman -S hyprland hyprgraphics hyprutils hyprcursor hyprwayland-scanner xdg-desktop-portal-hyprland<\n>
+sudo pacman -Scc<\n>
+yay -Qs hypr<\n>
+yay -R hyprland-git hyprgraphics-git hyprutils-git xdg-desktop-portal-hyprland-git<\n>
+sudo pacman -R hyprland hyprgraphics hyprutils xdg-desktop-portal-hyprland<\n>
+sudo pacman -Syu --overwrite="*" hyprland hyprgraphics hyprutils xdg-desktop-portal-hyprland aquamarine<\n>
+sudo pacman -S --overwrite="*" hyprpaper hypridle hyprlock hyprcursor hyprlang hyprpicker hyprsunset hyprtoolkit hyprpolkitagent hyprland-guiutils<\n>
+yay -Syu hyprland-git hyprpaper-git hyprpicker-git grimblast-git<\n>
+hyprland -v
+hyprctl check
+hyprctl configerrors
+systemctl --user status hyprpolkitagent.service<\n>
+systemctl --user unmask hyprpolkitagent.service<\n>
+systemctl --user status hyprpolkitagent.service<\n>
+systemctl --user enable hyprpolkitagent.service<\n>
+pkexec thunar<\n>
+pkexec btrfs-assistant
+pkexec env QT_QPA_PLATFORM=wayland btrfs-assistant<\n>
+systemctl --user status hyprpolkitagent.service<\n>
+systemctl --user start hyprpolkitagent.service<\n>
+pkexec btrfs-assistant
+pkexec env QT_QPA_PLATFORM=wayland btrfs-assistant<\n>
+cd /home/andrei/.local/share/nvim/lazy/nvim-web-devicons/
+y
+sudo mkdir -p /usr/lib/mono
+sudo ln -s /mnt/mint/Unity/Hub/Editor/6000.0.59f2/Editor/Data/MonoBleedingEdge/lib/mono/4.7.2-api /usr/lib/mono/4.5
+shutdown now
+yayq quickshell
+yay -S quickshell-git<\n>
+quickshell
+quickshell --version
+y
+kitty --title=Yazi -e yazi
+pk
+hyprpm update
+pk
+hyprpm list
+pk
+unity
+pk
+sysupdate
+which slack
+flatpak install flathub com.slack.Slack<\n>
+pk
+cd /var/lib/flatpak/exports/share/applications/<\n>
+ls
+pk
+yayr slack-desktop
+ю
+shutdown now
+nvim --version
+nvim -V1 -v
+pk
+pk2
+hyprpm reload -n
+pk
+which steam
+steam
+strace -f -tt -o /tmp/steam.strace steam
+cat /tmp/steam.strace | curl -F 'file=@-' 0x0.st
+pk
+steam --reset
+cd /usr/bin/steam
+y
+cd /usr/bin/steam
+cd usr
+ls
+y
+sudo pacman -Rns steam<\n>
+sudo pacman -Rns steam proton-cachyos steam-native-runtime<\n>
+sudo pacman -S steam --noconfirm<\n>
+pk
+steam --reset
+./bin_steam.sh
+pk
+steam steam://open/main
+ps aux | grep steam<\n>
+pgrep -laf steam<\n>
+yayq zenity
+btop
+pk
+STEAM_FORCE_DESKTOPUI_SCALING=1 steam<\n><\n>
+STEAM_ZENITY=0 steam<\n>
+flatpak uninstall steam
+flatpak uninstall --unused
+dysk
+flatpak uninstall steam
+flatpak uninstall Steam
+flatpak list
+flatpak uninstall --delete-data com.valvesoftware.Steam<\n>
+flatpak list --app<\n>
+ls ~/.var/app<\n>
+~/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/
+lsblk -f<\n>
+sudo chown -R andrei:andrei /mnt/mint<\n>
+GDK_BACKEND=x11 steam<\n>
+steam
+y
+pk
+hyprctl monitors -j
+yayq yt-dlp
+pip install "fastapi[standard]" --break-system-packages
+systemctl edit --full --force --user play-with-mpv
+systemctl --user enable --now play-with-mpv
+systemctl edit --full --force --user play-with-mpv
+systemctl --user enable --now play-with-mpv
+yt-dlp "https://youtu.be/njX2bu-_Vw4?si=mm5ooMdhs_GmBgxi" --verbose
+ls -lh "2020 LG OLED l  The Black 4K HDR 60fps [njX2bu-_Vw4].mp4"<\n>
+mpv --fullscreen "2020 LG OLED l  The Black 4K HDR 60fps [njX2bu-_Vw4].mp4"<\n>
+sysupdate
+qdbus org.kde.KWin /KWin org.kde.KWin.reconfigure
+mpv --vo=dmabuf-wayland
+mpv --vo=dmabuf-wayland --no-video
+mpv --version
+mpv . --vo=dmabuf-wayland 
+y
+mpv "/home/andrei/2020 LG OLED l  The Black 4K HDR 60fps [njX2bu-_Vw4].mp4" --vo=dmabuf-wayland 
+mpv "/home/andrei/2020 LG OLED l  The Black 4K HDR 60fps [njX2bu-_Vw4].mp4" --vo=gpu 
+hyprctl reload<\n>
+hyprctl keyword monitor HDMI-A-1,disable<\n>
+mpv . --vo=gpu --gpu-context=wayland video.mkv<\n>
+hyprctl keyword monitor HDMI-A-1,enable<\n>
+hyprctl keyword monitor HDMI-A-2,disable<\n>
+hyprctl keyword monitor HDMI-A-2,enable<\n>
+./fix-hdr-colors.sh
+hyprctl getoption experimental:hdr
+hyprctl getoption hdr
+./toggle-hdr.nu HDMI-A-2
+hyprctl monitors -j
+hyprctl monitors
+./toggle-hdr.nu HDMI-A-2
+hyprctl monitors
+./toggle-hdr.nu HDMI-A-2
+./fix-hdr-colors.sh
+./toggle-hdr.nu HDMI-A-2
+hyprctl monitors
+./toggle-hdr.nu HDMI-A-2
+./toggle-hdr.nu
+hyprctl monitors
+gamescope --help
+vulkaninfo | grep -i gamescope<\n>
+gamescope -W 3840 -H 2160 -r 120 \<\n>  --adaptive-sync \<\n>  --fullscreen \<\n>  --hdr-enabled \<\n>  --sdr-gamut-wideness 1 \<\n>  -- steam<\n>
+yayq mangohud
+yayq lib32-mangohud
+sudo pacman -S vkbasalt lib32-vkbasalt
+yayq vkbasalt
+yayq lib32-vkbasalt
+curl -LO https://github.com/kevinlekiller/reshade-steam-proton/raw/main/reshade-linux.sh
+chmod u+x reshade-linux.sh
+./reshade-linux.sh
+RESHADE_ADDON_SUPPORT=1 ./reshade-linux.sh.
+ls
+with-env { RESHADE_ADDON_SUPPORT: "1" } { ./reshade-linux.sh }
+RESHADE_ADDON_SUPPORT=1 ./reshade-linux.sh
+huenicorn
+./huenicorn
+yayq huenicorn
+yayq xdg-desktop-portal-hyprland
+yayq xdg-desktop-portal
+systemctl --user restart xdg-desktop-portal xdg-desktop-portal-hyprland<\n>
+pk
+huenicorn
+pk
+btop
+quickshell
+hyprctl monitors -j
+quickshell -i updateMonitorHdr
+qs ipc call mainMonitorHdr trigger
+qs ipc call updateHueStatus trigger
+pgrep -x huenicorn<\n>
+qs ipc call updateHueStatus trigger
+pgrep -x huenicorn
+pk
+pk2
+./toggle_huenicorn.nu
+qs ipc call updateHueStatus trigger
+pgrep -x huenicorn
+qs ipc call updateHueStatus trigger
+quickshell
+qs ipc call updateHueStatus trigger
+sysupdate
+shutdown now
+sysupdate
+ю
+pk
+vi ~/.config/kdeglobals<\n>
+shutdown now
+ю
+pk2
+~/.config/hypr/scripts/lua/hypr-watcher
+luajit /home/andrei/.config/hypr/scripts/lua/init.lua
+~/.config/hypr/scripts/lua/hypr-watcher
+git log --reverse | less<\n>
+hyprctl systeminfo
+hyprctl clients
+hyprctl devices<\n>
+luajit /home/andrei/.config/hypr/scripts/lua/init.lua
+~/.config/hypr/scripts/lua/hypr-watcher
+luajit "/home/andrei/.config/hypr/scripts/lua/hypr-watcher"
+~/.config/hypr/scripts/lua/hypr-watcher
+wev
+pk
+luajit /home/andrei/.config/hypr/scripts/lua/init.lua
+pk
+btop
+yayq wine
+loader
+yayq loader
+yayq photoshop
+yayq bottles
+yayq caffe
+yayq runner
+yayq caffe
+yayq bottles
+flatpak install flathub bottles
+quickshell
+ю
+sysupdate
+wev
+sysupdate
+emudeck
+shutdown now
+sysupdate
+sudo pacman -Rns zoom-libs-bin && yay -S zoom
+kitty --debug-keyboard
+dotnet add package Microsoft.Unity.Analyzers
+y
+STEAM_ZENITY=0 steam
+pk
+hyprsunset -help
+hyprsunset -g 100
+hyprsunset -i
+hyprsunset -gamma_max
+hyprsunset --gamma_max
+hyprsunset --gamma_max 200
+hyprsunset --gamma 200
+hyprsunset --gamma 150
+hyprsunset --temperature 5000
+hyprctl hyprsunset identity
+hyprctl hyprsunset reset
+hyprctl hyprsunset profile
+pk
+hyprctl hyprsunset configerrors
+hyprctl configerrors
+hyprctl instances
+hyprctl rollinglog
+GDK_BACKEND=x11 steam
+with-env { GDX_BACKEND: "x11" } { steam }
+yayq claude-code
+# One-liner approach<\n>generate {|p| if $p == "/" { null } else { {out: $p, next: ($p | path dirname)} }} (pwd)<\n>| each {|dir| glob ($dir | path join "*.asmdef") }<\n>| flatten
+def asmdef-to-root [] {<\n>    generate {|p| <\n>        if $p == "/" { null } <\n>        else { {out: $p, next: ($p | path dirname)} }<\n>    } (pwd)<\n>    | each { glob ($in | path join "*.asmdef") }<\n>    | flatten<\n>}
+asmdef-to-root 
+def asmdef-to-root [] {<\n>    generate {|p| <\n>        if $p == "/" { null } else { {out: $p, next: ($p | path dirname)} }<\n>    } (pwd)<\n>    | each { glob ($in | path join "*.asmdef") }<\n>    | flatten<\n>}
+asmdef-to-root 
+def asmdef-to-root [] {<\n>    generate {|p| <\n>        if $p == "/" { {} } else { {out: $p, next: ($p | path dirname)} }<\n>    } (pwd)<\n>    | each { glob ($in | path join "*.asmdef") }<\n>    | flatten<\n>}
+asmdef-to-root 
+ls
+y
+def asmdef-to-root [] {<\n>    generate {|p| <\n>        if $p == "/" { {} } else { {out: $p, next: ($p | path dirname)} }<\n>    } (pwd)<\n>    | each { glob ($in | path join "**/*.asmdef") }<\n>    | flatten<\n>}
+asmdef-to-root 
+claude --continue<\n>
+claude auth status
+claude config
+rm -rf ~/.cache/nvim/luac
+tree -L 2 ~/.config/nvim
+yayq tree
+tree -L 2 ~/.config/nvim
+ls ~/.config/nvim/lua/config<\n>ls ~/.config/nvim/lua/plugins
+ls ~/.config/nvim/lua/config
+tree ~/.config/nvim/local-plugins/referencer.nvim
+yayq xkb-switch
+y
+cd  /usr/share/X11/xkb/symbols/
+xkb-switch
+hyprctl devices -j 2>/dev/null
+hyprctl devices -j
+hyprctl devices -j | jq '.keyboards'
+yayq zen
+sysupdate
+pwd
+yayq ngrok
+python3 -m venv venv
+source venv/bin/activate
+cat /proc/sys/fs/inotify/max_user_watches
+# Count watchers per process<\n>find /proc/*/fd -lname anon_inode:inotify 2>/dev/null | <\n>  while read f; do <\n>    pid=$(echo $f | cut -d/ -f3)<\n>    name=$(ps -p $pid -o comm= 2>/dev/null)<\n>    count=$(cat /proc/$pid/fdinfo/$(basename $f) 2>/dev/null | grep -c inotify)<\n>    echo "$count $name ($pid)"<\n>  done | sort -rn | head -20
+# Which processes have inotify handles<\n>for pid in /proc/[0-9]*/fd/*; do<\n>  readlink -f "$pid" 2>/dev/null | grep -q inotify && echo "$pid"<\n>done | cut -d/ -f3 | sort | uniq -c | sort -rn | head -10 | while read count pid; do<\n>  echo "$count $(ps -p $pid -o comm= 2>/dev/null) ($pid)"<\n>done
+# Simple: list processes with inotify handles<\n>ls /proc/*/fd/* <\n>  | where ($it.name | path exists) <\n>  | each { |f| <\n>      let target = (readlink $f.name | complete).stdout<\n>      if ($target | str contains "inotify") { <\n>        $f.name | path split | get 2 <\n>      } <\n>    } <\n>  | compact <\n>  | uniq -c <\n>  | sort-by count -r <\n>  | first 10<\n>  | each { |r| <\n>      let name = (ps | where pid == ($r.value | into int) | get 0?.name? | default "unknown")<\n>      { count: $r.count, process: $name, pid: $r.value }<\n>    }
+bash -c "for pid in /proc/[0-9]*/fd/*; do readlink -f \$pid 2>/dev/null | grep -q inotify && echo \$pid; done | cut -d/ -f3 | sort | uniq -c | sort -rn | head -10"
+ps -p 3671591 -o pid,comm,args
+btop
+sysupdate
+yayq claude-code
+yayq ccusage
+ccusage 
+ccusage --help
+ccusage -i
+ccusage blocks -live
+ccusage blocks
+ccusage statusline
+ccusage blocks
+ccusage --live
+ccusage blocks --live
+ccusage blocks
+echo -e "📁 \e[34mДокументс\e[0m — найдено \e[31m82\e[0m изображения"<\n>
+claude-system 
+hyprctl clients
+pk
+hyprctl clients
+pk
+pk2
+hyprctl clients
+hyprctl monitors -j
+ccusage blocks
+sysupdate
+yayq zen
+claude-system 
+/exin
+/exit
+claude-system 
+npx claude-glm-installer
+cc
+ccg
+yayq max
+hyprctl clients -j
+wev
+yayq opencode
+luals
+lua-language-server 
+yayq grok
+grok
+yayq gemini-cli
+yayr gemini-cli-git
+npm install -g @google/gemini-cli<\n>
+gemini 
+gemini
+npm install -g @google/gemini-cli<\n>
+npm fund
+gemini
+gemi
+gemini 
+which claude-glm 
+cd /home/andrei/.local/bin/claude-glm
+yayq claude-code
+yayr claude-code
+npm install -g @anthropic-ai/claude-code<\n>
+claude-system 
+claude-glm 
+sysupdate
+quickshell
+sysupdate
+yayq doublecmd
+yayr doublecmd-qt5
+y
+git log --reverse | less<\n>
+lazygit
+sysupdate
+luajit "/home/andrei/.config/hypr/scripts/lua/hypr-watcher"
+shutdown now
+luajit "/home/andrei/.config/hypr/scripts/lua/init.lua"
+ls
+./diagnose
+yayq hyprland-git
+y
+yayq hyprland-git
+yayq hyppgraphics
+yayq hyprgraphics
+sysupdate
+yayr hyprgraphics-git
+yayr hyprlock
+hyprctl clients -j
+sysupdate
+shutdown now
+quickshell
+hyprpm update
+yayq quickshell
+quickshell
+pk
+hyprsunset --temperature 5000
+claude-system 
+npm update
+sysupdate
+yayr vim
+claude-system 
+git init
+hyprctl hyprsunset identity
+hyprctl hyprsunset reset
+glm-system 
+glm-system
+hyprctl hyprsunset reset
+hyprctl hyprsunset temperature 100
+hyprctl hyprsunset temperature 1000
+hyprctl hyprsunset temperature 10000
+hyprctl hyprsunset temperature 5500
+sysupdate
+yayr ccusage
+sysupdate
+shutdown now
+Max -help
+MAX -help
+max &
+max
+hyprctl clients -j
+claude-system 
+quickshell
+gl
+glm-system
+важное замечание /home/andrei/Work/Worksheets/Art/Indonesian/AWS_art-1_Indonesian.jpg правильное название пути, когда язык не английский к имени файла добавляется название языка через подчёркивание, для папки LearningPlan нормально когда есть AWS_learningplan-1_German.jpg и AWS_learningplan-1_2_German.jpg в приложении это будет бандл из двух картинок, в некоторых наборах у последней картинки нет файла с индексом 2 q?
+glm-system
+which toktx
+glm
+glm-system
+claude-system 
+glm-system
+glm-system
+yayq python-httplib2
+sudo pacman -S python-google-api-python-client python-google-auth
+claude-system 
+ю
+!rm -rf ~/.local/state/nvim/lazy/line-insight.nvim
+!rm -rf ~/.local/share/nvim/luac/
+hyprctl reload<\n>
+hyprctl dispatch exit<\n>
+quickshell
+hyprctl hyprsunset temperature 5500
+quickshell
+y
+claude
+gemini 
+claude
+claude-system 
+glm-system
+claude-system 
+glm-system
+claude-system 
+pip install requests beautifulsoup4 
+sysupdate
+glm-system
+glm-system
+y
+glm-system
+quickshell
+sysupdate
+yayq  balenaEtcher
+yayq  balena
+balena-etcher 
+sudo fdisk -l
+shutdown now
+sudo umount /dev/sde1
+sudo fdisk -l /dev/sde
+mkdir -p /tmp/efi_check 
+yayq  balena
+yayq ventoy
+sudo umount /dev/sde1 /dev/sde2
+sudo ventoy2disk -i /dev/sde
+yayq ventoy
+ventoy
+sudo ventoy -i -g /dev/sde
+sudo mount /dev/sde1 /mnt
+sudo cp /run/media/andrei/2e159d0c-d2f7-43d8-a967-99718f6ea319/Downloads/cachyos-handheld-linux-251129.iso /mnt/
+sudo umount /dev/sde1 /dev/sde2
+paru
+quickshell
+claude-system 
+pip install google-api-python-client
+yay -S python-google-api-python-client --noconfirm
+paru -S chezmoi

@@ -1,0 +1,25 @@
+# Exclude snapshots (btrfs/restic backup dirs)
+.snapshots
+**/.snapshots
+
+# Exclude cache directories
+**/cache/
+**/Cache/
+**/__pycache__/
+**/node_modules/
+**/.local/state/
+
+# Exclude large binary/config files that shouldn't be synced
+**/Cache/
+**/CachedData/
+**/log/
+**/logs/
+
+# Machine-specific hardware configs (you can adjust this)
+**/hardware-configuration.nix
+
+# Exclude IDE specific caches
+**/.idea/
+**/.vscode/
+**/Session.vim
+**/sessions/

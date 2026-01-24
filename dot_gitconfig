@@ -1,0 +1,27 @@
+[core]
+	ignorecase = false
+[user]
+	name = Andrei
+	email = COPATHuK@gmail.com
+[commit]
+	gpgSign = false
+[pull]
+	rebase = false
+[gui]
+	pruneduringfetch = true
+[smartgit "submodule"]
+	fetchalways = false
+	update = true
+	initializenew = true
+[push]
+	recurseSubmodules = check
+[autoupdate]
+	enable = true
+[global]
+[lfs]
+	locksverify = true
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

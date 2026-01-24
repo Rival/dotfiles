@@ -1,0 +1,76 @@
+[{
+  "include": [
+    "~/.config/waybar/modules.jsonc"
+    // "~/.config/waybar/style-config.json"
+  ], 
+  "output":["DP-1"],
+  "name": "left-bar",
+  "layer": "top",
+  // "output": [ "*" ],
+  "position": "bottom",
+  "mod": "dock",
+  "height": 35,
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "reload_style_on_change": true,
+
+  "modules-center": ["custom/padd","custom/l_end","hyprland/workspaces","hyprland/window","custom/r_end","custom/padd", "custom/minimized"]
+ },
+ {
+   "include": [
+     "~/.config/waybar/modules.jsonc"
+     // "~/.config/waybar/style-config.json"
+   ], 
+   "output":["DP-2"],
+    "name": "right-bar",
+   "layer": "top",
+   // "output": [ "*" ],
+   "position": "bottom",
+   "mod": "dock",
+   "height": 35,
+   "exclusive": true,
+   "passthrough": false,
+   "gtk-layer-shell": true,
+   "reload_style_on_change": true,
+
+   "modules-center": ["custom/padd","custom/l_end","hyprland/workspaces","hyprland/window","custom/r_end","custom/padd", "custom/minimized"]
+  },
+  { 
+    "include": [
+        "~/.config/waybar/modules.jsonc"
+    ],
+    "output":"HDMI-A-2",
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "height": 35,
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "reload_style_on_change": true,
+
+    "modules-left": ["custom/padd","custom/l_end","cpu","memory","custom/cpuinfo","custom/gpuinfo","custom/r_end","custom/l_end","idle_inhibitor","custom/r_end","custom/padd"],
+    "modules-center": ["custom/padd","custom/l_end","hyprland/window","custom/r_end","custom/padd", "custom/minimized","custom/l_end","clock","custom/r_end"],
+    "modules-right": ["custom/l_end","custom/wallchange","custom/theme","custom/wbar","custom/cliphist","custom/power","custom/r_end","custom/padd"]
+  },
+  { 
+    "include": [
+        "~/.config/waybar/modules.jsonc"
+    ],
+    "output":"HDMI-A-2",
+    "layer": "top",
+    "position": "bottom",
+    "mod": "dock",
+    "height": 35,
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "reload_style_on_change": true,
+
+    "modules-center": [ "custom/padd","custom/l_end","custom/workspace-theme","hyprland/workspaces","custom/r_end", "custom/keyboard", "custom/updates", "custom/l_end","privacy","tray","custom/r_end","custom/padd","custom/l_end","network","pulseaudio","custom/audio-simple","pulseaudio#microphone",
+      // "custom/keybindhint",
+      "custom/r_end", "hyprland/submap"]
+  }
+]
+

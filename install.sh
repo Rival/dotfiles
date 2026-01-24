@@ -83,7 +83,7 @@ read -p "Install Prometheus keyboard layout? (y/N) " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "⌨️  Installing Prometheus keyboard layout..."
-    sudo cp ~/.local/share/xkeyboard-config/symbols/prometeus /usr/share/xkeyboard-config/symbols/prometeus
+    sudo cp ~/.local/share/xkeyboard-config/symbols/prometeus /usr/share/X11/xkb/symbols/prometeus
     PROMETHEUS_INSTALLED=true
 else
     echo "⏭️  Skipping Prometheus layout"

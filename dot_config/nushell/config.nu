@@ -198,18 +198,18 @@ def prometheus-install [] {
     return
   }
   print "⌨️  Installing Prometheus keyboard layout..."
-  ^sudo cp ~/.local/share/xkeyboard-config/symbols/prometeus /usr/share/xkeyboard-config/symbols/prometeus
+  ^sudo cp ~/.local/share/xkeyboard-config/symbols/prometeus /usr/share/X11/xkb/symbols/prometeus
   print "✅ Prometheus layout installed!"
   print "🔄 IMPORTANT: Restart your display manager or logout/login to use it"
 }
 
 def prometheus-remove [] {
-  if not ("/usr/share/xkeyboard-config/symbols/prometeus" | path exists) {
+  if not ("/usr/share/X11/xkb/symbols/prometeus" | path exists) {
     print "⚠️  Prometheus layout not installed in system"
     return
   }
   print "🗑️  Removing Prometheus keyboard layout..."
-  ^sudo rm /usr/share/xkeyboard-config/symbols/prometeus
+  ^sudo rm /usr/share/X11/xkb/symbols/prometeus
   print "✅ Prometheus layout removed!"
   print "🔄 Restart your display manager or logout/login to apply changes"
 }

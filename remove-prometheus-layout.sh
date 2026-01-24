@@ -3,13 +3,13 @@
 
 echo "🗑️  Removing Prometheus keyboard layout..."
 
-if [ ! -f "/usr/share/xkeyboard-config/symbols/prometeus" ]; then
+if [ ! -f "/usr/share/X11/xkb/symbols/prometeus" ]; then
     echo "⚠️  Prometheus layout not found in system"
-    echo "   File /usr/share/xkeyboard-config/symbols/prometeus does not exist"
+    echo "   File /usr/share/X11/xkb/symbols/prometeus does not exist"
     exit 0
 fi
 
-sudo rm /usr/share/xkeyboard-config/symbols/prometeus
+sudo rm /usr/share/X11/xkb/symbols/prometeus
 
 if [ $? -eq 0 ]; then
     echo "✅ Prometheus layout removed successfully"

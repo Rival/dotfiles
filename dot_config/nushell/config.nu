@@ -31,8 +31,10 @@ oh-my-posh init nu
 # Initialize zoxide only if installed
 if (which zoxide | is-not-empty) {
     zoxide init --cmd cd nushell | save -f ~/.config/zoxide.nu
-    # Source immediately after init
-    source ~/.config/zoxide.nu
+    # Source only if file exists
+    if ("~/.config/zoxide.nu" | path expand | path exists) {
+        source ~/.config/zoxide.nu
+    }
 }
 # mkdir ($nu.data-dir | path join "vendor/autoload")
 

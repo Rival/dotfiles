@@ -162,6 +162,16 @@ def ask [question: string] {
   claude -p $question
 }
 
+# Update dotfiles from GitHub and apply
+def dotfiles-update [] {
+  print "📥 Pulling dotfiles from GitHub..."
+  cd ~/.local/share/chezmoi
+  git pull
+  print "📦 Applying changes..."
+  chezmoi apply
+  print "✅ Dotfiles updated!"
+}
+
 def pk [] {
     let selection = (ps | fzf)
     if ($selection | is-empty) {

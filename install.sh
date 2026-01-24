@@ -101,8 +101,9 @@ if [ "$ZOXIDE_INSTALLED" = true ]; then
     echo "  4. zoxide is installed - use 'z' command for smart navigation"
 fi
 if [ "$PROMETHEUS_INSTALLED" = true ]; then
-    echo "  5. ⌨️  Prometheus layout installed - set it in your keyboard settings"
-    echo "     To remove: ~/.local/share/chezmoi/remove-prometheus-layout.sh"
+    echo "  5. ⌨️  Prometheus layout installed!"
+    echo "     🔄 IMPORTANT: Restart your display manager or logout/login to use it"
+    echo "     To remove later: prometheus-remove"
 fi
 echo ""
 echo "🎯 Configured apps:"

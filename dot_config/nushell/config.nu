@@ -190,6 +190,30 @@ def dotfiles-push [message?: string] {
 }
 alias dotsp = dotfiles-push
 
+# Prometheus keyboard layout management
+def prometheus-install [] {
+  if not ("~/.local/share/xkeyboard-config/symbols/prometeus" | path expand | path exists) {
+    print "❌ Prometheus layout not found in dotfiles"
+    print "   Run 'dots' to update dotfiles first"
+    return
+  }
+  print "⌨️  Installing Prometheus keyboard layout..."
+  ^sudo cp ~/.local/share/xkeyboard-config/symbols/prometeus /usr/share/xkeyboard-config/symbols/prometeus
+  print "✅ Prometheus layout installed!"
+  print "🔄 IMPORTANT: Restart your display manager or logout/login to use it"
+}
+
+def prometheus-remove [] {
+  if not ("/usr/share/xkeyboard-config/symbols/prometeus" | path exists) {
+    print "⚠️  Prometheus layout not installed in system"
+    return
+  }
+  print "🗑️  Removing Prometheus keyboard layout..."
+  ^sudo rm /usr/share/xkeyboard-config/symbols/prometeus
+  print "✅ Prometheus layout removed!"
+  print "🔄 Restart your display manager or logout/login to apply changes"
+}
+
 def pk [] {
     let selection = (ps | fzf)
     if ($selection | is-empty) {

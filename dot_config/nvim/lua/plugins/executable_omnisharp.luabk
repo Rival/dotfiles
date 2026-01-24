@@ -1,0 +1,165 @@
+return {
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup({
+        PATH = "prepend", -- "skip" seems to cause the spawning error
+      })
+    end,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require("mason-lspconfig").setup({
+        ensure_installed = { "lua_ls" },
+      })
+    end,
+  }, --add tsserver and setup with typescript.nvim instead of lspconfig
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      -- "jose-elias-alvarez/typescript.nvim",
+      -- init = function()
+      --   require("lazyvim.util").lsp.on_attach(function(_, buffer)
+      --     -- stylua: ignore
+      --     vim.keymap.set( "n", "<leader>co", "typescriptorganizeimports", { buffer = buffer, desc = "organize imports" })
+      --     vim.keymap.set("n", "<leader>cr", "typescriptrenamefile", { desc = "rename file", buffer = buffer })
+      --   end)
+      -- end,
+      -- automatically install lsps and related tools to stdpath for neovim
+      --	     'hrsh7th/cmp-nvim-lsp',
+      --        { 'antosha417/nvim-lsp-file-operations', config = true },
+      -- 'williamboman/mason.nvim',
+      -- 'williamboman/mason-lspconfig.nvim',
+      -- "whoissethdaniel/mason-tool-installer.nvim",
+
+      -- useful status updates for lsp.
+      -- note: `opts = {}` is the same as calling `require('fidget').setup({})`
+      {
+        "j-hui/fidget.nvim",
+        tag = "v1.4.0",
+        opts = {
+          progress = {
+            display = {
+              done_icon = "✓", -- icon shown when all lsp progress tasks are complete
+            },
+          },
+          notification = {
+            window = {
+              winblend = 1, -- background color opacity in the notification window
+            },
+          },
+        },
+      },
+    },
+    config = function()
+      local pid = vim.fn.getpid()
+      -- somewhere in the code where server configuration is defined
+      require("lspconfig").omnisharp.setup({
+        on_attach = function()
+          print("omnisharp attached")
+        end,
+        useModernNet = false,
+        -- use_mono = true,
+        -- capabilities = capabilities,
+        cmd = { "c:/.config/nvim/tools/omnisharp-mono/OmniSharp.exe", "--languageserver", "--hostPID", tostring(pid) },
+        -- cmd = { "dotnet", "c:/.config/nvim/tools/omnisharp-mono" },
+        root_dir = require("lspconfig").util.root_pattern("*.sln", "*.csproj"),
+        settings = {
+          formattingoptions = {
+            -- enables support for reading code style, naming convention and analyzer
+            -- settings from .editorconfig.
+            enableeditorconfigsupport = true,
+            -- specifies whether 'using' directives should be grouped and sorted during
+            -- document formatting.
+            organizeimports = nil,
+          },
+          msbuild = {
+            -- if true, msbuild project system will only load projects for files that
+            -- were opened in the editor. this setting is useful for big c# codebases
+            -- and allows for faster initialization of code navigation features only
+            -- for projects that are relevant to code that is being edited. with this
+            -- setting enabled omnisharp may load fewer projects and may thus display
+            -- incomplete reference lists for symbols.
+            loadprojectsondemand = nil,
+          },
+          roslynextensionsoptions = {
+            -- enables support for roslyn analyzers, code fixes and rulesets.
+            enableanalyzerssupport = nil,
+            -- enables support for showing unimported types and unimported extension
+            -- methods in completion lists. when committed, the appropriate using
+            -- directive will be added at the top of the current file. this option can
+            -- have a negative impact on initial completion responsiveness,
+            -- particularly for the first few completion sessions after opening a
+            -- solution.
+            enableimportcompletion = nil,
+            -- only run analyzers against open files when 'enableroslynanalyzers' is
+            -- true
+            analyzeopendocumentsonly = nil,
+          },
+          sdk = {
+            -- specifies whether to include preview versions of the .net sdk when
+            -- determining which version to use for project loading.
+            -- includeprereleases = true,
+          },
+        },
+      })
+    end,
+    ---@class pluginlspopts
+    -- opts = {
+    --   -- you can do any additional lsp server setup here
+    --   -- return true if you don't want this server to be setup with lspconfig
+    --   ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
+    --   setup = {
+    --     -- example to setup with typescript.nvim
+    --     -- tsserver = function(_, opts)
+    --     --   require("typescript").setup({ server = opts })
+    --     --   return true
+    --     -- end,
+    --     -- specify * to use this function as a fallback for any server
+    --     -- ["*"] = function(server, opts) end,
+    --     omnisharp = function(_, opts)
+    --       opts.cmd = { "dotnet", "c:/.config/nvim/tools/omnisharp-mono" }
+    --       opts.settings = {
+    --         formattingoptions = {
+    --           -- enables support for reading code style, naming convention and analyzer
+    --           -- settings from .editorconfig.
+    --           enableeditorconfigsupport = true,
+    --           -- specifies whether 'using' directives should be grouped and sorted during
+    --           -- document formatting.
+    --           organizeimports = nil,
+    --         },
+    --         msbuild = {
+    --           -- if true, msbuild project system will only load projects for files that
+    --           -- were opened in the editor. this setting is useful for big c# codebases
+    --           -- and allows for faster initialization of code navigation features only
+    --           -- for projects that are relevant to code that is being edited. with this
+    --           -- setting enabled omnisharp may load fewer projects and may thus display
+    --           -- incomplete reference lists for symbols.
+    --           loadprojectsondemand = nil,
+    --         },
+    --         roslynextensionsoptions = {
+    --           -- enables support for roslyn analyzers, code fixes and rulesets.
+    --           enableanalyzerssupport = nil,
+    --           -- enables support for showing unimported types and unimported extension
+    --           -- methods in completion lists. when committed, the appropriate using
+    --           -- directive will be added at the top of the current file. this option can
+    --           -- have a negative impact on initial completion responsiveness,
+    --           -- particularly for the first few completion sessions after opening a
+    --           -- solution.
+    --           enableimportcompletion = nil,
+    --           -- only run analyzers against open files when 'enableroslynanalyzers' is
+    --           -- true
+    --           analyzeopendocumentsonly = nil,
+    --         },
+    --         sdk = {
+    --           -- specifies whether to include preview versions of the .net sdk when
+    --           -- determining which version to use for project loading.
+    --           includeprereleases = true,
+    --         },
+    --       }
+    --     end,
+    --   },
+    -- },
+  },
+}

@@ -1,0 +1,20 @@
+print("omnisharp config loaded")
+return {
+    cmd = { "omnisharp", "-z", "--hostPID", "12345", "DotNet:enablePackageRestore=false", "--encoding", "utf-8", "--languageserver" },
+    filetypes = {"cs", "vb"},  
+    root_dir = function(bufnr, on_dir)
+        on_dir(vim.fs.root(bufnr, { ".git" }) or vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr)))
+    end,
+    settings =
+        {
+            FormattingOptions = {
+                EnableEditorConfigSupport = true
+            },
+            MsBuild = {},
+            RenameOptions = {},
+            RoslynExtensionsOptions = {},
+            Sdk = {
+                IncludePrereleases = true
+            }
+        }
+}

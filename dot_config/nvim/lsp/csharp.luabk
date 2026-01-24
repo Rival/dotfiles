@@ -1,0 +1,21 @@
+print("omnisharp-mono config loaded")
+return {
+  cmd = { "omnisharp-mono", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
+  root_markers = { "sln", "csproj", ".git" },
+  filetypes = { "cs" },
+  init_options = {
+    DocumentFormatting = true,
+    DocumentRangeFormatting = true,
+  },
+  settings = {
+    FormattingOptions = {
+      EnableEditorConfigSupport = true,
+    },
+    MsBuild = {
+      LoadProjectsOnDemand = true,
+    },
+    RoslynExtensionsOptions = {
+      EnableAnalyzersSupport = true,
+    },
+  },
+}

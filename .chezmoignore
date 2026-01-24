@@ -1,6 +1,8 @@
 # Exclude snapshots (btrfs/restic backup dirs)
 .snapshots
 **/.snapshots
+**/*/.snapshots
+**/snapshots/*
 
 # Exclude cache directories
 **/cache/

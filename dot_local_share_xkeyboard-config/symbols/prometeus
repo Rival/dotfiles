@@ -1,0 +1,48 @@
+// Keyboard layouts for Prometeus custom layout
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+include "us(basic)"
+    name[Group1]= "English (Prometeus)";
+
+    // Top row: v p d l x  / , . ; z
+    key <AD01> { [ v, V ] };
+    key <AD02> { [ p, P ] };
+    key <AD03> { [ d, D ] };
+    key <AD04> { [ l, L ] };
+    key <AD05> { [ x, X ] };
+
+    key <AD06> { [ slash, question ] };
+    key <AD07> { [ comma, less ] };
+    key <AD08> { [ period, greater ] };
+    key <AD09> { [ semicolon, colon ] };
+    key <AD10> { [ z, Z ] };
+
+    // Home row: s n t h k  q e a i c
+    key <AC01> { [ s, S ] };
+    key <AC02> { [ n, N ] };
+    key <AC03> { [ t, T ] };
+    key <AC04> { [ h, H ] };
+    key <AC05> { [ k, K ] };
+
+    key <AC06> { [ q, Q ] };
+    key <AC07> { [ e, E ] };
+    key <AC08> { [ a, A ] };
+    key <AC09> { [ i, I ] };
+    key <AC10> { [ c, C ] };
+
+    // Bottom row: f w g m j  - u o y b
+    key <AB01> { [ f, F ] };
+    key <AB02> { [ w, W ] };
+    key <AB03> { [ g, G ] };
+    key <AB04> { [ m, M ] };
+    key <AB05> { [ j, J ] };
+
+    key <AB06> { [ minus, underscore ] };
+    key <AB07> { [ u, U ] };
+    key <AB08> { [ o, O ] };
+    key <AB09> { [ y, Y ] };
+    key <AB10> { [ b, B ] };
+
+    // Map 'r' to ISO key (between left Shift and Z)
+    key <LSGT> { [ r, R ] };
+};

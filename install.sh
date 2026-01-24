@@ -77,6 +77,19 @@ chezmoi init git@github.com:Rival/dotfiles.git
 echo "📦 Applying dotfiles..."
 chezmoi apply
 
+# Optional: Prometheus keyboard layout (after chezmoi apply)
+echo ""
+read -p "Install Prometheus keyboard layout? (y/N) " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "⌨️  Installing Prometheus keyboard layout..."
+    sudo cp ~/.local/share/xkeyboard-config/symbols/prometeus /usr/share/xkeyboard-config/symbols/prometeus
+    PROMETHEUS_INSTALLED=true
+else
+    echo "⏭️  Skipping Prometheus layout"
+    PROMETHEUS_INSTALLED=false
+fi
+
 echo ""
 echo -e "${GREEN}✅ Installation complete!${NC}"
 echo ""
@@ -87,6 +100,10 @@ echo "  3. Run 'dotsp' to push changes to GitHub"
 if [ "$ZOXIDE_INSTALLED" = true ]; then
     echo "  4. zoxide is installed - use 'z' command for smart navigation"
 fi
+if [ "$PROMETHEUS_INSTALLED" = true ]; then
+    echo "  5. ⌨️  Prometheus layout installed - set it in your keyboard settings"
+    echo "     To remove: ~/.local/share/chezmoi/remove-prometheus-layout.sh"
+fi
 echo ""
 echo "🎯 Configured apps:"
 echo "  • nushell + oh-my-posh"
@@ -96,4 +113,7 @@ echo "  • yazi"
 echo "  • fastfetch"
 if [ "$HYPRLAND_INSTALLED" = true ]; then
     echo "  • hyprland"
+fi
+if [ "$PROMETHEUS_INSTALLED" = true ]; then
+    echo "  • prometheus keyboard layout"
 fi

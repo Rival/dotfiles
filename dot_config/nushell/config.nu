@@ -31,6 +31,8 @@ oh-my-posh init nu
 # Initialize zoxide only if installed
 if (which zoxide | is-not-empty) {
     zoxide init --cmd cd nushell | save -f ~/.config/zoxide.nu
+    # Source immediately after init
+    source ~/.config/zoxide.nu
 }
 # mkdir ($nu.data-dir | path join "vendor/autoload")
 
@@ -604,12 +606,6 @@ def copy-to-usb [
 
 def write-firmware-vial-to-usb [] {
  copy-to-usb /home/andrei/Repositories/vial-qmk/keyball_keyball39_vial.uf2 
-}
-
-
-# Source zoxide only if file exists
-if ("~/.config/zoxide.nu" | path expand | path exists) {
-    source ~/.config/zoxide.nu
 }
 source ~/.config/nushell/completion-external.nu
 use commands *

@@ -171,6 +171,7 @@ def dotfiles-update [] {
   chezmoi apply
   print "✅ Dotfiles updated!"
 }
+alias dots = dotfiles-update
 
 def pk [] {
     let selection = (ps | fzf)

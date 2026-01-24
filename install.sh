@@ -41,9 +41,20 @@ paru -S --noconfirm --needed \
     fastfetch \
     neovim \
     kitty \
-    hyprland \
-    waybar \
     wlogout
+
+# Optional: hyprland
+echo ""
+read -p "Install Hyprland WM? (y/N) " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "📦 Installing hyprland..."
+    paru -S --noconfirm --needed hyprland
+    HYPRLAND_INSTALLED=true
+else
+    echo "⏭️  Skipping hyprland"
+    HYPRLAND_INSTALLED=false
+fi
 
 # Optional: zoxide
 echo ""
@@ -82,5 +93,7 @@ echo "  • nushell + oh-my-posh"
 echo "  • neovim"
 echo "  • kitty"
 echo "  • yazi"
-echo "  • hyprland"
 echo "  • fastfetch"
+if [ "$HYPRLAND_INSTALLED" = true ]; then
+    echo "  • hyprland"
+fi

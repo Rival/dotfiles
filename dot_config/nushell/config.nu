@@ -28,7 +28,7 @@ $env.PATH = ($env.PATH | split row (char esep) | append /usr/lib/qt6/bin | appen
 fastfetch
 oh-my-posh init nu
 # zoxide init nushell | save -f ~/.zoxide.nu
-zoxide init --cmd cd nushell | save -f ~/.zoxide.nu
+zoxide init --cmd cd nushell | save -f ~/.config/zoxide.nu
 # mkdir ($nu.data-dir | path join "vendor/autoload")
 
 def --env activate-venv [] {
@@ -593,7 +593,7 @@ def write-firmware-vial-to-usb [] {
 }
 
 
-source ~/.zoxide.nu
+source ~/.config/zoxide.nu
 source ~/.config/nushell/completion-external.nu
 use commands *
 # glob commands/*.nu | each { |file| source $file }

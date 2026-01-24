@@ -1,6 +1,6 @@
 [Layout]
 CurrentLayout=0
-DisplayNames=pro,ru
+DisplayNames=us,ru
 LayoutList=prometeus,ru
 Options=compose:sclk,grp:shifts_toggle,grp:switch
 ResetOldOptions=true

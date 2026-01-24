@@ -1,0 +1,3 @@
+support for visual mode (now files are correctly copied while in it)
+
+also deleted some old duplicate method

@@ -1,0 +1,72 @@
+[theme]
+primary = "default"
+[ui]
+# title = "blue"
+# border = "gray"
+highlight = "#551133"
+cursor = "red"
+# status = "green"
+# background = "black"
+[tabs]
+active = { fg = "#e4e4e4", bg = "black", underline = true}
+inactive = { fg = "#5555bb", bg = "black"}
+sep_inner = { fg = "#e4e4e4", bg = "black", open = "|", close = "|" }
+sep_outer = { fg = "#e4e4e4", bg = "black", open = " ", close = " "}
+
+[filetype]
+rules = [
+  # Images
+  { mime = "image/*", fg = "yellow" },
+
+  # Videos
+  { mime = "video/*", fg = "magenta" },
+  { mime = "audio/*", fg = "magenta" },
+
+  # Empty files
+  { mime = "inode/empty", fg = "cyan" },
+
+  # Orphan symbolic links
+  { name = "*", is = "orphan", fg = "red" },
+
+  # ...
+
+  # Fallback
+  # { name = "*", fg = "white" },
+  { name = "*/", fg = "#FFA764" }, # directory
+]
+#🔨⚙️👻📁 📂📄📇📃📜📝🔌🏫🌄🗻🎆🦄🪄🧞💫✏️🗁🪵🐙🔑💾🙈🏝️🌐💻🧑‍💻️🧰🎬🎞🖥
+#🎧🥁🎹💃🪩🎤️🎫🔊🪗🎺🧙🏻👨🏼‍🎨👨🏾‍💻🐞☄️☃️🌈🐍🕸🦑🌻🌼🌸🌺🌹🎮🌌🌇🌁🏞⚗️💈🦠📑📦
+#📒📕📗📘📙📚📖🔖🎐📌📎🧷🔗⛓️🧱🪜💡☯️🔴🔉🚩🏁🏴‍☠️🩻🪸🛟🛞🪪🫣🪽🧑🏿‍❤️‍💋‍🧑🏾⛳🇷🇺🪆🧸
+#🪝🎣🥥⛽🐢🐚🦪🍌🏩🧑‍🔧️🧑‍🏭️🧑‍💻️🦺🚜💼🐼🦆📩💽🎮🎧🛂📒📓📔📙📑🚃🚊👫🔑
+[icon]
+append_dirs = [
+  { name = ".scripts", text = "📜" },
+  { name = ".config", text = "⚙️" },
+  { name = ".git", text = " ", fg = "#00afff", rg = "#00afff" },
+  { name = ".ssh", text = "🔑", fg = "#00afff", rg = "#00afff" },
+  { name = ".npm", text = "  ", fg = "#00afff", rg = "#00afff" },
+  { name = "Work", text = "🧑‍💻️" },
+  { name = "Desktop", text = "💻" },
+  { name = "Documents", text = "📑" },
+  { name = "Public", text = "🏟 ", fg = "#00afff" },
+  { name = "Downloads", text = "📩" },
+  { name = "Games", text = "🎮" },
+  { name = "Music", text = "🎧" },
+  { name = "Pictures", text = "🌺" },
+  { name = "Videos", text = "🎥" },
+  { name = "Panda", text = "🐼" },
+  { name = "Panda1", text = "🐼" },
+  { name = "Panda2", text = "🐼" },
+  { name = "Panda3", text = "🐼" },
+]
+append_exts = [
+  { name = "meta", text = "🔖", fg = "#00afff" }, # Hidden directories🧰🛠🔨
+  { name = "cs", text = "💻", fg = "#00afff" },   # Hidden directories🧰🛠🔨
+  # { name = "mp3", text = "", fg = "#00afff" },
+]
+prepend_conds = [
+  { if = "hidden & dir", text = "💼", fg = "#00afff" }, # Hidden directories
+  { if = "link", text = "🔗", fg = "#00afff" },         # Hidden directories
+  { if = "dir", text = " ", fg = "#00afff" },         # Directories
+  { if = "!(dir | link)", text = "📄" },                # Normal files (not directories or smlinks)
+]

@@ -1,0 +1,22 @@
+return {
+    init = function()
+        ps.sub("cd", function(body)
+            os.execute("notify-send 'Yazi Notification' 'Entered specific folder'")
+            -- if cx.active.current.cwd == "/path/to/specific/folder" then
+            --   os.execute("/path/to/your_script.sh")
+            -- end
+        end)
+    end,
+}
+--- @since 25.2.26
+--- @sync entry
+ZZ
+local function setup(self, opts) self.open_multi = opts.open_multi end
+
+local function entry(self)
+	local h = cx.active.current.hovered
+	ya.mgr_emit(h and h.cha.is_dir and "enter" or "open", { hovered = not self.open_multi })
+    ya.active.current.cwd
+end
+
+return { entry = entry, setup = setup }

@@ -1,0 +1,160 @@
+# https://yazi-rs.github.io/docs/configuration/keymap/#mgr
+[keys.normal]
+# enter = "open_file"
+escape = "back"
+q = "back"
+s = "arrow_down"
+f = "arrow_up"
+t = "open"
+h = "arrow_left"
+# [[mgr.prepend_keymap]]
+# on  = [ "g", "c" ]
+# run = "noop"
+[mgr]
+prepend_keymap = [
+{ run = "plugin lazygit", on = [ "g", "i" ], desc = "run lazygit" },
+  # Navigation (Colemak trsf)
+# { on = [ "t" ], run = "open" },           # t = right = enter directory/open file
+{ on =  "t", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+{ on = [ "r" ], run = "leave" },           # r = left = go back/up directory
+{ on = [ "s" ], run = "arrow 1" },         # s = down = move cursor down
+{ on = [ "f" ], run = "arrow -1" },        # f = up = move cursor up
+
+  # Page navigation
+{ on = [ "<Down>" ], run = "arrow 5" },        # Page up
+{ on = [ "<Up>" ], run = "arrow -5" },         # Page down
+
+  # Selection
+{ on = [ "<Space>" ], run = "toggle" },
+{ on = [ "x" ], run = "visual" },          # b = visual mode (like Neo-tree)
+{ on = [ "X" ], run = "visual --unset" },
+{ on = [ "<C-a>" ], run = "toggle_all" },
+# { on = [ "<C-r>" ], run = "select_all --state=false" },
+
+  # Copy/paste (using Colemak c=copy, v=paste)
+{ on = [ "c", "c" ], run = "yank" },       # cc = copy (like Colemak)
+{ on = [ "c", "p" ], run = "copy path" },       # cc = copy (like Colemak)
+# { on = [ "c", "d" ], run = "shell 'dragon-drop -x \"$@\"'" },
+# { on = [ "c", "d" ], run = "shell -- wl-copy \"$@\"", desc = "Copy files in buffer" },
+{ on = [ "c", "d" ], run = '''shell -- 
+if [ $# -eq 1 ]; then
+    mimetype=$(file --mime-type -b "$1")
+    case "$mimetype" in
+        image/*) cat "$1" | wl-copy --type "$mimetype" ;;
+        text/*) cat "$1" | wl-copy ;;
+        *) echo "file://$(realpath "$1")" | wl-copy --type text/uri-list ;;
+    esac
+else
+    for file in "$@"; do echo "file://$(realpath "$file")"; done | wl-copy --type text/uri-list
+fi
+''', desc = "Copy files to buffer" },
+{ on = [ "c", "x" ], run = "yank --cut" },        # xx = cut
+{ on = [ "v", "v" ], run = "paste" },      # vv = paste (like Colemak)
+{ on = [ "v", "V" ], run = "paste --force" }, # vV = force paste
+{ on = [ "v", "F" ], run = "paste --follow" }, # vV = force paste
+{ on = [ "v", "i" ], run  = "shell -- wl-paste > pasted-image.png", desc = "Paste image from clipboard"},
+
+  # Create/delete
+{ on = [ "A" ], run = "create --dir" },    # A = add/create directory
+  # Tabs
+{ on = [ "T" ], run = "tab_create --current" }, # T = new tab (like Colemak buffer next)
+{ on = [ "R" ], run = "tab_close" },         # R = close tab (like Colemak buffer prev)
+{ on = [ "<C-t>" ], run = "tab_create --current" },
+{ on = [ "<C-w>" ], run = "tab_close" },
+{ on = [ "1" ], run = "tab_switch 0" },
+{ on = [ "2" ], run = "tab_switch 1" },
+{ on = [ "3" ], run = "tab_switch 2" },
+{ on = [ "4" ], run = "tab_switch 3" },
+{ on = [ "5" ], run = "tab_switch 4" },
+{ on = [ "6" ], run = "tab_switch 5" },
+{ on = [ "7" ], run = "tab_switch 6" },
+{ on = [ "8" ], run = "tab_switch 7" },
+{ on = [ "9" ], run = "tab_switch 8" },
+  # Rename/move
+{ on = [ "h" ], run = "rename" },          # m = move/rename
+{ on = [ "H" ], run = "rename --cursor=before_ext" },
+{ on = [ "<A-h>" ], run = "rename --cursor=start --empty=stem" },
+# { on = [ "<A-H>" ], run = "rename --cursor=start --empty=all" },
+{ on = [ "<A-H>" ], run = "rename --cursor=end --empty=dot_ext" },
+  # Search
+{ on = [ "/" ], run = "find --smart" },
+{ on = [ "?" ], run = "find --previous --smart" },
+{ on = [ "n" ], run = "find_arrow" },
+{ on = [ "N" ], run = "find_arrow --previous" },
+{ on = [ "e" ], run = "filter --smart" },
+{ on = [ "\\" ], run = "search rg" },
+{ on = [ "|" ], run = 'search_do --via=fd --args="-d 3"', desc = "Flat view(max depth of 3)" },
+  # { on = [ "i" ], run = "arrow -1" },
+  # { on = [ "e" ], run = "arrow 1" },
+  # { on = [ "I" ], run = "arrow -5" },
+  # { on = [ "E" ], run = "arrow 5" },
+  # { on = [ "n" ], run = "leave" }, # Go back to the parent directory,.
+  # { on = [ "N" ], run = "back" }, # Go back to the previous directory.
+  # { on = [ "o" ], run = "enter" }, # Enter the child directory.
+  # { on = [ "O" ], run = "forward" }, # Go forward to the next directory.
+  # { on = [ "<C-u>" ], run = "seek -5" },
+  # { on = [ "<C-e>" ], run = "seek 5" },
+  # { on = [ "-" ], run = "find_arrow" },
+  # { on = [ "=" ], run = "find_arrow --previous" },
+
+{ on = [ "g", "1" ], run = "cd /mnt/Windows", desc = "Go to Windows Drive" },
+{ on = [ "g", "2" ], run = "cd /mnt/Crucial4TB", desc = "Go to Crucial Drive" },
+{ on = [ "g", "3" ], run = "cd /mnt/Downloads2TB", desc = "Go to Downloads2TB Drive" },
+{ on = [ "g", "4" ], run = "cd /mnt/Games", desc = "Go to Games Drive" },
+{ on = [ "g", "5" ], run = "cd /mnt/Patriot512GB", desc = "Go to Patriot512GB Drive" },
+{ on = [ "C", "y" ], run = "cd ~/.config/yazi", desc = "Yazi config" },
+{ on = [ "C", "v" ], run = "cd ~/.config/nvim", desc = "Nvim config" },
+{ on = [ "C", "h" ], run = "cd ~/.config/hypr", desc = "Hypr config" },
+{ on = [ "C", "k" ], run = "cd ~/.config/kitty", desc = "kitty config" },
+{ on = [ "C", "n" ], run = "cd ~/.config/nushell", desc = "nushell config" },
+  # { on = [ "Z", "h" ], run = "plugin time-travel --args=prev", desc = "Go to previous snapshot" },
+  # { on = [ "Z", "l" ], run = "plugin time-travel --args=next", desc = "Go to next snapshot" },
+  # { on = [ "Z", "q" ], run = "plugin time-travel --args=exit", desc = "Exit browsing snapshots" },
+
+{ on =  "!", run = 'shell "$SHELL" --block', desc = "Open shell here" },# keymap.toml
+
+# { on = "P", run  = "shell -- wl-paste > pasted-image.png", desc = "Paste image from clipboard"},
+# { on =  "l", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+{ on =  "<Right>", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+{ on =  "<Enter>", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+{ on = [ "<C-n>" ], run = "shell 'dragon-drop -x \"$@\"'" },
+{ on = [ "<C-A-n>" ], run = "shell 'dragon-drop -target'" },
+{ on   = [ "c", "a" ], run  = "plugin compress", desc = "Archive selected files"}
+]
+append_keymap = [
+# { on = "<C-Enter>", run = "shell 'nohup neovide \"$@\" >/dev/null 2>&1 &'", desc = "Edit file in new neovide window" },
+{ on = "<C-Enter>", run = "shell -- kitty @ launch --type=tab -- nvim \"$@\"", desc = "Edit file in new kitty tab" },
+{ on = "<A-Enter>", run = "shell -- kitty @ launch -- nvim \"$@\"", desc = "Edit file in new kitty tab" },
+{ on = [ "g", "w" ], run = "cd ~/Work", desc = "Go to Work" },
+{ on = [ "g", "s" ], run = "cd ~/.scripts", desc = "Go .scripts" },
+{ on = [ "b", "x" ], run = "shell 'chmod +x \"$@\"'", desc = "Sets executable flag" },
+{ on = [ "b", "c" ], run = "shell '/home/andrei/.scripts/btrfs-clone-action.sh \"$@\"'", desc = "BTRFS ref clone" },
+# { on = [ "b", "z", "f" ], run = "shell '/home/andrei/.scripts/files-pack.nu \"$@\"'", desc = "Filter and Zip" },
+{ on = [ "b", "z", "f" ], run = "shell --interactive", desc = "Filter and Zip" },
+{ on = [ "b", "l" ], run = "link --relative", desc = "Create link of yanked files" },
+{ on = [ "b", "L" ], run = "link --relative --force", desc = "Create link of yanked files" },
+{ on = [ "b", "s" ], run = "shell --interactive", desc = "Shell invoke command" },
+# { on = [ "b", "z", "f" ], run = [
+#     "input --prompt 'Enter glob pattern (e.g. *.skel.bytes):' --send-to shell",
+#     "shell 'nu /home/andrei/.scripts/files-pack.nu \"$PWD\" \"$0\"'"
+# ], desc = "Filter and Zip" },
+
+{ on = [ "m", "S" ], run = "linemode size_and_mtime", desc = "Linemode: size and mtime" },
+{ on = [ "m", "m" ], run = "linemode mtime_custom", desc = "Linemode: mtime" },
+{ on = [ "g", "T" ], run = "test", desc = ":shell 'kitty @ set-background-image -a none'" },
+]
+
+[Select]
+prepend_keymap = [
+{ on = [ "s" ], run = "arrow 1" },
+{ on = [ "f" ], run = "arrow -1" },
+{ on = [ "I" ], run = "arrow -5" },
+{ on = [ "E" ], run = "arrow 5" },
+]
+
+#to exiting input directly, without entering Vi mode, making it behave like a regular input box.
+[[input.prepend_keymap]]
+on   = "<Esc>"
+run  = "close"
+desc = "Cancel input"
+

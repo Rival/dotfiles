@@ -1,0 +1,231 @@
+# https://yazi-rs.github.io/docs/configuration/keymap/#mgr
+[keys.normal]
+# enter = "open_file"
+escape = "back"
+q = "back"
+s = "arrow_down"
+f = "arrow_up"
+t = "open"
+j = "noop"
+h = "arrow_left"
+# [[mgr.prepend_keymap]]
+# on  = [ "g", "c" ]
+# run = "noop"
+[tasks]
+prepend_keymap = [
+{ on = [ "v" ], run = "show", desc = "Show task manager" },        # f = up = move cursor up
+]
+[pick]
+keymap = [
+    { on = "<Esc>",   run = "close",          desc = "Cancel pick" },
+    { on = "n",   run = "close",          desc = "Cancel pick" },
+    { on = "<Enter>", run = "close --submit", desc = "Submit the pick" },
+
+    { on = "d", run = "arrow -1", desc = "Move cursor up" },
+    { on = "t", run = "arrow 1",  desc = "Move cursor down" },
+
+    { on = "<Up>",   run = "arrow -1", desc = "Move cursor up" },
+    { on = "<Down>", run = "arrow 1",  desc = "Move cursor down" },
+
+    # Help
+    { on = "~",    run = "help", desc = "Open help" },
+    { on = "<F1>", run = "help", desc = "Open help" },
+]
+
+[mgr]
+prepend_keymap = [
+{ on = [ "<C-z" ], run = "noop" },
+{ on = [ "o" ], run = "noop" },
+{ on = ["l"], run = "noop"},
+{ on = [ "v" ], run = "tasks_show", desc = "Show task manager" },        # f = up = move cursor up
+  # { on = [ "v" ], run = "noop" },           # r = left = go back/up directory
+  # Navigation (Colemak trsf)
+  # { on = [ "t" ], run = "open" },           # t = right = enter directory/open file
+{ on =  "h", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+{ on = [ "n" ], run = "leave" },           # r = left = go back/up directory
+{ on = [ "t" ], run = "arrow 1" },         # s = down = move cursor down
+{ on = [ "d" ], run = "arrow -1" },        # f = up = move cursor up
+
+  # Page navigation
+{ on = [ "<Down>" ], run = "arrow 5" },        # Page up
+{ on = [ "<Up>" ], run = "arrow -5" },         # Page down
+
+  # Selection
+{ on = [ "<Space>" ], run = "toggle" },
+{ on = [ "<C-Space>" ], run = "toggle_all --state=off" },
+{ on = [ "x", "x" ], run = "toggle_all --state=off" },
+{ on = [ "r" ], run = "visual_mode" },          # b = visual mode (like Neo-tree)
+{ on = [ "R" ], run = "visual_mode --unset" },
+{ on = [ "<C-a>" ], run = "toggle_all" },
+  # { on = [ "<C-r>" ], run = "select_all --state=false" },
+
+{ on = ["j"], run = "noop"},
+
+  # Copy/paste
+  # {on = [ "s", "t" ], run = "plugin notify --args='title=Hello;content=World;level=warn'", desc = "Show notification"},
+  # { on = [ "s", "s" ], run = "plugin copy-to-buffer"},
+{ on = [ "k", "p" ], run = "copy path" },
+{ on = [ "k", "n" ], run = "copy filename" },
+{ on = [ "k", "N" ], run = "copy name_without_ext" },
+  # { on = [ "s", "c" ], run = "shell '/home/andrei/.scripts/copy.nu \"$@\"';plugin notify --args='title=Hello;content=World;level=warn'" },
+
+  # { on = [ "s", "c" ], run = ["shell '/home/andrei/.scripts/copy.nu \"$@\"'",
+  #     "plugin notify -- --title='Copied to buffer' --content=\"$@\" --level=warn"]},
+  # { on = [ "s", "c" ], run = ["shell '/home/andrei/.scripts/copy.nu \"$@\"'", "plugin notify $0"]},
+{ on = [ "k", "c" ], run = "plugin copy-to-buffer", desc = "Copy file to clipboard"},
+{ on = [ "k", "k" ], run = "plugin ucp copy notify", desc = "Paste" },
+{ on = [ "K"], run = "unyank", desc = "Unyank"},
+{ on = [ "k", "x" ], run = "yank --cut" },        # xx = cut
+
+{ on = [ "j", "j" ], run = "plugin ucp paste notify", desc = "Copy" },
+  # { on = [ "f", "f" ], run = "paste" },
+{ on = [ "j", "J" ], run = "paste --force" }, # vV = force paste
+{ on = [ "j", "L" ], run = "paste --follow" }, # vV = paste with following link
+{ on = [ "j", "i" ], run  = "shell -- wl-paste > pasted-image.png", desc = "Paste image from clipboard"},
+
+  # Create/delete
+{ on = [ "A" ], run = "create --dir" },    # A = add/create directory
+{ on = [ "p" ], run = "remove" },
+{ on = [ "P" ], run = "remove --permanently" },
+
+  # Tabs
+{ on = [ "<c-t>" ], run = "tab_create --current" }, # T = new tab (like Colemak buffer next)
+{ on = [ "T" ], run = "tab_close" },         # R = close tab (like Colemak buffer prev)
+{ on = [ "1" ], run = "tab_switch 0" },
+{ on = [ "2" ], run = "tab_switch 1" },
+{ on = [ "3" ], run = "tab_switch 2" },
+{ on = [ "4" ], run = "tab_switch 3" },
+{ on = [ "5" ], run = "tab_switch 4" },
+{ on = [ "6" ], run = "tab_switch 5" },
+{ on = [ "7" ], run = "tab_switch 6" },
+{ on = [ "8" ], run = "tab_switch 7" },
+{ on = [ "9" ], run = "tab_switch 8" },
+
+  # Rename/move
+{ on = [ "c" ], run = "rename" },          # m = move/rename
+{ on = [ "C" ], run = "rename --cursor=before_ext" },
+{ on = [ "<A-c>" ], run = "rename --cursor=start --empty=stem" },
+  # { on = [ "<A-H>" ], run = "rename --cursor=start --empty=all" },
+{ on = [ "<A-C>" ], run = "rename --cursor=end --empty=dot_ext" },
+  # Search
+{ on = [ "/" ], run = "find --smart" },
+{ on = [ "?" ], run = "find --previous --smart" },
+{ on = [ "n" ], run = "find_arrow" },
+{ on = [ "N" ], run = "find_arrow --previous" },
+{ on = [ "e" ], run = "filter --smart" },
+{ on = [ "\\" ], run = "search rg" },
+{ on = [ "|" ], run = 'search_do --via=fd --args="-d 3"', desc = "Flat view(max depth of 3)" },
+  # { on = [ "n" ], run = "leave" }, # Go back to the parent directory,.
+  # { on = [ "N" ], run = "back" }, # Go back to the previous directory.
+  # { on = [ "o" ], run = "enter" }, # Enter the child directory.
+  # { on = [ "O" ], run = "forward" }, # Go forward to the next directory.
+  # { on = [ "-" ], run = "find_arrow" },
+  # { on = [ "=" ], run = "find_arrow --previous" },
+
+{ on = [ "g", "1" ], run = "cd /mnt/Windows", desc = "Go to Windows Drive" },
+{ on = [ "g", "t" ], run = "cd ~/Documents", desc = "Go to Documents" },
+{ on = [ "g", "2" ], run = "cd /mnt/Crucial4TB", desc = "Go to Crucial Drive" },
+{ on = [ "g", "3" ], run = "cd /mnt/Downloads2TB", desc = "Go to Downloads2TB Drive" },
+{ on = [ "g", "4" ], run = "cd /mnt/Games", desc = "Go to Games Drive" },
+{ on = [ "g", "5" ], run = "cd /mnt/Patriot512GB", desc = "Go to Patriot512GB Drive" },
+{ on = [ "g", "i" ], run = "plugin lazygit", desc = "run lazygit" },
+
+{ on = [ "G", "y" ], run = "cd ~/.config/yazi", desc = "Yazi config" },
+{ on = [ "G", "v" ], run = "cd ~/.config/nvim", desc = "Nvim config" },
+{ on = [ "G", "h" ], run = "cd ~/.config/hypr", desc = "Hypr config" },
+{ on = [ "G", "k" ], run = "cd ~/.config/kitty", desc = "kitty config" },
+{ on = [ "G", "n" ], run = "cd ~/.config/nushell", desc = "nushell config" },
+{ on = [ "G", "q" ], run = "cd ~/.config/quickshell", desc = "quickshell config" },
+  # { on = [ "Z", "h" ], run = "plugin time-travel --args=prev", desc = "Go to previous snapshot" },
+  # { on = [ "Z", "l" ], run = "plugin time-travel --args=next", desc = "Go to next snapshot" },
+  # { on = [ "Z", "q" ], run = "plugin time-travel --args=exit", desc = "Exit browsing snapshots" },
+
+{ on =  "!", run = 'shell "$SHELL" --block', desc = "Open shell here" },# keymap.toml
+
+  # { on = "P", run  = "shell -- wl-paste > pasted-image.png", desc = "Paste image from clipboard"},
+  # { on =  "l", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+{ on =  "<Right>", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+{ on =  "<Enter>", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+  # { on = [ "<C-n>" ], run = "shell 'dragon-drop -x \"$@\"'" },
+  # { on = [ "<C-A-n>" ], run = "shell 'dragon-drop -target'" },
+{ on   = [ "c", "a" ], run  = "plugin compress", desc = "Archive selected files"},
+{ on   = [ "-", "-" ], run  = "plugin what-size", desc = "Calc size of selection or cwd"},
+
+{ on = [ "m", "S" ], run = ["linemode size_and_mtime", "plugin pref-by-location -- save"],  desc = "Linemode: size and mtime" },
+{ on = [ "m", "m" ], run = ["linemode mtime_custom", "plugin pref-by-location -- save"], desc = "Linemode: mtime" },
+  # { on = [ "g", "T" ], run = "test", desc = ":shell 'kitty @ set-background-image -a none'" },
+
+  #SORTING
+  # Toggle Hidden
+{ on = ".", run = [ "hidden toggle", "plugin pref-by-location -- save" ], desc = "Toggle the visibility of hidden files" },
+
+  # Linemode
+{ on = [ "m", "s" ], run = [ "linemode size", "plugin pref-by-location -- save" ],        desc = "Linemode: size" },
+{ on = [ "m", "p" ], run = [ "linemode permissions", "plugin pref-by-location -- save" ], desc = "Linemode: permissions" },
+{ on = [ "m", "b" ], run = [ "linemode btime", "plugin pref-by-location -- save" ],       desc = "Linemode: btime" },
+{ on = [ "m", "m" ], run = [ "linemode mtime", "plugin pref-by-location -- save" ],       desc = "Linemode: mtime" },
+{ on = [ "m", "o" ], run = [ "linemode owner", "plugin pref-by-location -- save" ],       desc = "Linemode: owner" },
+{ on = [ "m", "n" ], run = [ "linemode none", "plugin pref-by-location -- save" ],        desc = "Linemode: none" },
+  # Custom size_and_mtime linemode
+  # { on = [ "u", "S" ], run = [ "linemode size_and_mtime", "plugin pref-by-location -- save" ], desc = "Show Size and Modified time" },
+
+  # Sorting
+  # Any changes during disabled state won't be saved to save file.
+{ on = [ "o", "t" ], run = "plugin pref-by-location -- toggle",                                                desc = "Toggle auto-save preferences" },
+{ on = [ "o", "d" ], run = "plugin pref-by-location -- disable",                                               desc = "Disable auto-save preferences" },
+  # This will reset any preference changes for the current working directory (CWD),
+  # then fall back to the predefined preferences in init.lua or yazi.toml.
+{ on = [ "o", "R" ], run = [ "plugin pref-by-location -- reset" ],                                             desc = "Reset preference of cwd" },
+{ on = [ "o", "M" ], run = [ "sort mtime --reverse=no", "linemode mtime", "plugin pref-by-location -- save" ], desc = "Sort by modified time" },
+{ on = [ "o", "m" ], run = [ "sort mtime --reverse", "linemode mtime", "plugin pref-by-location -- save" ],    desc = "Sort by modified time (reverse)" },
+{ on = [ "o", "b" ], run = [ "sort btime --reverse=no", "linemode btime", "plugin pref-by-location -- save" ], desc = "Sort by birth time" },
+{ on = [ "o", "B" ], run = [ "sort btime --reverse", "linemode btime", "plugin pref-by-location -- save" ],    desc = "Sort by birth time (reverse)" },
+{ on = [ "o", "e" ], run = [ "sort extension --reverse=no", "plugin pref-by-location -- save" ],               desc = "Sort by extension" },
+{ on = [ "o", "E" ], run = [ "sort extension --reverse", "plugin pref-by-location -- save" ],                  desc = "Sort by extension (reverse)" },
+{ on = [ "o", "a" ], run = [ "sort alphabetical --reverse=no", "plugin pref-by-location -- save" ],            desc = "Sort alphabetically" },
+{ on = [ "o", "A" ], run = [ "sort alphabetical --reverse", "plugin pref-by-location -- save" ],               desc = "Sort alphabetically (reverse)" },
+{ on = [ "o", "n" ], run = [ "sort natural --reverse=no", "plugin pref-by-location -- save" ],                 desc = "Sort naturally" },
+{ on = [ "o", "N" ], run = [ "sort natural --reverse", "plugin pref-by-location -- save" ],                    desc = "Sort naturally (reverse)" },
+  # --sensitive=no or --sensitive
+  # { on = [ ",", "N" ], run = [ "sort natural --reverse=no --sensitive", "plugin pref-by-location -- save" ],                    desc = "Sort naturally" },
+{ on = [ "o", "s" ], run = [ "sort size --reverse=no", "linemode size", "plugin pref-by-location -- save" ],   desc = "Sort by size" },
+{ on = [ "o", "S" ], run = [ "sort size --reverse", "linemode size", "plugin pref-by-location -- save" ],      desc = "Sort by size (reverse)" },
+{ on = [ "o", "r" ], run = [ "sort random --reverse=no", "plugin pref-by-location -- save" ]   },
+]
+
+append_keymap = [
+  # { on = "<C-Enter>", run = "shell 'nohup neovide \"$@\" >/dev/null 2>&1 &'", desc = "Edit file in new neovide window" },
+{ on = "<C-Enter>", run = "shell -- kitty @ launch --type=tab -- nvim \"$@\"", desc = "Edit file in new kitty tab" },
+{ on = "<A-Enter>", run = "shell -- kitty @ launch -- nvim \"$@\"", desc = "Edit file in new kitty tab" },
+{ on = "<A-h>", run = "plugin thumbnail", desc = "Open current directory in Swayimg gallery" },
+{ on = [ "g", "w" ], run = "cd ~/Work", desc = "Go to Work" },
+{ on = [ "g", "s" ], run = "cd ~/.scripts", desc = "Go .scripts" },
+{ on = ["j"], run = "noop"},
+{ on = ["l"], run = "noop"},
+{ on = [ "l", "x" ], run = "shell 'chmod +x \"$@\"'", desc = "Sets executable flag" },
+{ on = [ "l", "c" ], run = "shell '/home/andrei/.scripts/btrfs-clone-action.sh \"$@\"'", desc = "BTRFS ref clone" },
+  # { on = [ "b", "z", "f" ], run = "shell '/home/andrei/.scripts/files-pack.nu \"$@\"'", desc = "Filter and Zip" },
+{ on = [ "l", "z", "f" ], run = "shell --interactive", desc = "Filter and Zip" },
+{ on = [ "l", "l" ], run = "link --relative", desc = "Create link of yanked files" },
+{ on = [ "l", "L" ], run = "link --relative --force", desc = "Create link of yanked files" },
+{ on = [ "l", "s" ], run = "shell --interactive", desc = "Shell invoke command" },
+  # { on = [ "b", "z", "f" ], run = [
+  #     "input --prompt 'Enter glob pattern (e.g. *.skel.bytes):' --send-to shell",
+  #     "shell 'nu /home/andrei/.scripts/files-pack.nu \"$PWD\" \"$0\"'"
+  # ], desc = "Filter and Zip" },
+]
+
+[Select]
+prepend_keymap = [
+{ on = [ "t" ], run = "arrow 1" },
+{ on = [ "d" ], run = "arrow -1" },
+{ on = [ "D" ], run = "arrow -5" },
+{ on = [ "T" ], run = "arrow 5" },
+]
+
+#to exiting input directly, without entering Vi mode, making it behave like a regular input box.
+[[input.prepend_keymap]]
+on   = "<Esc>"
+run  = "close"
+desc = "Cancel input"
+

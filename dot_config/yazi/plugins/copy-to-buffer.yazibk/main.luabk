@@ -1,0 +1,73 @@
+--- @since 25.2.26
+local get_target_file = ya.sync(function()
+    local current_pane = cx.active.current
+    local hovered_item = current_pane.hovered
+    return tostring(hovered_item.url), hovered_item.name
+end)
+
+return {
+    entry = function()
+        local filepath, filename = get_target_file()
+        -- ya.notify {
+        --     title = "Copy File",
+        --     content = "Hello" .. filepath,
+        --     timeout = 3,
+        --     level = "error",
+        -- }
+        -- Check if a file is selected
+        if not filepath then
+            ya.notify {
+                title = "Copy File",
+                content = "No file selected",
+                timeout = 3,
+                level = "error",
+            }
+            return
+        end
+
+        -- Run your copy script
+        local output, err = Command("/home/andrei/.scripts/copy.nu")
+            :arg(filepath)
+            :output()
+
+        -- echo $file_uri | wl-copy --type text/uri-list
+        -- local output, err = Command("wl-copy")
+        -- :arg("--type")
+        -- :arg("text/uri-list")
+        -- :arg("/home/andrei/Documents/photo_2025-02-23_00-21-05.jpg")
+        -- :output()
+        -- local file_uri =  "file://" .. filepath
+        -- local cmd = string.format("echo '%s' | wl-copy --type text/uri-list", file_uri)
+        -- local output, error = Command(cmd)
+            -- :arg("-c")
+            -- :arg(cmd)
+            -- :stdout(Command.PIPED)
+            -- -- :stderr(Command.PIPED)
+            -- :output()
+
+
+        -- ya.notify {
+        --     title = "Copy File",
+        --     content = "Hello haha " .. filepath,
+        --     timeout = 3,
+        --     level = "error",
+        -- }
+
+        -- Show notification with actual filename
+        if not err then
+            ya.notify {
+                title = "Copied to buffer",
+                content = filename,
+                timeout = 3,
+                level = "info",
+            }
+        else
+            ya.notify {
+                title = "Copy failed error:" .. err,
+                content = filename,
+                timeout = 3,
+                level = "error",
+            }
+        end
+  end,
+}

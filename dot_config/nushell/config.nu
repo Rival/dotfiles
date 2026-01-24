@@ -175,6 +175,19 @@ def dotfiles-update [] {
 }
 alias dots = dotfiles-update
 
+# Push local changes to GitHub
+def dotfiles-push [message?: string] {
+  print "📝 Adding changes to chezmoi..."
+  cd ~/.local/share/chezmoi
+  git add -A
+  let msg = if ($message == null) { "Update dotfiles" } else { $message }
+  git commit -m $msg
+  print "📤 Pushing to GitHub..."
+  git push
+  print "✅ Dotfiles pushed!"
+}
+alias dotsp = dotfiles-push
+
 def pk [] {
     let selection = (ps | fzf)
     if ($selection | is-empty) {

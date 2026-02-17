@@ -72,16 +72,16 @@ prepend_keymap = [
   # { on = [ "s", "c" ], run = ["shell '/home/andrei/.scripts/copy.nu \"$@\"'",
   #     "plugin notify -- --title='Copied to buffer' --content=\"$@\" --level=warn"]},
   # { on = [ "s", "c" ], run = ["shell '/home/andrei/.scripts/copy.nu \"$@\"'", "plugin notify $0"]},
-{ on = [ "k", "c" ], run = "plugin copy-to-buffer", desc = "Copy file to clipboard"},
-{ on = [ "k", "k" ], run = "plugin ucp copy notify", desc = "Paste" },
+{ on = [ "k", "c" ], run = "plugin copy-to-buffer", desc = "copy to clipboard"},
+{ on = [ "k", "k" ], run = "plugin ucp copy notify", desc = "copy" },
 { on = [ "K"], run = "unyank", desc = "Unyank"},
 { on = [ "k", "x" ], run = "yank --cut" },        # xx = cut
 
-{ on = [ "j", "j" ], run = "plugin ucp paste notify", desc = "Copy" },
+{ on = [ "j", "j" ], run = "plugin ucp paste notify", desc = "paste" },
   # { on = [ "f", "f" ], run = "paste" },
 { on = [ "j", "J" ], run = "paste --force" }, # vV = force paste
 { on = [ "j", "L" ], run = "paste --follow" }, # vV = paste with following link
-{ on = [ "j", "i" ], run  = "shell -- wl-paste > pasted-image.png", desc = "Paste image from clipboard"},
+{ on = [ "j", "i" ], run  = "shell -- wl-paste > pasted-image.png", desc = "paste image from clipboard"},
 
   # Create/delete
 { on = [ "A" ], run = "create --dir" },    # A = add/create directory

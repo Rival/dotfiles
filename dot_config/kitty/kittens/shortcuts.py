@@ -6,7 +6,7 @@ sequences).
 import re
 from collections import defaultdict
 from collections.abc import Sequence
-from typing import Final, Union, TypeAlias
+from typing import TypeAlias
 
 from kittens.tui.handler import result_handler
 from kitty import fast_data_types
@@ -30,10 +30,6 @@ categories = {
 Shortcut2Defn: TypeAlias = dict[Shortcut, str]
 ShortcutRepr: TypeAlias = str
 ActionMap: TypeAlias = dict[str, list[ShortcutRepr]]
-
-
-def main(args: list[str]) -> Union[str, None]:
-    pass
 
 
 @result_handler(no_ui=True)

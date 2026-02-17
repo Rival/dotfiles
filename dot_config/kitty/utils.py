@@ -12,15 +12,11 @@ def log(msg):
 
 import subprocess
 import psutil
-from typing import Any
 import os
 from kitty.boss import get_boss
-from kitty.tab_bar import TabBarData
-from kitty.boss import Boss
+from kitty.tab_bar import TabBarData, as_rgb
 from kitty.window import Window
-from kitty.utils import color_as_int
-from kitty.tab_bar import (DrawData, ExtraData, Formatter, TabBarData, as_rgb, draw_attributed_string, draw_tab_with_powerline)
-from typing import Optional, Dict, Any
+from typing import Optional, Tuple, Any
 def parse_color(value:str)-> int:
         return as_rgb(int(value[1:], 16))
 
@@ -100,8 +96,174 @@ def get_window_id_from_tab(tab: TabBarData) -> Optional[str]:
 # screen.draw("")
 # screen.draw("")
 
-EXCLUDED_APPS = {'MainThread', 'fastfetch'}  # this apps are omitted analyzing chain of apps
+EXCLUDED_APPS = {'MainThread', 'fastfetch', 'bash', 'sh', 'zsh', 'fish', 'nu'}  # shells omitted from display
 LASTSTOP_APPS = {'nvim', 'lazygit'}  # Stop traversal if we encounter these
+
+# Claude process info cache - backend, model, and cwd are stable for a session
+_CLAUDE_CACHE: dict[int, tuple[str, str, str, int, float]] = {}
+# {tab_id: (backend, model, cwd, pid, timestamp)}
+CLAUDE_CACHE_TTL = 60.0  # 60 seconds - Claude session info rarely changes
+
+
+def _get_claude_from_cache(tab_id: int) -> tuple[str, str, str] | None:
+    """Get cached Claude info for tab, or None if expired/not found."""
+    import time
+    if tab_id not in _CLAUDE_CACHE:
+        return None
+
+    backend, model, cwd, pid, timestamp = _CLAUDE_CACHE[tab_id]
+    if time.time() - timestamp > CLAUDE_CACHE_TTL:
+        del _CLAUDE_CACHE[tab_id]
+        return None
+
+    return backend, model, cwd
+
+
+def _set_claude_cache(tab_id: int, backend: str, model: str, cwd: str, pid: int) -> None:
+    """Cache Claude info for tab."""
+    import time
+    _CLAUDE_CACHE[tab_id] = (backend, model, cwd, pid, time.time())
+
+
+def get_claude_backend(pid: int) -> str:
+    """
+    Detect which backend Claude Code is using by checking process environment.
+
+    Returns:
+        'zai' for z.ai backend
+        'anthropic' for Anthropic backend
+        'unknown' if cannot determine
+    """
+    try:
+        proc = psutil.Process(pid)
+        env = proc.environ()
+
+        base_url = env.get('ANTHROPIC_BASE_URL', '')
+        if 'z.ai' in base_url:
+            return 'zai'
+        elif 'anthropic.com' in base_url:
+            return 'anthropic'
+
+        # Check for other indicators
+        if 'ZAI' in env.get('ANTHROPIC_AUTH_TOKEN', ''):
+            return 'zai'
+
+        return 'unknown'
+    except Exception as e:
+        log(f"Error detecting Claude backend: {e}")
+        return 'unknown'
+
+
+def get_claude_backend_from_tab(tab: TabBarData) -> tuple[str, str, str]:
+    """
+    Get Claude backend, model, and cwd for the given tab.
+
+    This finds the claude process in the tab's process chain
+    and checks its environment variables and working directory.
+
+    Uses a 60-second cache to avoid expensive psutil calls.
+
+    Returns:
+        Tuple of (backend, model_name, cwd)
+        backend: 'zai', 'anthropic', or 'unknown'
+        model_name: e.g., 'glm-4.7', 'claude-3.5-sonnet', or 'unknown'
+        cwd: Working directory of the Claude process, or empty string
+    """
+    # Check cache first
+    cached = _get_claude_from_cache(tab.tab_id)
+    if cached is not None:
+        return cached
+
+    boss = get_boss()
+    if boss is None:
+        return 'unknown', 'unknown', ''
+
+    tab_obj = boss.tab_for_id(tab.tab_id)
+    if tab_obj is None or tab_obj.active_window is None:
+        return 'unknown', 'unknown', ''
+
+    window = tab_obj.active_window
+    if window.child is None:
+        return 'unknown', 'unknown', ''
+
+    try:
+        # Check foreground_processes for claude
+        # We want the LAST claude process (deepest in the tree) as it has correct env vars
+        foreground_processes = window.child.foreground_processes
+        if foreground_processes:
+            last_claude_pid = None
+            last_claude_cwd = ''
+            # Find all claude processes first
+            for proc_info in foreground_processes:
+                cmdline = proc_info.get('cmdline', [])
+                if cmdline:
+                    proc_name = cmdline[0].split('/')[-1]
+                    if 'claude' in proc_name.lower():
+                        last_claude_pid = proc_info.get('pid')
+                        # Get cwd from the process info
+                        last_claude_cwd = proc_info.get('cwd', '')
+
+            # Process the last claude process
+            if last_claude_pid:
+                backend = get_claude_backend(last_claude_pid)
+                model = get_claude_model(last_claude_pid, backend)
+                log(f"Claude detected: backend={backend}, model={model}, pid={last_claude_pid}, cwd={last_claude_cwd}")
+                # Cache the result
+                _set_claude_cache(tab.tab_id, backend, model, last_claude_cwd, last_claude_pid)
+                return backend, model, last_claude_cwd
+    except Exception as e:
+        log(f"Error getting Claude backend from tab: {e}")
+
+    return 'unknown', 'unknown', ''
+
+
+def get_claude_model(pid: int, backend: str = 'unknown') -> str:
+    """
+    Get the Claude model name from process environment.
+
+    Args:
+        pid: Process ID
+        backend: Backend type ('zai', 'anthropic', 'unknown') for smart fallback
+
+    Returns:
+        Model name like 'glm-4.7', 'claude-3.5-sonnet', or 'unknown'
+    """
+    try:
+        proc = psutil.Process(pid)
+        env = proc.environ()
+
+        # Check various possible environment variables
+        model = env.get('ANTHROPIC_MODEL') or env.get('MODEL') or env.get('CLAUDE_MODEL')
+
+        if model:
+            log(f"Claude model from env: {model}")
+            return model
+
+        # Log available env vars for debugging
+        env_vars = [k for k in env.keys() if 'MODEL' in k or 'ANTHROPIC' in k]
+        if env_vars:
+            log(f"Claude env vars available: {env_vars}")
+
+        # Fallback: try to read from config file ONLY for z.ai backend
+        if backend == 'zai':
+            try:
+                import json
+                config_path = os.path.expanduser('~/.claude-glm/settings.json')
+                if os.path.exists(config_path):
+                    with open(config_path) as f:
+                        config = json.load(f)
+                        if 'env' in config:
+                            model = config['env'].get('ANTHROPIC_MODEL', '')
+                            if model:
+                                log(f"Claude model from config (z.ai): {model}")
+                                return model
+            except Exception as e:
+                log(f"Error reading config: {e}")
+
+        return 'unknown'
+    except Exception as e:
+        log(f"Error getting Claude model: {e}")
+        return 'unknown'
 
 def strip_after_delimiter(s: str, delimiter: str = '>') -> str:
     return s.partition(delimiter)[0].strip()
@@ -170,63 +332,6 @@ def get_process_chain_for_tab(tab: TabBarData) -> list[str]:
     except Exception as e:
         return [f"error: {e}"]
 
-def get_process_chain_for_tab_withcmdline(tab: TabBarData) -> list[str]:
-    boss = get_boss()
-    if boss is None:
-        return []
-    tab_obj = boss.tab_for_id(tab.tab_id)
-    if tab_obj is None or tab_obj.active_window is None:
-        return []
-
-    window = tab_obj.active_window
-    if window.child is None:
-        return []
-
-    try:
-        pid = window.child.pid
-        proc = psutil.Process(pid)
-        chain = []
-        seen = set()
-
-        while True:
-            name = proc.name()
-            if name not in EXCLUDED_APPS and name not in seen:
-                cmdline = ' '.join(proc.cmdline()) or '[no cmdline]'
-                chain.append((name, cmdline))
-                seen.add(name)
-
-            if name in LASTSTOP_APPS:
-                break
-
-            children = proc.children()
-            if not children:
-                break
-
-            # Follow the oldest child (likely the next in the chain)
-            proc = sorted(children, key=lambda p: p.create_time())[0]
-
-        return chain
-    except Exception as e:
-        return [f"error: {e}"]
-
-def get_foreground_app(window: Window) -> str:
-    chain = get_process_chain(window)
-    return chain[-1] if chain else ''
-
-def get_foreground_app_from_chain(chain: list[str]) -> str:
-    return chain[-1] if chain else ''
-
-def notify_send(msg:str)-> None:
-    subprocess.run([
-        "notify-send",
-        "--app-name=Kitty",
-        "--urgency=normal",
-        # summary,
-        f"Current:{msg}"
-        # body
-        # flat_data
-    ], check=True)
-
 def muffle_color(color: int, factor: float = 0.5) -> int:
     """
     Muffle a color by reducing saturation.
@@ -258,92 +363,10 @@ def to_grayscale(color: int) -> int:
     """Convert color to pure grayscale."""
     return muffle_color(color, 0.0)
 
-import hashlib
 import time
 import json
 from pathlib import Path
-from typing import Optional, Dict, Any, Tuple
-
-class FileCache:
-    def __init__(self, cache_dir: str = "/tmp/kitty_tab_cache"):
-        self.cache_dir = Path(cache_dir)
-        self.cache_dir.mkdir(exist_ok=True)
-        self.cache_ttl = 5.0  # Cache TTL in seconds
-
-    def _get_cache_key(self, cwd: str, tab_id: int) -> str:
-        """Generate cache key based on working directory and tab ID"""
-        key_data = f"{cwd}:{tab_id}"
-        return hashlib.md5(key_data.encode()).hexdigest()
-
-    def _get_cache_file(self, cache_key: str) -> Path:
-        return self.cache_dir / f"tab_{cache_key}.json"
-
-    def _should_invalidate(self, cwd: str, cached_data: Dict) -> bool:
-        """Check if cache should be invalidated based on directory changes"""
-        try:
-            # Check if git HEAD changed (most common case)
-            git_head_file = Path(cwd) / ".git" / "HEAD"
-            if git_head_file.exists():
-                current_head = git_head_file.read_text().strip()
-                if current_head != cached_data.get("git_head"):
-                    return True
-
-            # Check if working directory changed
-            if cwd != cached_data.get("cwd"):
-                return True
-
-            return False
-        except:
-            return True  # Invalidate on any error
-
-    def get(self, cwd: str, tab_id: int) -> Optional[Dict[str, Any]]:
-        """Get cached data if valid"""
-        try:
-            cache_key = self._get_cache_key(cwd, tab_id)
-            cache_file = self._get_cache_file(cache_key)
-
-            if not cache_file.exists():
-                return None
-
-            # Check if cache is too old
-            if time.time() - cache_file.stat().st_mtime > self.cache_ttl:
-                cache_file.unlink()
-                return None
-
-            cached_data = json.loads(cache_file.read_text())
-
-            # Check if cache should be invalidated
-            if self._should_invalidate(cwd, cached_data):
-                cache_file.unlink()
-                return None
-
-            return cached_data
-        except:
-            return None
-
-    def set(self, cwd: str, tab_id: int, data: Dict[str, Any]) -> None:
-        """Cache data with metadata"""
-        try:
-            cache_key = self._get_cache_key(cwd, tab_id)
-            cache_file = self._get_cache_file(cache_key)
-
-            # Add metadata for invalidation
-            try:
-                git_head_file = Path(cwd) / ".git" / "HEAD"
-                git_head = git_head_file.read_text().strip() if git_head_file.exists() else ""
-            except:
-                git_head = ""
-
-            cache_data = {
-                **data,
-                "cwd": cwd,
-                "git_head": git_head,
-                "timestamp": time.time()
-            }
-
-            cache_file.write_text(json.dumps(cache_data))
-        except:
-            pass  # Silently fail on cache write errors
+from typing import Tuple
 
 def get_git_info_fast(cwd: str) -> Tuple[str, str]:
     """

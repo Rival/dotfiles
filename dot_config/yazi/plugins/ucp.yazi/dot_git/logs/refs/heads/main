@@ -1,2 +1,0 @@
-0000000000000000000000000000000000000000 6eaefe1135314c9c81771fb6e6d050a3b1fccec6 Andrei <COPATHuK@gmail.com> 1760952170 +0700	clone: from https://github.com/simla33/ucp.yazi.git
-6eaefe1135314c9c81771fb6e6d050a3b1fccec6 f2b9d9328544e44c5c26c2e948f53aa85c26c6bc Andrei <COPATHuK@gmail.com> 1760952617 +0700	commit: support for visual mode (now files are correctly copied while in it)

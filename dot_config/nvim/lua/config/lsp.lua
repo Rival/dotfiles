@@ -156,6 +156,26 @@ vim.api.nvim_create_autocmd('LspAttach', {
         if client.supports_method('textDocument/rangeFormatting') then
             map('v', 'sf', vim.lsp.buf.format, 'Format selection')
         end
+
+        -- Workspace symbols - выбираем метод в зависимости от LSP
+        if client.supports_method('workspace/symbol') then
+            local symbols_filter = "Class|Function|Method|Interface|Struct|Enum"
+            local use_live = client.name ~= "roslyn"  -- roslyn не поддерживает пустой query
+
+            map('n', 'go', function()
+                local method = use_live and "lsp_live_workspace_symbols" or "lsp_workspace_symbols"
+                require("fzf-lua")[method]({
+                    regex_filter = symbols_filter,
+                })
+            end, 'Workspace symbols')
+
+            map('n', 'gO', function()
+                require("fzf-lua").lsp_document_symbols({
+                    regex_filter = symbols_filter,
+                })
+            end, 'Document symbols')
+        end
+
         -- -- Register with which-key (if using which-key)
         -- local ok, wk = pcall(require, 'which-key')
         -- if ok then

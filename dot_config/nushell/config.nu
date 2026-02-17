@@ -53,19 +53,22 @@ def svi [...args] {
     # Now run the GUI editor with sudo -E and background
     ^sh -c $"nohup sudo -E neovide ($args | str join ' ') >/dev/null 2>&1 &"
 }
+# System update
 alias sysupdate = yay -Syu
-# checks app in yay repositories
-alias yayq = yay -q
-# clean yay cache
-alias yays = yay -Scc
-alias yayr = yay -R
+alias sysupdate-noaur = yay -Syu --noaur
+# package management
+alias apps = paru -S
+alias appr = paru -R
+alias appc = paru -Scc
 ## disk space analyzing util
 alias disk-usage = ncdu / --exclude /mnt --exclude /run/timeshift
 alias vim-log = nvim +':set autoread | autocmd CursorHold * checktime' /home/andrei/.local/state/nvim/lsp.log
 alias log-tail = nvim +':set autoread | autocmd CursorHold * checktime' 
 alias scr = cd ~/.scripts
 alias cfg = cd ~/.config
-alias macmini = ssh Intellectokids@192.168.1.34
+alias macmini = ssh -i ~/.ssh/macmini_key Intellectokids@192.168.1.34
+alias macminie = ssh -i ~/.ssh/macmini_key Intellectokids@100.99.99.83
+alias zoe = ssh -i ~/.ssh/handhelds_key andrei@192.168.1.51
 alias ngit = nvim +Neogit
 alias git-submodule-update = git submodule update --init --recursive 
 alias git-panda = lazygit -p ~/Work/Panda
@@ -159,7 +162,7 @@ def claude-system [] {
 # Quick system-wide Claude helper
 def glm-system [] {
   cd ~/.claude-system-wide
-  claude-glm
+  glm
 }
 
 def ask [question: string] {
@@ -659,3 +662,4 @@ use commands *
 def reload-commands [] {
     use commands *
 }
+alias qsb = /home/andrei/Repositories/quickshell/build/src/quickshell

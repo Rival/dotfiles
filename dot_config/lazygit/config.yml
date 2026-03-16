@@ -1,0 +1,84 @@
+customCommands:
+  - key: "t"
+    command: "git checkout --theirs {{ .SelectedFile.Name }}"
+    context: "global"
+    loadingText: "take theirs"
+  - key: "O"
+    command: "git checkout --ours {{ .SelectedFile.Name }}"
+    context: "global"
+    loadingText: "take ours"
+  # - key: "O"
+  #   command: "git diff --name-only --diff-filter=U | grep \"^$(dirname '{{ .SelectedFile.Name }}')/\" | xargs git checkout --ours"
+  #   context: "files"
+  #   loadingText: "taking ours for all conflicts in folder"
+
+gui:
+  # Включить Nerd Fonts иконки (требует установленного Nerd Font шрифта)
+  nerdFontsVersion: "3"
+
+  # Показывать расхождение с базовой веткой (стрелочки)
+  # none - не показывать
+  # onlyArrow - только стрелочки ↓↑
+  # arrowAndNumber - стрелочки с количеством коммитов
+  showDivergenceFromBaseBranch: none
+
+  # Показывать хеш коммита рядом с именем ветки
+  showBranchCommitHash: false
+
+  # Кастомный спиннер (анимация загрузки)
+  spinner:
+    frames:
+      - '⠁'
+      - '⠂'
+      - '⠄'
+      - '⡀'
+      - '⢀'
+      - '⠠'
+      - '⠐'
+      - '⠈'
+    rate: 80
+
+  # Кастомные иконки для файлов
+  customIcons:
+    filenames:
+      "README.md": { icon: "📖", color: "yellow" }
+      "package.json": { icon: "📦", color: "green" }
+      "docker-compose.yml": { icon: "🐳", color: "blue" }
+    extensions:
+      ".ts": { icon: "📘", color: "blue" }
+      ".js": { icon: "📙", color: "yellow" }
+      ".go": { icon: "🐹", color: "cyan" }
+      ".rs": { icon: "🦀", color: "red" }
+      ".md": { icon: "📝", color: "white" }
+
+  theme:
+    # Custom colors for specific elements
+    selectedLineBgColor:
+      # - '#551133'
+      - '#FF0077'
+      # - '#FF6688'
+
+    # Confetti theme colors for commits view
+    # Текст по умолчанию (сообщение, хеш, дата) - белый
+    defaultFgColor:
+      - white
+
+    # Цвет тултипов (подсказок клавиш) - серый
+    optionsTextColor:
+      - '#808080'  # серый
+
+# Custom author colors (confetti theme)
+authorColors:
+  '*': '#4488FF'  # все авторы синим (файлы в confetti)
+
+git:
+  pagers:
+    - colorArg: always
+      pager: >-
+        delta --dark --paging=never --side-by-side --line-numbers
+        --minus-style="syntax #150505"
+        --plus-style="syntax #051505"
+        --minus-emph-style="syntax #2a0a0a"
+        --plus-emph-style="syntax #0a200a"
+        --file-style="#4488FF"
+        --hunk-header-style="#FFF578"

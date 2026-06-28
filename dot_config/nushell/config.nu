@@ -57,6 +57,7 @@ def svi [...args] {
 alias sysupdate = yay -Syu
 alias sysupdate-noaur = yay -Syu --noaur
 # package management
+alias app = paru
 alias apps = paru -S
 alias appr = paru -R
 alias appc = paru -Scc
@@ -66,8 +67,9 @@ alias vim-log = nvim +':set autoread | autocmd CursorHold * checktime' /home/and
 alias log-tail = nvim +':set autoread | autocmd CursorHold * checktime' 
 alias scr = cd ~/.scripts
 alias cfg = cd ~/.config
-alias macmini = ssh -i ~/.ssh/macmini_key Intellectokids@192.168.1.34
+alias macmini = ssh -i ~/.ssh/macmini_key Intellectokids@andreys-mac-mini.local
 alias macminie = ssh -i ~/.ssh/macmini_key Intellectokids@100.99.99.83
+alias macmini2 = ssh macmini2
 alias zoe = ssh -i ~/.ssh/handhelds_key andrei@192.168.1.51
 alias ngit = nvim +Neogit
 alias git-submodule-update = git submodule update --init --recursive 
@@ -557,7 +559,7 @@ $env.config.color_config = {
     attr: b
   }
 }
-$env.QMK_HOME = $"($env.HOME)/Repositories/qmk"
+$env.QMK_HOME = $"($env.HOME)/Repositories/vial-qmk"
 # def qmk-run [...args: string] { 
 #     ^"$env.QMK_HOME/.venv/bin/qmk" ...$args
 # }
@@ -647,8 +649,10 @@ def copy-to-usb [
 }
 
 def write-firmware-vial-to-usb [] {
- copy-to-usb /home/andrei/Repositories/vial-qmk/keyball_keyball39_vial.uf2 
+ copy-to-usb /home/andrei/Repositories/vial-qmk/keyball_keyball39_vial.uf2
 }
+
+alias qmk-flash-keyball = qmk flash -kb keyball/keyball39 -km vial
 source ~/.config/nushell/completion-external.nu
 use commands *
 # glob commands/*.nu | each { |file| source $file }
@@ -663,3 +667,35 @@ def reload-commands [] {
     use commands *
 }
 alias qsb = /home/andrei/Repositories/quickshell/build/src/quickshell
+
+# Запуск CLI Регины на macmini1 (полная интерактивная сессия)
+def regina [...args] {
+    ^ssh -t macmini1-regina /Users/Regina/.hermes/hermes-agent/venv/bin/hermes ...$args
+}
+alias perkele = ssh root@2.26.147.71
+
+# Arch/CachyOS update digest: generate and open in current terminal
+# Usage: appnews
+def appnews [] {
+    ^python3 ~/.local/bin/update-digest
+    ^nvim ~/.cache/update-digest.md
+}
+
+# Claude Code resume helpers (cross-device: desktop ↔ mobile)
+#   cc  → continue most recent session in current cwd
+#   cr  → picker of all sessions in current cwd
+#   crf → continue as a forked session (safe when the original is still open)
+alias cc = claude -c
+alias cr = claude --resume
+alias crf = claude -c --fork-session
+
+# ===== Mobile / QWERTY profile (Android Termux SSH) =====
+# REMOTE_PHONE=1 is injected from the Termux side:
+#   ssh -t cachy "REMOTE_PHONE=1 exec zj-main mobile"
+if (($env.REMOTE_PHONE? | default "") == "1") {
+    alias y = yazi-mobile                       # wrapper → mobile yazi config dir
+    alias cl = claude
+    alias zj = zellij attach --create mobile
+}
+# ===== End mobile profile =====
+

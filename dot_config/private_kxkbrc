@@ -1,8 +1,8 @@
 [Layout]
 CurrentLayout=0
-DisplayNames=us,ru
+DisplayNames=en,
 LayoutList=prometeus,ru
-Options=compose:sclk,grp:shifts_toggle,grp:switch
+Options=compose:sclk,grp:ctrl_space_toggle
 ResetOldOptions=true
 SwitchMode=Window
 Use=true

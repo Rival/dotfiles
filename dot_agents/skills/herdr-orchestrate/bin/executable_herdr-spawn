@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+# herdr-spawn — split a pane, label it, launch an agent, wait until it's ready.
+# One-shot wrapper for the most common Herdr orchestration sequence, baking in
+# our conventions so the orchestrator LLM doesn't repeat 5 calls + relearn the
+# gotchas each time:
+#   • default agent = pi        (pi is our preferred runtime for implementation)
+#   • focus stays with the caller (--no-focus)
+#   • direction auto-picked from pane shape (wide→right, tall→down); override --direction
+#   • waits for `idle` — NOT `done` (in the active/watched tab an agent first
+#     opens at its prompt = `idle`; `done` only happens in background/unseen tabs,
+#     so `wait done` hangs forever here)
+#
+# Usage:
+#   herdr-spawn <label> [agent]                 # agent defaults to pi
+#   herdr-spawn implementer-GLM                 # → pi pane labeled implementer-GLM
+#   herdr-spawn reviewer claude                 # → claude-code pane
+#   herdr-spawn impl "pi --model glm-5.2"       # agent string with args
+#   herdr-spawn logs tail --direction down      # override split direction
+#
+# Prints the new pane_id on stdout (capture: PANE=$(herdr-spawn ...)). Errors → stderr, exit ≠ 0.
+# For ordinary (non-agent) command panes use raw herdr — this waits for an agent prompt.
+
+set -euo pipefail
+
+[ "${HERDR_ENV:-0}" = 1 ] || { echo "herdr-spawn: not inside Herdr (HERDR_ENV!=1)" >&2; exit 2; }
+command -v herdr >/dev/null 2>&1 || { echo "herdr-spawn: 'herdr' not in PATH" >&2; exit 2; }
+
+DIRECTION=""
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --direction|-d) DIRECTION="$2"; shift 2 ;;
+    --direction=*)  DIRECTION="${1#*=}"; shift ;;
+    -h|--help) sed -n '2,20p' "$0"; exit 0 ;;
+    --*) echo "herdr-spawn: unknown flag: $1" >&2; exit 2 ;;
+    *) break ;;
+  esac
+done
+LABEL="${1:-delegate}"
+AGENT="${2:-pi}"
+
+# ── auto-pick direction from the current pane shape (wide→right, tall→down) ──
+if [ -z "$DIRECTION" ]; then
+  DIM=$(herdr pane layout --pane "$HERDR_PANE_ID" 2>/dev/null | python3 -c "
+import sys,json
+try:
+    d=json.load(sys.stdin)
+    panes=d.get('result',{}).get('layout',{}).get('panes',[])
+    me=next((p for p in panes if p.get('pane_id')=='$HERDR_PANE_ID'),{})
+    r=me.get('rect',{})
+    print(r.get('width',0), r.get('height',0))
+except Exception:
+    print('0 0')
+" 2>/dev/null || echo "0 0")
+  W="${DIM% *}"; H="${DIM#* }"
+  if [ "${W:-0}" -gt 0 ] && [ "${H:-0}" -gt 0 ] && [ "$W" -lt "$H" ]; then
+    DIRECTION=down
+  else
+    DIRECTION=right
+  fi
+fi
+
+# ── split (no focus), parse new pane id ──
+SPLIT=$(herdr pane split --current --direction "$DIRECTION" --no-focus)
+PANE=$(printf '%s' "$SPLIT" | python3 -c "import sys,json; print(json.load(sys.stdin)['result']['pane']['pane_id'])" 2>/dev/null) \
+  || { echo "herdr-spawn: failed to parse pane_id from split" >&2; printf '%s\n' "$SPLIT" >&2; exit 1; }
+
+# ── label + launch ──
+herdr pane rename "$PANE" "$LABEL" >/dev/null 2>&1 || true
+# NOTE: do NOT sanitize (C-c) here — a freshly-split shell is still initializing
+# (reading its profile, setting PATH), and C-c mid-init can truncate that, leaving
+# PATH incomplete so the agent executable isn't found. Sanitize is for REUSED
+# panes only (see SKILL.md). Just settle, then retry the launch until an agent
+# is actually detected (handles the fresh-shell startup race).
+sleep 1
+st="unknown"
+for attempt in 1 2 3; do
+  herdr pane run "$PANE" "$AGENT" >/dev/null 2>&1
+  for _ in 1 2 3 4 5 6; do
+    st=$(herdr pane get "$PANE" 2>/dev/null | python3 -c "import sys,json;print(json.load(sys.stdin)['result']['pane'].get('agent_status','unknown'))" 2>/dev/null || echo unknown)
+    [ "$st" != "unknown" ] && break 2
+    sleep 1
+  done
+done
+[ "$st" != "unknown" ] || { echo "herdr-spawn: '$AGENT' not detected after retries (pane $PANE — try: herdr pane run $PANE '$AGENT')" >&2; exit 1; }
+
+# ── wait until the agent is ready (idle = at its prompt in the active tab) ──
+# NOT `done` — in the active/watched tab an agent first opens at its prompt = idle;
+# `done` only happens in background/unseen tabs, so `wait done` hangs forever here.
+if ! herdr wait agent-status "$PANE" --status idle --timeout 60000 >/dev/null 2>&1; then
+  echo "herdr-spawn: '$AGENT' detected but not idle within 60s (pane $PANE — inspect: herdr pane get $PANE)" >&2
+  exit 1
+fi
+
+echo "$PANE"

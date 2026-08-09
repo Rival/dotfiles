@@ -1,0 +1,55 @@
+# project-reference config
+# Copy to .claude/skills/project-reference/config.yaml and customize
+
+# Generator version — used to detect when templates have been updated
+# Do not change manually; set by the generator
+generator_version: 2
+
+scan:
+  # Directories to include (glob patterns relative to repo root)
+  include:
+    - "src/**"
+    - "lib/**"
+    - "app/**"
+  # Directories/files to exclude
+  exclude:
+    - "**/node_modules/**"
+    - "**/build/**"
+    - "**/dist/**"
+    - "**/.git/**"
+    - "**/target/**"
+    - "**/bin/**"
+    - "**/obj/**"
+    - "**/__pycache__/**"
+    - "**/.venv/**"
+  # File extensions to track for change detection
+  extensions:
+    - ".py"
+    - ".js"
+    - ".ts"
+    - ".tsx"
+    - ".cs"
+    - ".go"
+    - ".rs"
+    - ".java"
+    - ".kt"
+
+domains:
+  # Auto-detect domains from folder structure
+  auto_detect: true
+  # Strategy: "folders" (top-level src subdirs), "namespaces" (C#/Java), "modules" (go/rust/unity)
+  detection_strategy: "folders"
+  # Manual overrides — add domains that auto-detection misses
+  # manual:
+  #   - name: auth
+  #     paths: ["src/auth/**", "src/middleware/auth*"]
+  #   - name: payments
+  #     paths: ["src/payments/**"]
+
+sync:
+  # Change detection mode: "auto" (git if available, mtime fallback), "git", "mtime"
+  mode: "auto"
+  # Max diff lines per file stored in sync-state.json
+  max_diff_lines_per_file: 200
+  # Max total diff lines across all files per update task
+  max_diff_lines_total: 500

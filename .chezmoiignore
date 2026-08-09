@@ -36,3 +36,11 @@
 **/*.pyc
 **/*.msgpackz
 **/plugin.msgpackz
+
+# Contains real credentials (google/aws/atlassian) - never sync
+.agents/config
+**/.agents/config/
+
+# Contains a live API key (models.json) - never sync as-is
+.pi/agent/models.json
+**/.pi/agent/models.json

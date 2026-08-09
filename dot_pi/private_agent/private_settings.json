@@ -1,0 +1,48 @@
+{
+  "lastChangelogVersion": "0.84.1",
+  "theme": "dark",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.6-sol",
+  "defaultThinkingLevel": "xhigh",
+  "hideThinkingBlock": true,
+  "packages": [
+    "npm:pi-web-search",
+    "npm:pi-subagents",
+    "git:github.com/obra/superpowers",
+    "npm:pi-claude-marketplace",
+    "npm:pi-lens",
+    "npm:pi-code-previews"
+  ],
+  "subagents": {
+    "defaultModel": "zai-anthropic/glm-5.2",
+    "agentOverrides": {
+      "worker": {
+        "model": "zai-anthropic/glm-5.2",
+        "fallbackModels": [
+          "zai-anthropic/glm-5.2"
+        ]
+      },
+      "scout": {
+        "model": "zai-anthropic/glm-4.7",
+        "fallbackModels": [
+          "zai-anthropic/glm-5.2"
+        ]
+      },
+      "oracle": {
+        "model": "openai-codex/gpt-5.6-sol",
+        "fallbackModels": [
+          "zai-anthropic/glm-5.2"
+        ]
+      },
+      "planner": {
+        "model": "openai-codex/gpt-5.6-sol",
+        "fallbackModels": [
+          "zai-anthropic/glm-5.2"
+        ]
+      },
+      "reviewer": {
+        "model": "openai-codex/gpt-5.6-sol"
+      }
+    }
+  }
+}

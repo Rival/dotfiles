@@ -41,8 +41,14 @@ keymap = [
 [mgr]
 prepend_keymap = [
   { on = "'", run = "plugin scoped-marks", desc = "Закладки: внутри папки, затем глобальные" },
-  { on = [ "B", "a" ], run = "plugin scoped-marks -- add", desc = "Добавить/переименовать закладку текущей папки" },
-  { on = [ "B", "d" ], run = "plugin scoped-marks -- delete", desc = "Удалить закладку текущей папки" },
+  { on = [
+    "B",
+    "a",
+  ], run = "plugin scoped-marks -- add", desc = "Добавить/переименовать закладку текущей папки" },
+  { on = [
+    "B",
+    "d",
+  ], run = "plugin scoped-marks -- delete", desc = "Удалить закладку текущей папки" },
   { on = [
     "g",
     "D",
@@ -261,6 +267,10 @@ prepend_keymap = [
   # { on = [ "O" ], run = "forward" }, # Go forward to the next directory.
   # { on = [ "-" ], run = "find_arrow" },
   # { on = [ "=" ], run = "find_arrow --previous" },
+  { on = [
+    "g",
+    "m",
+  ], run = "cd /mnt", desc = "Go to mounts" },
 
   { on = [
     "g",
@@ -295,28 +305,29 @@ prepend_keymap = [
     "H",
   ], run = "cd ~/Regina/.hermes", desc = "Go to Regina/.hermes" },
 
+  # Конфиги: <C-g> + буква (Ctrl не зависит от раскладки, кириллическое зеркало не нужно)
   { on = [
-    "G",
+    "<C-g>",
     "y",
   ], run = "cd ~/.config/yazi", desc = "Yazi config" },
   { on = [
-    "G",
+    "<C-g>",
     "v",
   ], run = "cd ~/.config/nvim", desc = "Nvim config" },
   { on = [
-    "G",
+    "<C-g>",
     "h",
   ], run = "cd ~/.config/hypr", desc = "Hypr config" },
   { on = [
-    "G",
+    "<C-g>",
     "k",
   ], run = "cd ~/.config/kitty", desc = "kitty config" },
   { on = [
-    "G",
+    "<C-g>",
     "n",
   ], run = "cd ~/.config/nushell", desc = "nushell config" },
   { on = [
-    "G",
+    "<C-g>",
     "q",
   ], run = "cd ~/.config/quickshell", desc = "quickshell config" },
   # { on = [ "Z", "h" ], run = "plugin time-travel --args=prev", desc = "Go to previous snapshot" },
@@ -609,30 +620,7 @@ prepend_keymap = [
     "с",
     "д",
   ], run = "shell 'lazygit' --block --confirm", desc = "run lazygit" },
-  { on = [
-    "С",
-    "ю",
-  ], run = "cd ~/.config/yazi", desc = "Yazi config" },
-  { on = [
-    "С",
-    "й",
-  ], run = "cd ~/.config/nvim", desc = "Nvim config" },
-  { on = [
-    "С",
-    "а",
-  ], run = "cd ~/.config/hypr", desc = "Hypr config" },
-  { on = [
-    "С",
-    "п",
-  ], run = "cd ~/.config/kitty", desc = "kitty config" },
-  { on = [
-    "С",
-    "ы",
-  ], run = "cd ~/.config/nushell", desc = "nushell config" },
-  { on = [
-    "С",
-    "р",
-  ], run = "cd ~/.config/quickshell", desc = "quickshell config" },
+  # Кириллические зеркала конфигов удалены — <C-g> работает в любой раскладке
   { on = [
     "ж",
     "л",

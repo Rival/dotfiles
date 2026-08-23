@@ -1,5 +1,4 @@
 -- ~/.config/yazi/init.lua
--- require("custom-colors")
 function Linemode:size_and_mtime()
 	local time = math.floor(self._file.cha.mtime or 0)
 	if time == 0 then
@@ -31,7 +30,153 @@ function Linemode:mtime_custom()
 end
 
 require("full-border"):setup()
-require("simple-status"):setup()
+
+-- yatline-extra (local fork of imsi32/yatline + 4th "extra" info line).
+-- Replaces simple-status. Disk shown via disk-bar addon, dir size via dir-size addon.
+-- Theme A: custom dark to match existing theme.toml (black bg, #e4e4e4 accents).
+require("yatline-extra"):setup({
+	-- Имена дисков для префиксов табов (DiskTabs) — та же таблица, что и у disk-bar
+	disk_names = disk_names,
+
+	section_separator = { open = "", close = "" },
+	part_separator = { open = "", close = "" },
+	inverse_separator = { open = "", close = "" },
+
+	padding = { inner = 1, outer = 1 },
+
+	style_a = {
+		bg = "#0dcdcd",
+		fg = "black",
+		bg_mode = {
+			normal = "#0dcdcd",
+			select = "brightyellow",
+			un_set = "brightred",
+		},
+	},
+	style_b = { bg = "brightblack", fg = "brightwhite" },
+	style_c = { bg = "black", fg = "brightwhite" },
+
+	permissions_t_fg = "green",
+	permissions_r_fg = "yellow",
+	permissions_w_fg = "red",
+	permissions_x_fg = "cyan",
+	permissions_s_fg = "white",
+
+	tab_width = 20,
+
+	selected = { icon = "󰻭", fg = "yellow" },
+	copied = { icon = "", fg = "green" },
+	cut = { icon = "", fg = "red" },
+
+	files = { icon = "", fg = "blue" },
+	filtereds = { icon = "", fg = "magenta" },
+
+	total = { icon = "󰮍", fg = "yellow" },
+	success = { icon = "", fg = "green" },
+	failed = { icon = "", fg = "red" },
+
+	show_background = true,
+
+	-- Выравнивание по началу средней колонки:
+	--   extra       — левая часть от колонки
+	--   extra_edge  — первые N компонентов extra слева остаются у края
+	--                 (1 = 📁 размер под столбцом папок)
+	--   status      — режим у края, остальное от колонки
+	-- (число = доп. клетки после границы; false = выкл)
+	current_col_align = { extra = 1, extra_edge = 1, status = 1 },
+
+	display_header_line = true,
+	display_status_line = true,
+	display_extra_line = true,
+
+	component_positions = { "header", "extra1", "tab", "status" },
+
+	header_line = {
+		left = {
+			section_a = {
+				{ type = "line", name = "tabs" },
+			},
+			section_b = {},
+			section_c = {},
+		},
+		right = {
+			section_a = {},
+			section_b = {},
+			section_c = {
+				{ type = "coloreds", custom = false, name = "disk-bar" },
+			},
+		},
+	},
+
+	status_line = {
+		left = {
+			section_a = {
+				{ type = "string", name = "tab_mode" },
+			},
+			section_b = {},
+			section_c = {
+				-- 📂 dirs · 📄 files, non-recursive (dir-count addon);
+				-- hovered name/size убраны как бесполезные;
+				-- всё в section_c — без серого фона section_b
+				{ type = "coloreds", name = "dir-count" },
+			},
+		},
+		right = {
+			section_a = {
+				{ type = "string", name = "cursor_position" },
+			},
+			section_b = {},
+			section_c = {
+				{ type = "string", name = "cursor_percentage" },
+				{ type = "coloreds", name = "permissions" },
+			},
+		},
+	},
+
+	-- Extra line (yatline-extra fork), top:
+	--   📁 dir size · cwd path · selected/copied counts · Σ selection size
+	extra_lines = {
+		{
+			left = {
+				section_a = {},
+				section_b = {},
+				section_c = {
+					{ type = "coloreds", name = "dir-size" },
+					{ type = "string", name = "tab_path", params = { true, 60, 25 } },
+					-- false = не показывать счётчик файлов, true = скрывать нули
+					{ type = "coloreds", name = "count", params = { false, true } },
+					{ type = "coloreds", name = "sel-size" },
+				},
+			},
+			right = {
+				section_a = {},
+			section_b = {},
+				section_c = {},
+			},
+		},
+	},
+})
+
+-- Canonical disk names loaded from a separate file (edit ~/.config/yazi/disk-names.lua)
+local disk_names = {}
+pcall(function()
+	disk_names = dofile(os.getenv("HOME") .. "/.config/yazi/disk-names.lua") or {}
+end)
+require("disk-bar"):setup({ names = disk_names })
+-- max_ms: кап времени walk'а. Полные размеры для всего, что проходит за кап;
+-- не успело → "…" (частичный обход). Попап при выходе возможен только если
+-- выйти в первые ~max_ms после входа в НЕЗАКЭШИРОВАННЫЙ dir — благодаря
+-- дисковому кэшу (см. ниже) это один раз на папку, а не каждый запуск.
+-- 1500 = выход всегда мгновенный, но большие папки останутся частичными.
+-- Полный размер важнее — ставлю 10с; верни 1500 если раздражает попап.
+--
+-- Дисковый кэш (вкл по умолчанию): полные результаты живут в
+-- ~/.cache/yazi/dir-size-cache.lua, переживают рестарт (повторный заход —
+-- мгновенно), TTL 30 дней (persist_ttl_days), обрезанные/битые — не пишутся.
+-- Выключить: persist_path = false.
+require("dir-size"):setup({ max_ms = 10000, persist_ttl_days = 30 })
+require("sel-size"):setup({ max_ms = 1500 })
+require("dir-count"):setup()
 
 --require("git"):setup()
 
@@ -94,11 +239,12 @@ pref_by_location:setup({
     --  show_hidden = true,
     -- },
 
-    -- Custom linemode also work
-    {
-	    -- location = ".*/abc",
-	    linemode = "size_and_mtime",
-    },
+    -- Custom linemode also work (example — uncomment and set a real `location` to enable;
+    -- an entry WITHOUT `location` makes pref-by-location crash on every event)
+    -- {
+    --   location = ".*/abc",
+    --   linemode = "size_and_mtime",
+    -- },
     -- DO NOT ADD location = ".*". Which currently use your yazi.toml config as fallback.
     -- That mean if none of the saved perferences is matched, then it will use your config from yazi.toml.
     -- So change linemode, show_hidden, sort_xyz in yazi.toml instead.
@@ -133,78 +279,32 @@ pref_by_location:setup({
 -- th.git.deleted = ui.Style():fg("red"):bold()
 -- th.git.added = ui.Style():fg("green"):bold()
 
--- Get current time for comparison
-local function get_current_time()
-    return os.time()
+require("custom-colors"):setup({
+	default = "recent",
+	presets = {
+		recent = {
+			scope = "linemode",
+			dirs = true,
+			rules = {
+				{ max_age = 3600, fg = "green" },
+				{ max_age = 14400, fg = "yellow" },
+				{ max_age = 86400, fg = "red" },
+			},
+		},
+	},
+})
+
+-- scoped-marks: закладки/маркеры после custom-colors (children_add не заменяет
+-- его обёрнутые методы — порядок детерминирован и безопасен).
+local scoped_opts = {}
+local scoped_ok, scoped_value = pcall(dofile, os.getenv("HOME") .. "/.config/yazi/scoped-marks.lua")
+if scoped_ok and type(scoped_value) == "table" then
+	scoped_opts = scoped_value
+else
+	ya.notify({
+		title = "scoped-marks",
+		content = "scoped-marks.lua invalid; using defaults",
+		timeout = 5,
+	})
 end
-
--- Check if file was modified recently (within specified hours)
-local function is_recently_modified(file, hours)
-    return true
-    -- if not file or not file.cha then
-    --     return false
-    -- end
-    --
-    -- local current_time = get_current_time()
-    -- local modified_time = file.cha.modified
-    --
-    -- if not modified_time then
-    --     return false
-    -- end
-    --
-    -- local time_diff = current_time - modified_time
-    -- local hours_diff = time_diff / 3600
-    --
-    -- return hours_diff <= hours
-end
-
--- Override the Entity:highlight method
-function Entity:highlight()
-    local color = nil
-
-    
-    ya.dbg("No file selected")
-    -- Custom condition: color recently modified files green
-    if is_recently_modified(self._file, 24) then  -- Files modified in last 24 hours
-        color = "green"
-    -- Files modified in last week but not last 24 hours - yellow
-    elseif is_recently_modified(self._file, 168) then  -- 168 hours = 7 days
-        color = "yellow"
-    -- Default yazi behavior for other cases
-    elseif self._file:is_hovered() then
-        color = self._file:is_dir() and "blue_light" or "white"
-    elseif self._file:is_dir() then
-        color = "blue"
-    elseif self._file:is_link() then
-        color = "cyan"
-    elseif self._file:is_orphan() then
-        color = "red"
-    elseif self._file:is_block() then
-        color = "yellow"
-    elseif self._file:is_char() then
-        color = "yellow"
-    elseif self._file:is_fifo() then
-        color = "yellow"
-    elseif self._file:is_sock() then
-        color = "magenta"
-    elseif self._file:is_exec() and not self._file:is_sticky() then
-        color = "green"
-    elseif self._file:is_sticky() then
-        color = "magenta"
-    end
-
-    if not color then
-        return ui.Line {}
-    end
-
-    local icon = self._file:icon()
-    if not icon then
-        return ui.Line(self._file:name()):style(THEME.manager[color] or {})
-    end
-
-    return ui.Line {
-        ui.Span("D"),
-        ui.Span(icon.text):style(icon.style),
-        ui.Span(" " .. self._file:name()):style(THEME.manager[color] or {}),
-    }
-end
+require("scoped-marks"):setup(scoped_opts)

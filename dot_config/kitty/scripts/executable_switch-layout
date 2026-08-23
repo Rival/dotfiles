@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Переключить раскладку клавиатуры на базовую (индекс 0: Hyprland — us/prometeus,
+# KDE Plasma — prometeus). Вызывается из kitty-маппингов (prometeum.conf) в
+# combine после new_tab. Тихо завершается в незнакомом окружении — таб уже открыт.
+set -u
+IDX="${1:-0}"
+
+# Hyprland
+if [[ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]] && command -v hyprctl >/dev/null 2>&1; then
+    hyprctl switchxkblayout all "$IDX" >/dev/null 2>&1
+    exit 0
+fi
+
+# KDE Plasma 6 (kded keyboard; Wayland и X11) — busctl есть везде, где systemd
+if command -v busctl >/dev/null 2>&1; then
+    busctl --user call org.kde.keyboard /Layouts org.kde.KeyboardLayouts setLayout i "$IDX" >/dev/null 2>&1 && exit 0
+fi
+
+# fallback: qdbus6 (qt6-tools)
+if command -v qdbus6 >/dev/null 2>&1; then
+    qdbus6 org.kde.keyboard /Layouts setLayout "$IDX" >/dev/null 2>&1 && exit 0
+fi
+
+# незнакомое окружение — no-op
+exit 0

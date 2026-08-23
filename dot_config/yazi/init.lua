@@ -38,7 +38,7 @@ require("yatline-extra"):setup({
 	-- Имена дисков для префиксов табов (DiskTabs) — та же таблица, что и у disk-bar
 	disk_names = disk_names,
 
-	section_separator = { open = "", close = "" },
+	section_separator = { open = "\238\130\182", close = "\238\130\180" }, -- U+E0B6 + U+E0B4, капсулы как в disk-bar
 	part_separator = { open = "", close = "" },
 	inverse_separator = { open = "", close = "" },
 

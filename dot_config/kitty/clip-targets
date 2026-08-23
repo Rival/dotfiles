@@ -2,7 +2,7 @@
 # приёмник: remote = bash ~/.config/kitty/scripts/clip-put на цели (Hyprland/KDE)
 #           pbcopy = macOS (нужна живая GUI-сессия на цели)
 # ssh-ключ — только на машине, откуда реально шлют (строка self-skip на самой машине)
-🎮 Aokzoe	RivalAokzoe	andrei@192.168.1.51	remote
+🎮 Aokzoe	RivalAokzoe	andrei@192.168.1.51	remote	~/.ssh/handhelds_key
 🖥 andreiryzen	andreiryzen	andrei@192.168.1.45	remote	~/.ssh/aokzoe_ed25519
 🎩 Regina	Andreys-Mac-mini	macmini1-regina	pbcopy
 🤖 macmini2	macmini2	macmini2	pbcopy

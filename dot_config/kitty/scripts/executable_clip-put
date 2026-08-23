@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# clip-put — stdin → системный буфер ЛОКАЛЬНОЙ машины.
+# Вызывается по ssh из clip-send на машине-цели (bash ~/.../clip-put).
+set -euo pipefail
+
+# KDE Plasma: klipper через qdbus6 — самый простой путь, не требует wayland-env
+if command -v qdbus6 >/dev/null 2>&1 \
+   && qdbus6 org.kde.klipper /klipper getClipboardContents >/dev/null 2>&1; then
+    TEXT="$(cat)"
+    qdbus6 org.kde.klipper /klipper setClipboardContents "${TEXT:- }" >/dev/null 2>&1 \
+        && exit 0
+    echo "clip-put: klipper setClipboardContents не сработал" >&2
+    exit 1
+fi
+
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+
+# WAYLAND_DISPLAY в ssh-сессии нет — берём из user-manager, потом ищем сокет
+if [[ -z "${WAYLAND_DISPLAY:-}" ]]; then
+    wd="$(systemctl --user show-environment 2>/dev/null | sed -n "s/^WAYLAND_DISPLAY=//p" || true)"
+    if [[ -z "$wd" ]]; then
+        for s in wayland-1 wayland-0; do
+            [[ -S "$XDG_RUNTIME_DIR/$s" ]] && wd="$s" && break
+        done
+    fi
+    export WAYLAND_DISPLAY="${wd:-}"
+fi
+
+if [[ -n "${WAYLAND_DISPLAY:-}" ]] && command -v wl-copy >/dev/null 2>&1; then
+    exec wl-copy
+fi
+if command -v xclip >/dev/null 2>&1; then
+    exec xclip -selection clipboard -in
+fi
+echo "clip-put: нет qdbus6-klipper / wl-copy / xclip" >&2
+exit 1

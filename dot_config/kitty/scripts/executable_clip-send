@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+# clip-send — послать текст системного буфера на другую машину (в её системный буфер).
+# Вызывается хоткеем kitty (kitty_mod+o, overlay). CLI: clip-send [имя-из-реестра]
+# (без аргумента — fzf-меню; с аргументом — сразу, удобно для тестов).
+set -euo pipefail
+
+HERE="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
+REGISTRY="${CLIP_TARGETS:-$HERE/../clip-targets}"
+SELF="$(hostname -s)"
+
+get_clipboard() {
+    # Wayland (Hyprland / KDE с wl-clipboard)
+    if command -v wl-paste >/dev/null 2>&1; then
+        wl-paste --no-newline 2>/dev/null && return 0
+    fi
+    # KDE Plasma: klipper через qdbus6 (не требует wl-clipboard)
+    if command -v qdbus6 >/dev/null 2>&1; then
+        local t
+        t="$(qdbus6 org.kde.klipper /klipper getClipboardContents 2>/dev/null)" \
+            && [[ -n "$t" ]] && { printf %s "$t"; return 0; }
+    fi
+    # macOS
+    if command -v pbpaste >/dev/null 2>&1; then
+        pbpaste; return 0
+    fi
+    echo "не могу прочитать локальный буфер (wl-paste/qdbus6/pbpaste)" >&2
+    return 1
+}
+
+# --- выбор цели ------------------------------------------------------------
+CHOICE="${1:-}"
+if [[ -z "$CHOICE" ]]; then
+    [[ -r "$REGISTRY" ]] || { echo "нет реестра: $REGISTRY" >&2; exit 1; }
+    if ! command -v fzf >/dev/null 2>&1; then
+        echo "нет fzf — вызывай с именем цели: clip-send <имя>" >&2
+        exit 1
+    fi
+    # имя | hostname(self-skip) | ssh-цель | приёмник | ключ(опц.)
+    LINE="$(awk -F'\t' 'NF>=4 && $1 !~ /^#/ && $2 != self {print}' self="$SELF" "$REGISTRY" \
+        | fzf --prompt='Буфер → куда? ' --height=~40% --exit-0)" || exit 0
+    [[ -n "$LINE" ]] || exit 0
+    CHOICE="$(awk -F'\t' '{print $1}' <<<"$LINE")"
+fi
+
+ROW="$(awk -F'\t' -v n="$CHOICE" '$1 == n && NF>=4 {print; exit}' "$REGISTRY")"
+[[ -n "$ROW" ]] || { echo "цель «$CHOICE» не найдена в $REGISTRY" >&2; exit 1; }
+IFS=$'\t' read -r NAME HOST SSH_TARGET PUT KEY <<<"$ROW"
+
+# --- буфер -----------------------------------------------------------------
+TEXT="$(get_clipboard)" || exit 1
+[[ -n "$TEXT" ]] || { echo "локальный буфер пуст"; exit 1; }
+N="$(printf %s "$TEXT" | wc -c)"
+
+# --- доставка --------------------------------------------------------------
+SSH_ARGS=(-o BatchMode=yes -o ConnectTimeout=6)
+[[ -n "${KEY:-}" ]] && SSH_ARGS+=(-i "${KEY/#\~/$HOME}")
+
+case "$PUT" in
+    remote) PUT_CMD="bash ~/.config/kitty/scripts/clip-put" ;;
+    pbcopy) PUT_CMD="pbcopy" ;;
+    *)      echo "неизвестный приёмник: $PUT" >&2; exit 1 ;;
+esac
+
+if printf %s "$TEXT" | ssh "${SSH_ARGS[@]}" "$SSH_TARGET" "$PUT_CMD"; then
+    MSG="→ $NAME: $N симв. ✓"
+    RC=0
+else
+    MSG="✗ $NAME: не доставлено (ssh или цель недоступна?)"
+    RC=1
+fi
+
+echo "$MSG"
+command -v notify-send >/dev/null 2>&1 && notify-send -t 2500 "clip-send" "$MSG" 2>/dev/null || true
+# в меню-режиме дать увидеть результат до закрытия overlay
+[[ -z "${1:-}" ]] && sleep 1.2
+exit "$RC"

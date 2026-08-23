@@ -11,9 +11,10 @@ if [[ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]] && command -v hyprctl >/dev/null 
     exit 0
 fi
 
-# KDE Plasma 6 (kded keyboard; Wayland и X11) — busctl есть везде, где systemd
+# KDE Plasma 6 (plasma-keyboard; Wayland и X11) — busctl есть везде, где systemd.
+# NB: setLayout принимает uint32, не int32.
 if command -v busctl >/dev/null 2>&1; then
-    busctl --user call org.kde.keyboard /Layouts org.kde.KeyboardLayouts setLayout i "$IDX" >/dev/null 2>&1 && exit 0
+    busctl --user call org.kde.keyboard /Layouts org.kde.KeyboardLayouts setLayout u "$IDX" >/dev/null 2>&1 && exit 0
 fi
 
 # fallback: qdbus6 (qt6-tools)

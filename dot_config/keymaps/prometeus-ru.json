@@ -1,0 +1,27 @@
+{
+  "name": "prometeus-ru",
+  "description": "Physical-key mapping between English (Prometeus) and Russian (ЙЦУКЕН). Keys map by xkb position (AD01..AB10).",
+  "source_layout": "prometeus",
+  "target_layout": "ru",
+  "map": {
+    "v": "й", "p": "ц", "d": "у", "l": "к", "x": "е",
+    "/": "н", ",": "г", ".": "ш", ";": "щ", "z": "з",
+    "s": "ф", "n": "ы", "t": "в", "h": "а", "k": "п",
+    "q": "р", "e": "о", "a": "л", "i": "д", "c": "ж",
+    "f": "я", "w": "ч", "g": "с", "m": "м", "j": "и",
+    "-": "т", "u": "ь", "o": "б", "y": "ю", "b": "."
+  },
+  "shift_map": {
+    "V": "Й", "P": "Ц", "D": "У", "L": "К", "X": "Е",
+    "?": "Н", "<": "Г", ">": "Ш", ":": "Щ", "Z": "З",
+    "S": "Ф", "N": "Ы", "T": "В", "H": "А", "K": "П",
+    "Q": "Р", "E": "О", "A": "Л", "I": "Д", "C": "Ж",
+    "F": "Я", "W": "Ч", "G": "С", "M": "М", "J": "И",
+    "_": "Т", "U": "Ь", "O": "Б", "Y": "Ю", "B": ","
+  },
+  "notes": [
+    "Digits 0-9 unchanged (same physical position in both layouts).",
+    "LSGT key (prometeus: r/R) has no ru equivalent — skipped.",
+    "Shift+B in ru gives ',' (comma) — used for the punctuation position."
+  ]
+}

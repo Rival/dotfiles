@@ -1,0 +1,5 @@
+# Zone metadata for keymaps
+domain: keymaps
+type: domain+storage
+load_rule: always
+description: Cross-app keyboard layout mappings (prometeus ↔ ru) and twin-binding generators

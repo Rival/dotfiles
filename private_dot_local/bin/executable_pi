@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# pi launcher: prefer parallel Node 24 (~/.local/node24) over system Node 22 LTS.
+# Needed by extensions requiring Node >=24 (e.g. context-mode v2).
+# Reinstall node24:
+#   mkdir -p ~/.local/node24 && curl -s https://nodejs.org/dist/latest-v24.x/node-v24.22.3-linux-x64.tar.xz | tar -xJ -C ~/.local/node24 --strip-components=1
+export PATH="$HOME/.local/node24/bin:$PATH"
+exec "$HOME/.local/npm-global/bin/pi" "$@"

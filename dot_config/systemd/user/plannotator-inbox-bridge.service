@@ -1,0 +1,12 @@
+[Unit]
+Description=Plannotator Inbox bridge: reverse SSH to macmini1 (127.0.0.1:14641 -> local inbox :46415)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/ssh -N -o BatchMode=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -R 127.0.0.1:14641:127.0.0.1:46415 macmini1-wan
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

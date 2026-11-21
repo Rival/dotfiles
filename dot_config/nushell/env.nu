@@ -36,3 +36,6 @@ if ("~/.agents/secrets/slack-user-token" | path expand | path exists) {
     $env.SLACK_WATCHER_TOKEN = (open --raw ("~/.agents/secrets/slack-user-token" | path expand) | str trim)
 }
 
+# Plannotator Inbox: pin the port so the macmini1 reverse SSH tunnel (:14641) keeps working
+$env.PLANNOTATOR_PORT = "46415"
+
